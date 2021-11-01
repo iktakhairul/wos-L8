@@ -2,25 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use InteractsWithMedia;
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'contact_number', 'password', 'is_fraud', 'type', 'role', 'permissions', 'weight', 'domains', 'status'
     ];
 
     /**
