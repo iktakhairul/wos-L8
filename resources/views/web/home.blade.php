@@ -52,13 +52,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="images/banners/slide1.jpg" alt="First slide">
+                                    <img src="{{ asset('web/images/banners/slide1.jpg') }}" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="images/banners/slide2.jpg" alt="Second slide">
+                                    <img src="{{ asset('web/images/banners/slide2.jpg') }}" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="images/banners/slide3.jpg" alt="Third slide">
+                                    <img src="{{ asset('web/images/banners/slide3.jpg') }}" alt="Third slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carousel1_indicator" role="button"
@@ -84,7 +84,7 @@
                                     <h6 class="card-title">Men clothing</h6>
                                     <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
                                 </div>
-                                <img src="images/items/1.jpg" height="80" class="img-bg">
+                                <img src="{{ asset('web/images/items/1.jpg') }}" height="80" class="img-bg">
                             </div>
 
                             <div class="card-banner border-bottom">
@@ -92,7 +92,7 @@
                                     <h6 class="card-title">Winter clothing </h6>
                                     <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
                                 </div>
-                                <img src="images/items/2.jpg" height="80" class="img-bg">
+                                <img src="{{ asset('web/images/items/2.jpg') }}" height="80" class="img-bg">
                             </div>
 
                             <div class="card-banner border-bottom">
@@ -100,7 +100,7 @@
                                     <h6 class="card-title">Home inventory</h6>
                                     <a href="#" class="btn btn-secondary btn-sm"> Source now </a>
                                 </div>
-                                <img src="images/items/6.jpg" height="80" class="img-bg">
+                                <img src="{{ asset('web/images/items/6.jpg') }}" height="80" class="img-bg">
                             </div>
 
                         </aside>
@@ -132,7 +132,7 @@
                 <div class="col-md col-6">
                     <figure class="card-product-grid card-sm">
                         <a href="#" class="img-wrap">
-                            <img src="images/items/3.jpg">
+                            <img src="{{ asset('web/images/items/3.jpg') }}">
                         </a>
                         <div class="text-wrap p-3">
                             <a href="#" class="title">Summer clothes</a>
@@ -143,7 +143,7 @@
                 <div class="col-md col-6">
                     <figure class="card-product-grid card-sm">
                         <a href="#" class="img-wrap">
-                            <img src="images/items/4.jpg">
+                            <img src="{{ asset('web/images/items/4.jpg') }}">
                         </a>
                         <div class="text-wrap p-3">
                             <a href="#" class="title">Some category</a>
@@ -154,7 +154,7 @@
                 <div class="col-md col-6">
                     <figure class="card-product-grid card-sm">
                         <a href="#" class="img-wrap">
-                            <img src="images/items/5.jpg">
+                            <img src="{{ asset('web/images/items/5.jpg') }}">
                         </a>
                         <div class="text-wrap p-3">
                             <a href="#" class="title">Another category</a>
@@ -165,7 +165,7 @@
                 <div class="col-md col-6">
                     <figure class="card-product-grid card-sm">
                         <a href="#" class="img-wrap">
-                            <img src="images/items/6.jpg">
+                            <img src="{{ asset('web/images/items/6.jpg') }}">
                         </a>
                         <div class="text-wrap p-3">
                             <a href="#" class="title">Home apparel</a>
@@ -176,7 +176,7 @@
                 <div class="col-md col-6">
                     <figure class="card-product-grid card-sm">
                         <a href="#" class="img-wrap">
-                            <img src="images/items/7.jpg">
+                            <img src="{{ asset('web/images/items/7.jpg') }}">
                         </a>
                         <div class="text-wrap p-3">
                             <a href="#" class="title text-truncate">Smart watches</a>
@@ -205,7 +205,7 @@
                         <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             aliqua. </p>
                         <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
-                        <img src="images/items/2.jpg" class="img-bg">
+                        <img src="{{ asset('web/images/items/2.jpg') }}" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
@@ -215,7 +215,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Well made women clothes with trending collection </h6>
-                                    <img class="img-sm float-right" src="images/items/1.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/1.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -224,7 +224,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Great clothes with trending collection </h6>
-                                    <img class="img-sm float-right" src="images/items/2.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/2.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Beijing, China</p>
                                 </div>
                             </a>
@@ -233,7 +233,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Demo clothes with sample collection </h6>
-                                    <img class="img-sm float-right" src="images/items/3.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/3.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
                                 </div>
                             </a>
@@ -242,7 +242,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/4.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/4.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
                                 </div>
                             </a>
@@ -251,7 +251,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/5.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/5.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> London, Britain</p>
                                 </div>
                             </a>
@@ -260,7 +260,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/6.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/6.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -269,7 +269,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Well made clothes with trending collection </h6>
-                                    <img class="img-sm float-right" src="images/items/7.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/7.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
 
                                 </div>
@@ -279,7 +279,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen interior stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/6.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/6.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -306,7 +306,7 @@
                         <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                             aliqua. </p>
                         <a href="#" class="btn btn-outline-primary rounded-pill">Source now</a>
-                        <img src="images/items/14.jpg" class="img-bg">
+                        <img src="{{ asset('web/images/items/14.jpg') }}" class="img-bg">
                     </div>
 
                 </div> <!-- col.// -->
@@ -316,7 +316,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Well made electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/7.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/7.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tokyo, Japan</p>
                                 </div>
                             </a>
@@ -325,7 +325,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Another demo text for item stuff goes here </h6>
-                                    <img class="img-sm float-right" src="images/items/8.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/8.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Hong Kong, China</p>
                                 </div>
                             </a>
@@ -334,7 +334,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/9.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/9.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Tashkent, Uzb</p>
                                 </div>
                             </a>
@@ -343,7 +343,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Group of electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/10.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/10.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -352,7 +352,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/11.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/11.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -361,7 +361,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/12.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/12.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -370,7 +370,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/1.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/1.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
 
                                 </div>
@@ -380,7 +380,7 @@
                             <a href="#" class="item">
                                 <div class="card-body">
                                     <h6 class="title">Home and kitchen electronic stuff collection </h6>
-                                    <img class="img-sm float-right" src="images/items/2.jpg">
+                                    <img class="img-sm float-right" src="{{ asset('web/images/items/2.jpg') }}">
                                     <p class="text-muted"><i class="fa fa-map-marker-alt"></i> Guanjou, China</p>
                                 </div>
                             </a>
@@ -402,7 +402,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card-banner banner-quote overlay-gradient"
-                    style="background-image: url('images/banners/banner9.jpg');">
+                    style="background-image: url({{ asset('web/images/banners/banner9.jpg') }});">
                     <div class="card-img-overlay white">
                         <h3 class="card-title">An easy way to send request to suppliers</h3>
                         <p class="card-text" style="max-width: 400px">Lorem ipsum dolor sit amet, consectetur
@@ -464,7 +464,7 @@
         <div class="row row-sm">
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/1.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/1.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -473,7 +473,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/2.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/2.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Some item name here</a>
                         <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
@@ -482,7 +482,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/3.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/3.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Great product name here</a>
                         <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
@@ -491,7 +491,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/4.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/4.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -500,7 +500,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/5.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/5.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -509,7 +509,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/6.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/6.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Some item name here</a>
                         <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
@@ -518,7 +518,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/7.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/7.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Great product name here</a>
                         <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
@@ -527,7 +527,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/9.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/9.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -536,7 +536,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/4.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/4.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -545,7 +545,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/5.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/5.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Just another product name</a>
                         <div class="price mt-1">$179.00</div> <!-- price-wrap.// -->
@@ -554,7 +554,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/6.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/6.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Some item name here</a>
                         <div class="price mt-1">$280.00</div> <!-- price-wrap.// -->
@@ -563,7 +563,7 @@
             </div> <!-- col.// -->
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="images/items/7.jpg"> </a>
+                    <a href="#" class="img-wrap"> <img src="{{ asset('web/images/items/7.jpg') }}"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">Great product name here</a>
                         <div class="price mt-1">$56.00</div> <!-- price-wrap.// -->
@@ -584,7 +584,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <article class="card card-post">
-                    <img src="images/posts/1.jpg" class="card-img-top">
+                    <img src="{{ asset('web/images/posts/1.jpg') }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="title">Trade Assurance</h6>
                         <p class="small text-uppercase text-muted">Order protection</p>
@@ -593,7 +593,7 @@
             </div> <!-- col.// -->
             <div class="col-md-3 col-sm-6">
                 <article class="card card-post">
-                    <img src="images/posts/2.jpg" class="card-img-top">
+                    <img src="{{ asset('web/images/posts/2.jpg') }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="title">Pay anytime</h6>
                         <p class="small text-uppercase text-muted">Finance solution</p>
@@ -602,7 +602,7 @@
             </div> <!-- col.// -->
             <div class="col-md-3 col-sm-6">
                 <article class="card card-post">
-                    <img src="images/posts/3.jpg" class="card-img-top">
+                    <img src="{{ asset('web/images/posts/3.jpg') }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="title">Inspection solution</h6>
                         <p class="small text-uppercase text-muted">Easy Inspection</p>
@@ -611,7 +611,7 @@
             </div> <!-- col.// -->
             <div class="col-md-3 col-sm-6">
                 <article class="card card-post">
-                    <img src="images/posts/4.jpg" class="card-img-top">
+                    <img src="{{ asset('web/images/posts/4.jpg') }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="title">Ocean and Air Shipping</h6>
                         <p class="small text-uppercase text-muted">Logistic services</p>
@@ -632,21 +632,21 @@
 
         <ul class="row mt-4">
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/CN.png"> <span>China</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/CN.png') }}"> <span>China</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/DE.png"> <span>Germany</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/DE.png') }}"> <span>Germany</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/AU.png"> <span>Australia</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/AU.png') }}"> <span>Australia</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/RU.png"> <span>Russia</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/RU.png') }}"> <span>Russia</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/IN.png"> <span>India</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/IN.png') }}"> <span>India</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/GB.png"> <span>England</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/GB.png') }}"> <span>England</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/TR.png"> <span>Turkey</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/TR.png') }}"> <span>Turkey</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <img class="icon-flag-sm"
-                        src="images/icons/flags/UZ.png"> <span>Uzbekistan</span> </a></li>
+                        src="{{ asset('web/images/icons/flags/UZ.png') }}"> <span>Uzbekistan</span> </a></li>
             <li class="col-md col-6"><a href="#" class="icontext"> <i class="mr-3 fa fa-ellipsis-h"></i> <span>More
                         regions</span> </a></li>
         </ul>
@@ -654,7 +654,7 @@
     <!-- =============== SECTION REGION .//END =============== -->
 
     <article class="my-4">
-        <img src="images/banners/ad-sm.png" class="w-100">
+        <img src="{{ asset('web/images/banners/ad-sm.png') }}" class="w-100">
     </article>
 </div>
 <!-- container end.// -->
