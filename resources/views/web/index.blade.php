@@ -17,7 +17,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Styles -->
-        <link href="{{ asset('web/css/bootstrap-4.5.2.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('web/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Template Main CSS File -->
         <link href="{{ asset('web/css/animate.css') }}" rel="stylesheet" />
