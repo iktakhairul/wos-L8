@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\Profile;
+namespace App\Http\Controllers\Frontend\User\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,6 +12,6 @@ class ProfileController extends Controller
     public function profile()
     {
         $profile = Profile::where('user_id',Auth::user()->id)->first();
-        return view('web.user.profile', compact('profile'));
+        return view('web.user.profile.profile', compact('profile'));
     }
 }
