@@ -1,53 +1,62 @@
-<footer  class="bg-custom mt-5">
+<footer class="section-footer bg-secondary">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 ">
-                <div class="">
-                    <h3>
-                        <a href="{{ route('/') }}" class="text-dark">
-                            <img src="{{ !empty($appInfo->logo) ? asset('img/'.$appInfo->logo) : asset('img/sample_logo.jpg') }}" alt="Logo" class="footer-logo">
-                        </a>
-                    </h3>
-                    <p class="text-dark">
-                        {!! !empty($appInfo->address) ? $appInfo->address : config('app.name') !!}
-                        <br />
-                        <strong>Call Us:</strong>
-                        {{ !empty($appInfo->contact_no) ? $appInfo->contact_no : config('app.name') }}<br />
-                        <strong>Email:</strong>
-                        {{ !empty($appInfo->email) ? $appInfo->email : config('app.name') }}<br />
-                        <!-- <div class="fb-share-button" data-href="https://instantsalaries.com" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finstantsalaries.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> -->
-                    </p>
-                </div>
+        <section class="footer-top padding-y-lg text-white">
+            <div class="row">
+                <aside class="col-md col-6">
+                    <h6 class="title">Brands</h6>
+                    <ul class="list-unstyled">
+                        <li> <a href="#">Adidas</a></li>
+                        <li> <a href="#">Puma</a></li>
+                        <li> <a href="#">Reebok</a></li>
+                        <li> <a href="#">Nike</a></li>
+                    </ul>
+                </aside>
+                <aside class="col-md col-6">
+                    <h6 class="title">Company</h6>
+                    <ul class="list-unstyled">
+                        <li> <a href="#">About us</a></li>
+                        <li> <a href="#">Career</a></li>
+                        <li> <a href="#">Find a store</a></li>
+                        <li> <a href="#">Rules and terms</a></li>
+                        <li> <a href="#">Sitemap</a></li>
+                    </ul>
+                </aside>
+                <aside class="col-md col-6">
+                    <h6 class="title">Help</h6>
+                    <ul class="list-unstyled">
+                        <li> <a href="#">Contact us</a></li>
+                        <li> <a href="#">Money refund</a></li>
+                        <li> <a href="#">Order status</a></li>
+                        <li> <a href="#">Shipping info</a></li>
+                        <li> <a href="#">Open dispute</a></li>
+                    </ul>
+                </aside>
+                <aside class="col-md col-6">
+                    <h6 class="title">Account</h6>
+                    <ul class="list-unstyled">
+                        <li> <a href="#"> User Login </a></li>
+                        <li> <a href="#"> User register </a></li>
+                        <li> <a href="#"> Account Setting </a></li>
+                        <li> <a href="#"> My Orders </a></li>
+                    </ul>
+                </aside>
+                <aside class="col-md">
+                    <h6 class="title">Social</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
+                        <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
+                        <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
+                        <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+                    </ul>
+                </aside>
             </div>
+        </section> 
 
-            <div class="col-lg-2 col-md-6 col-sm-6 mb-2">
-                <div class="fw-500 font-md text-dark mb-2">Important Links</div>
-                <ul class="list-group text-left">
-                    <!-- <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}">Home</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{ route('about-us') }}">About us</a></li> -->
-                    {{-- <li class="list-group-item"><i class="bx bx-chevron-right"></i> <a href="{{ route('fraud-list') }}">Fraud List</a></li> --}}
-                    <li class="list-group-item"><i class="bx bx-chevron-right"></i> <a href="{{ route('contact') }}">Contact</a></li>
-                    <li class="list-group-item"><i class="bx bx-chevron-right"></i> <a href="{{ route('faq') }}">FAQ</a></li>
-                    <li class="list-group-item"><i class="bx bx-chevron-right"></i> <a href="{{ route('terms-conditions') }}">Terms & Conditions</a></li>
-                    <li class="list-group-item"><i class="bx bx-chevron-right"></i> <a href="{{ route('privacy-policy') }}">Privacy policy</a></li>
-                </ul>
-            </div>
+        <section class="footer-bottom text-center">
 
-            <div class="col-lg-4 col-md-6 text-xs-center">
-                <form action="" method="get" id="subscriptionForm">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email" id="subscription" name="email" />
-                        <div class="input-group-append">
-                            <button id="subscriptionBtn" class="btn btn-basic text-white fw-500" type="submit"
-                                disabled="">Subscribe</button>
-                        </div>
-                    </div>
-                    <div id="subscribeAlert" class="text-dark text-center hide">subscription successful <i class="fa fa-check"></i></div>
-                </form>
-            </div>
-        </div>
-        <div class="row text-center justify-content-center">
-            <span class="text-dark">{{ date('Y') }} &copy All rights reserved by {{ config('app.name') }}</span>
-        </div>
+            <p class="text-white">Privacy Policy - Terms of Use - User Information Legal Enquiry Guide</p>
+            <p class="text-muted"> &copy 2019 Company name, All rights reserved </p>
+            <br>
+        </section>
     </div>
 </footer>
