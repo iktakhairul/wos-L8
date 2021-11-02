@@ -16,9 +16,9 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->string('full_name');
-            $table->string('father_name');
-            $table->string('mother_name');
+            $table->string('full_name')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('mother_name')->nullable();
             $table->string('spouse_name')->nullable();
             $table->date('dob')->nullable();
             $table->string('gender', 6)->nullable();
@@ -36,7 +36,6 @@ class CreateProfilesTable extends Migration
             $table->double('profile_score', 2, 2)->nullable();
             $table->string('referral_code')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -11,7 +11,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->weight >= 79.99 && strtoupper($user->status) == 'ACTIVE' && in_array('dashboard',explode(',', $user->domains)))
+        if ($user->weight >= 9.99 && strtoupper($user->status) == 'ACTIVE')
         {
             return $next($request);
         }

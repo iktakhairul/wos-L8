@@ -15,7 +15,10 @@
                 <a type="button" class="dropdown-toggle text-secondary" href="" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                 <div class="dropdown-menu">
                     @auth
-                    <a class="dropdown-item" href="{{ route('dashboard./') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        @if(Auth::user()->type == 'system')
+                            <a class="dropdown-item" href="{{ route('dashboard./') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        @endif
+                    <a class="dropdown-item" href="{{ route('profile./') }}"><i class="fa fa-user"></i> Profile</a>
                     @endauth
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout</a>
 

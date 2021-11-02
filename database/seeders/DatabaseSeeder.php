@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'System Admin',
             'email' => 'system.admin@mailinator.com',
+            'contact_number' => '01987654321',
             'domains' => 'system,developer,admin,dashboard,operator,support,merchant',
-            'type' => 'dashboard',
+            'type' => 'system',
             'role' => 'system',
             'weight' => 99.99,
             'permissions' => 'all',
@@ -37,8 +38,9 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'Asst. System Admin',
             'email' => 'asst.system.admin@mailinator.com',
+            'contact_number' => '01987654320',
             'domains' => 'system,developer,admin,dashboard,operator,support,merchant',
-            'type' => 'dashboard',
+            'type' => 'system',
             'role' => 'system',
             'weight' => 99.99,
             'permissions' => 'all',
