@@ -9,55 +9,71 @@
 
 @section('web_content')
 
+<!-- Register info -->
+<div class="container-fluid mt-5 mb-5 pt-5 pb-5">
+    <div class="row">
+        <div class="container text-center">
+            <p class="font-150">
+                <strong>Borrow and Repay on your own terms. Effortless application. Takes 5 mins to apply.</strong>
+            </p>
+        </div>
+        <div class="container bg-light">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">                            
+                            <div class="row">
+                                
+                                <div class="col-lg-3 col-md-6 mb-3 mt-3">
+                                    <div class="text-center">
+                                        <strong class="d-block mb-3 font-md">1</strong>
+                                        <h4 class="card-title theme-text">Register</h4>
+                                        <p class="card-text">Sign up with your device</p>
+                                    </div>
+                                </div>
 
-<div class="container">
-    <!-- ========================= SECTION HERO ========================= -->
-    @include('web.components.hero')
+                                <div class="col-lg-3 col-md-6 mb-3 mt-3">
+                                    <div class="text-center">
+                                        <strong class="d-block mb-3 font-md">2</strong>
+                                        <h4 class="card-title theme-text">Apply</h4>
+                                        <p class="card-text">Fill in a few details</p>
+                                    </div>
+                                </div>
 
-    <!-- ========================= SECTION HERO END// ========================= -->
+                                <div class="col-lg-3 col-md-6 mb-3 mt-3">
+                                    <div class="text-center">
+                                        <strong class="d-block mb-3 font-md">3</strong>
+                                        <h4 class="card-title theme-text">Instant Approval</h4>
+                                        <p class="card-text">Know your approve limit</p>
+                                    </div>
+                                </div>
 
-    <!-- =============== SECTION DEAL =============== -->
-    @include('web.components.deal')
-    <!-- =============== SECTION DEAL // END =============== -->
+                                <div class="col-lg-3 col-md-6 mb-3 mt-3">
+                                    <div class="text-center">
+                                        <strong class="d-block mb-3 font-md">4</strong>
+                                        <h4 class="card-title theme-text">Get Your Cash</h4>
+                                        <p class="card-text">Your cash is on the go</p>
+                                    </div>
+                                </div>
 
-    <!-- =============== SECTION 1 =============== -->
-    @include('web.components.section1')
-    <!-- =============== SECTION 1 END =============== -->
-
-    <!-- =============== SECTION 2 =============== -->
-    @include('web.components.section2')
-    <!-- =============== SECTION 2 END =============== -->
-
-    <!-- =============== SECTION REQUEST =============== -->
-    @include('web.components.request')
-    <!-- =============== SECTION REQUEST .//END =============== -->
-
-    <!-- =============== SECTION ITEMS =============== -->
-    @include('web.components.items')
-    <!-- =============== SECTION ITEMS .//END =============== -->
-
-    <!-- =============== SECTION SERVICES =============== -->
-    @include('web.components.services')
-    <!-- =============== SECTION SERVICES .//END =============== -->
-
-    <!-- =============== SECTION REGION =============== -->
-    @include('web.components.region')
-    <!-- =============== SECTION REGION .//END =============== -->
-
-    <article class="my-4">
-        <img src="{{asset('web/images/banners/ad-sm.png')}}" class="w-100">
-    </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- container end.// -->
-
-
-@include('web.components.subscribe')
-
+<!-- //Register info -->
 
 @endsection
 
 @push('scripts')
 
-<script></script>
+<script>
+    $(document).ready(function(){
+        //        
+    });
+</script>
 
 @endpush
