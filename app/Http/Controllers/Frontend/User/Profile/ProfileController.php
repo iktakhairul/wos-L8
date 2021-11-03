@@ -14,4 +14,35 @@ class ProfileController extends Controller
         $profile = Profile::where('user_id',Auth::user()->id)->first();
         return view('web.user.profile.profile', compact('profile'));
     }
+
+    public function address()
+    {
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        return view('web.user.profile.address', compact('profile'));
+    }
+
+    public function selling()
+    {
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        return view('web.user.profile.selling', compact('profile'));
+    }
+
+    public function orders()
+    {
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        return view('web.user.profile.orders', compact('profile'));
+    }
+    
+    public function wishlist()
+    {
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        return view('web.user.profile.wishlist', compact('profile'));
+    }
+
+    public function setting()
+    {
+        $profile = Profile::where('user_id',Auth::user()->id)->first();
+        return view('web.user.profile.setting', compact('profile'));
+    }
+
 }

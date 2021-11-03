@@ -1,92 +1,81 @@
-@extends('layouts.app')
+@extends('web.index')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('web_content')
+    <section class="section-content padding-y">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="user name" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+            <article class="card-body">
+                <header class="mb-4">
+                    <h4 class="card-title">Sign up</h4>
+                </header>
+                <form>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>First name</label>
+                            <input type="text" class="form-control" placeholder="">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="contact_number" class="col-md-4 col-form-label text-md-right">{{ __('Contact Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="contact_number" type="contact_number" class="form-control @error('contact_number') is-invalid @enderror" name="contact_number" value="{{ old('contact_number') }}" placeholder="01XXXXXXXXX" required autocomplete="contact_number">
-
-                                @error('contact_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="col form-group">
+                            <label>Last name</label>
+                            <input type="text" class="form-control" placeholder="">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="your@mail.com" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <strong class="col-md-2 text-info">(optional)</strong>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="">
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
+                            <span class="custom-control-label"> Male </span>
+                        </label>
+                        <label class="custom-control custom-radio custom-control-inline">
+                            <input class="custom-control-input" type="radio" name="gender" value="option2">
+                            <span class="custom-control-label"> Female </span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>City</label>
+                            <input type="text" class="form-control">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="********" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label>Country</label>
+                            <select id="inputState" class="form-control">
+                                <option> Choose...</option>
+                                <option>Uzbekistan</option>
+                                <option>Russia</option>
+                                <option selected="">United States</option>
+                                <option>India</option>
+                                <option>Afganistan</option>
+                            </select>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="********" required autocomplete="new-password">
-                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Create password</label>
+                            <input class="form-control" type="password">
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label>Repeat password</label>
+                            <input class="form-control" type="password">
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Register </button>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input"
+                                checked="">
+                            <div class="custom-control-label"> I am agree with <a href="#">terms and contitions</a> </div>
+                        </label>
+                    </div>
+                </form>
+            </article>
         </div>
-    </div>
-</div>
+        <p class="text-center mt-4">Have an account? <a href="{{ route('login') }}">Log In</a></p>
+        <br><br>
+
+
+    </section>
 @endsection
