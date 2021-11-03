@@ -22,5 +22,6 @@ Route::get('/privacy-policy', [WebController::class, 'privacy_policy'])->name('p
 
 Auth::routes();
 
-require __DIR__.'/dashboard.php';
 require __DIR__.'/web_inputs.php';
+require __DIR__.'/profile.php';
+require __DIR__.'/dashboard.php';

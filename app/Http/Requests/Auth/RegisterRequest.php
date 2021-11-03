@@ -27,8 +27,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255', 'regex:/^[\pL\s\-.]+$/u'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'contact_number' => ['regex:/^(?:\+88|88)?(01[3-9]\d{8})$/', 'string', 'unique:users,contact_number'],
+            'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users,email'],
+            'contact_number' => ['required','regex:/^(?:\+88|88)?(01[3-9]\d{8})$/', 'string', 'unique:users,contact_number'],
             'password' => ['required', 'string', 'min:8', 'max:20'],
             'password_confirmation' => 'same:password',
         ];
