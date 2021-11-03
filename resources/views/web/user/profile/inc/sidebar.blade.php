@@ -11,6 +11,11 @@
         <a class="list-group-item @if (request()->routeIs(['profile.business.index'])) active @endif" href="{{ route('profile.business.index') }}">My
             Businesses</a>
         <a class="list-group-item @if (request()->routeIs(['profile.setting'])) active @endif" href="{{ route('profile.setting') }}"> Settings </a>
-        <a class="list-group-item" href="{{ route('logout') }}"> Log out </a>
+        <a class="list-group-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Log out </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </nav>
 </aside>
