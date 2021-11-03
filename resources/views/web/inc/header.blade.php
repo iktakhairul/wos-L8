@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-3 col-md-12">
                     <a href="/" class="brand-wrap">
-                        <img class="logo" src="{{asset('web/images/logo.png')}}">
+                        <img class="logo" src="{{ asset('web/images/logo.png') }}">
                     </a>
                 </div>
                 <div class="col-xl-6 col-lg-5 col-md-6">
@@ -29,13 +29,24 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header mr-3">
-                            <a href="#" class="widget-view">
-                                <div class="icon-area">
-                                    <i class="fa fa-user"></i>
-                                    <span class="notify">3</span>
-                                </div>
-                                <small class="text"> My profile </small>
-                            </a>
+                            @auth
+                                <a href="{{ route('login') }}" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-user"></i>
+                                        <span class="notify">3</span>
+                                    </div>
+                                    <small class="text"> My profile </small>
+                                </a>
+                            @endauth
+                            @guest
+                                <a href="{{ route('login') }}" class="widget-view">
+                                    <div class="icon-area">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <small class="text"> Login </small>
+                                </a>
+                            @endguest
+
                         </div>
                         <div class="widget-header mr-3">
                             <a href="#" class="widget-view">
@@ -64,8 +75,8 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div> 
+            </div>
+        </div>
     </section>
 
     <nav class="navbar navbar-main navbar-expand-lg border-bottom">
@@ -125,8 +136,7 @@
                         <a class="nav-link" href="#">Get the app</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/"
-                            data-toggle="dropdown">English</a>
+                        <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#">Russian</a>
                             <a class="dropdown-item" href="#">French</a>
