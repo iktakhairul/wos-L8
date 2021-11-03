@@ -18,18 +18,14 @@ class CreateBusinessesTable extends Migration
             $table->integer('user_id')->index()->nullable()->unsigned();
             $table->string('business_name')->nullable();
             $table->string('slug')->nullable();
+            $table->string('business_logo')->nullable();
             $table->enum('type',['product','service'])->nullable();
             $table->enum('owner_type',['proprietorship','partnership','private','public'])->nullable();
-            $table->string('business_code')->nullable();
-            $table->string('business_contact_no')->nullable();
+            $table->string('business_contact_numbers')->nullable();
             $table->string('business_email')->nullable();
-            $table->integer('division_id')->index()->nullable();
-            $table->integer('district_id')->index()->nullable();
-            $table->integer('thana_id')->index()->nullable();
-            $table->integer('postal_code')->index()->nullable();
-            $table->string('address')->nullable();
+            $table->string('business_code')->nullable();
             $table->double('ranking_score')->nullable()->default(0.0);
-            $table->string('status')->nullable()->default(true);
+            $table->string('status')->nullable()->default('active');
             $table->timestamps();
         });
     }
