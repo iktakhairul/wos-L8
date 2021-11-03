@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-5 mb-5 pt-5 pb-5">
     <div class="row">
-        <div class="container text-center">
+        <div class="container">
             <div class="row">
                 <div class="col-md-2">
                     <ul class="nav flex-column">
