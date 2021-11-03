@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-3 col-md-12">
-                    <a href="http://bootstrap-ecommerce.com/" class="brand-wrap">
+                    <a href="/" class="brand-wrap">
                         <img class="logo" src="{{asset('web/images/logo.png')}}">
                     </a>
                 </div>
@@ -125,7 +125,7 @@
                         <a class="nav-link" href="#">Get the app</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="http://example.com/"
+                        <a class="nav-link dropdown-toggle" href="/"
                             data-toggle="dropdown">English</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="#">Russian</a>
