@@ -1,4 +1,4 @@
-<header class="section-header">
+<header class="section-header position-sticky fixed-top">
     <section class="header-main border-bottom">
         <div class="container">
             <div class="row align-items-center">
