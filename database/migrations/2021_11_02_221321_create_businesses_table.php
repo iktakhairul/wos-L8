@@ -19,12 +19,10 @@ class CreateBusinessesTable extends Migration
             $table->string('business_name')->nullable();
             $table->string('slug')->nullable();
             $table->string('business_logo')->nullable();
-            $table->enum('type',['product','service'])->nullable();
+            $table->enum('business_type',['shop','service'])->nullable();
             $table->enum('owner_type',['proprietorship','partnership','private','public'])->nullable();
-            $table->string('business_contact_numbers')->nullable();
-            $table->string('business_email')->nullable();
             $table->string('business_code')->nullable();
-            $table->double('ranking_score')->nullable()->default(0.0);
+            $table->double('ranking_score',5,2)->nullable()->default(0.0);
             $table->string('status')->nullable()->default('active');
             $table->timestamps();
         });

@@ -1,6 +1,7 @@
 <?php
 
 use Laravel\Lumen\Routing\UrlGenerator;
+use Illuminate\Support\Facades\DB;
 
 if (!function_exists('config_path')) {
     /**
@@ -59,5 +60,41 @@ if (!function_exists('asset')) {
     function asset($path, bool $secured): string
     {
         return urlGenerator()->asset($path, $secured);
+    }
+}
+
+if (!function_exists('divisions')) {
+    function divisions()
+    {
+        return DB::connection('locations')->table('divisions')->get();
+    }
+}
+
+if (!function_exists('districts')) {
+    function districts()
+    {
+        return DB::connection('locations')->table('districts')->get();
+    }
+}
+
+if (!function_exists('thanas')) {
+    function thanas()
+    {
+        return DB::connection('locations')->table('thanas')->get();
+    }
+}
+
+if (!function_exists('my_businesses')) {
+    function my_businesses()
+    {
+       return Auth::check() ? DB::table('businesses')->where('user_id', Auth::user()->id)->get() : false ;
+    }
+}
+
+if (!function_exists('check_business_user')) {
+    function check_business_user($businessId)
+    {
+        $businesses = DB::table('businesses')->where('user_id',Auth::user()->id)->pluck('id')->toArray();
+        return in_array($businessId, $businesses) ? true : false ;
     }
 }

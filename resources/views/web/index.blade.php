@@ -27,7 +27,10 @@
         <!-- font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
 
-
+        <style type="text/css" media="screen">
+            .pull-right {float: right;}
+            .select2 {width: 100% !important;}
+        </style>
 
         @stack('styles')
 

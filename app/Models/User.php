@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Models\Profile\Profile;
+use App\Models\Business\Business;
 
 class User extends Authenticatable implements HasMedia
 {
@@ -55,5 +56,10 @@ class User extends Authenticatable implements HasMedia
     public function profile()
     {
         return $this->belongsTo(Profile::class);
+    }
+
+    public function businesses()
+    {
+        return $this->belongsTo(Business::class);
     }
 }

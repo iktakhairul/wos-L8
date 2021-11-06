@@ -24,21 +24,21 @@ class Shop extends Model
 
     public function business()
     {
-        return $this->belongsTo(Business::class);
+        return $this->belongsTo(Business::class)->select('id','business_name','slug','business_logo','business_code','ranking_score');
     }
 
     public function division()
     {
-        return $this->belongsTo(Division::class);
+        return $this->belongsTo(Division::class)->select('id','name');
     }
 
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class)->select('id','name');
     }
 
     public function thana()
     {
-        return $this->belongsTo(Thana::class);
+        return $this->belongsTo(Thana::class)->select('id','name');
     }
 }

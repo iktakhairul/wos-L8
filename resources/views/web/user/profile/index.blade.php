@@ -1,12 +1,8 @@
 @extends('web.index')
 
 @section('web_content')
-    <section class="section-pagetop bg-gray">
-        <div class="container">
-            <h2 class="title-page">My account</h2>
-        </div>
-    </section>
-    <section class="section-content padding-y">
+
+    <section class="section-content pt-2">
         <div class="container">
 
             <div class="row">

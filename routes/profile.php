@@ -11,8 +11,6 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::get('/wishlist', [ProfileController::class, 'wishlist'])->name('wishlist');
     Route::get('/selling', [ProfileController::class, 'selling'])->name('selling');
     Route::get('/setting', [ProfileController::class, 'setting'])->name('setting');
-
-
     // business
-    Route::resource('business', BusinessController::class);
+    Route::resource('businesses', BusinessController::class);
 });

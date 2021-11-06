@@ -17,8 +17,9 @@ class CreateShopsTable extends Migration
             $table->id();
             $table->integer('user_id')->nullable()->index()->unsigned();
             $table->integer('business_id')->nullable()->index()->unsigned();
-            $table->enum('type',['online','offline','multiple'])->nullable();
+            $table->enum('type',['online','offline','combined'])->nullable();
             $table->string('shop_contact_numbers')->nullable();
+            $table->string('shop_name')->nullable();
             $table->string('shop_email')->nullable();
             $table->integer('division_id')->index()->nullable();
             $table->integer('district_id')->index()->nullable();
