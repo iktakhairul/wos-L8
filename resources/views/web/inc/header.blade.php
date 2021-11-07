@@ -48,23 +48,24 @@
                             @endguest
 
                         </div>
+                        @if(Auth::check() && Auth::user()->weight >= 79.99)
                         <div class="widget-header mr-3">
-                            <a href="#" class="widget-view">
-                                <div class="icon-area">
-                                    <i class="fa fa-comment-dots"></i>
-                                    <span class="notify">1</span>
+                            <a href="{{ route('dashboard./') }}" class="widget-view">
+                                <div class="icon-area text-danger">
+                                    <i class="fa fa-store"></i>
                                 </div>
-                                <small class="text"> Message </small>
+                                <small class="text text-danger"> Dashboard </small>
                             </a>
                         </div>
-                        <div class="widget-header mr-3">
+                        @endif
+                        <!-- <div class="widget-header mr-3">
                             <a href="#" class="widget-view">
                                 <div class="icon-area">
                                     <i class="fa fa-store"></i>
                                 </div>
                                 <small class="text"> Orders </small>
                             </a>
-                        </div>
+                        </div> -->
                         <div class="widget-header">
                             <a href="#" class="widget-view">
                                 <div class="icon-area">

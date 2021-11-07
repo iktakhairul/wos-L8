@@ -76,8 +76,6 @@
         </main>
     </div>
 
-    <div id="loader" class="modalx"><!-- Place at bottom of page --></div>
-
     <!-- Menu Toggle Script -->
     <script>
         $(document).ready(function(){
