@@ -43,9 +43,9 @@
                                         <div class="dropdown">
                                             <button type="button" class="btn btn-sm btn-outline-primary dropdown-toggle" data-toggle="dropdown"></button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('profile.businesses.show',$business->id) }}">Edit</a>
+                                                <a class="dropdown-item" href="{{ route('profile.businesses.edit',$business->id) }}">Edit</a>
                                                 <a class="dropdown-item" href="{{ route('profile.businesses.show',$business->id) }}">View</a>
-                                                <a class="dropdown-item" href="{{ route('profile.businesses.show',$business->id) }}">Delete</a>
+                                                <a class="dropdown-item" href="{{ route('profile.businesses.destroy',$business->id) }}">Delete</a>
                                             </div>
                                         </div>
                                     </td>

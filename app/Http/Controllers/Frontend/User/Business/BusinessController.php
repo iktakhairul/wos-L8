@@ -11,11 +11,6 @@ use App\Models\Business\Shop\ShopUser;
 
 class BusinessController extends Controller
 {
-    public function __construct() {
-
-        $this->middleware('business', ['only' => ['edit','show','delete']]);
-    }
-
     public function index()
     {
         $businesses = Business::where('user_id',Auth::user()->id)->get();
