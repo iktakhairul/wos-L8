@@ -62,4 +62,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->belongsTo(Business::class);
     }
+
+    public function user_profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

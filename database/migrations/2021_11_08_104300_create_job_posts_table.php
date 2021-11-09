@@ -17,7 +17,7 @@ class CreateJobPostsTable extends Migration
             $table->id();
             $table->integer('service_category_id')->nullable();
             $table->integer('user_id')->nullable();
-            $table->string('name')->nullable();
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->integer('division_id')->nullable();
             $table->integer('district_id')->nullable();

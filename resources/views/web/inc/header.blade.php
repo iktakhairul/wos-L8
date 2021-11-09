@@ -126,6 +126,9 @@
                         <a class="nav-link" href="#">Trade shows</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link @if (request()->routeIs(['profile.find-jobs'])) active @endif" href="{{ route('profile.find-jobs') }}">Job Posts</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Services</a>
                     </li>
                     <li class="nav-item">

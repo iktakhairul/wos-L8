@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJobTimelineTable extends Migration
+class CreateJobTimelinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateJobTimelineTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_timeline', function (Blueprint $table) {
+        Schema::create('job_timelines', function (Blueprint $table) {
             $table->id();
             $table->integer('job_post_id')->nullable();
             $table->integer('job_response_id')->nullable();
