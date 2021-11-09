@@ -89,7 +89,10 @@ class JobPostController extends Controller
      */
     public function create()
     {
-        return view("system.users.create");
+        $editRow = null;
+        $service_categories = DB::table('service_categories')->get();
+
+        return view('web.user.job_post.job_post_inputs', compact('editRow','service_categories'));
     }
 
     /**
@@ -100,6 +103,12 @@ class JobPostController extends Controller
      */
     public function store(Request $request)
     {
+        $start_datetime = new \DateTime($request['start_datetime'], new \DateTimeZone('Asia/Dhaka'));
+        $end_datetime = new \DateTime($request['end_datetime'], new \DateTimeZone('Asia/Dhaka'));
+        $start_datetime->format('d-m-Y  H:i A');
+        $end_datetime->format('d-m-Y  H:i A');
+
+        dd($request->all());
         $this->validate($request, [
             'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
             'email'  => 'required|email|unique:users',
@@ -144,9 +153,10 @@ class JobPostController extends Controller
      */
     public function edit($id)
     {
-        $user = DB::table('job_posts')->find($id);
+        $editRow = DB::table('job_posts')->find($id);
+        $service_categories = DB::table('service_categories')->get();
 
-        return view("system.users.edit", compact('user'));
+        return view('web.user.job_post.job_post_inputs', compact('editRow','service_categories'));
     }
 
     /**

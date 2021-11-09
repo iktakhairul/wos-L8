@@ -31,15 +31,15 @@
                 <ul class="list-group">
                     @if(count($available_job_posts) > 0)
                         @foreach($available_job_posts as $key => $index)
-                        <li class="list-group-item">
+                        <li class="list-group-item mb-2">
                             <div class="row">
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
                                             <h2>{{ $index->title ?? ''}}</h2>
                                         </div>
-                                        <div class="col-sm-1 text-right">
-                                            <a href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                        <div class="col-sm-2 text-right">
+                                            <a class="btn btn-sm btn-success p-2 font-weight-bold" href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-plus mr-1"></i>Apply Now</a>
                                         </div>
                                     </div>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>

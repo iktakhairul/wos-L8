@@ -19,7 +19,7 @@
                 <ul class="list-group">
                     @if(count($job_posts) > 0)
                         @foreach($job_posts as $key => $index)
-                        <li class="list-group-item">
+                        <li class="list-group-item mb-2">
                             <div class="row">
                                 <div class="col">
                                     <div class="row">
