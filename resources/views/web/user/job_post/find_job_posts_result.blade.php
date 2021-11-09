@@ -38,9 +38,15 @@
                                         <div class="col">
                                             <h2>{{ $index->title ?? ''}}</h2>
                                         </div>
-                                        <div class="col-sm-2 text-right">
-                                            <a class="btn btn-sm btn-success p-2 font-weight-bold" href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-plus mr-1"></i>Apply Now</a>
-                                        </div>
+                                        @if(!empty($own_responses) && !empty($own_responses->firstWhere('job_post_id', '==', $index->id)))
+                                            <div class="col-sm-3 text-right">
+                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.submit-a-proposal', $index->id) }}">Submitted</a>
+                                            </div>
+                                        @else
+                                            <div class="col-sm-3 text-right">
+                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.submit-a-proposal', $index->id) }}">Submit A Proposal</a>
+                                            </div>
+                                        @endif
                                     </div>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>

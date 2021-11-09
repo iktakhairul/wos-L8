@@ -33,16 +33,6 @@ class JobResponseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return view
-     */
-    public function create()
-    {
-        return view("system.users.create");
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -51,40 +41,24 @@ class JobResponseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email'  => 'required|email|unique:users',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'demanded_budget'  => 'required|numeric',
         ]);
 
         $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'created_at' => Carbon::now(),
+            'service_category_id' => $request['service_category_id'],
+            'job_post_id'         => $request['job_post_id'],
+            'user_id'             => auth()->user()['id'],
+            'description'         => $request['description'],
+            'demanded_budget'     => $request['demanded_budget'],
+            'status'              => 'active',
+            'created_at'          => Carbon::now(),
         ];
 
         DB::table('job_responses')->insert($data);
 
-        return redirect()->route('system.users.index')->with('success', "Job Post successfully created!");
+        return redirect()->back()->with('success', "Job Post successfully created!");
     }
-    /**
-     * Show the specified resource.
-     *
-     * @param $id
-     * @return int
-     */
-    public function show($id)
-    {
-        $user = DB::table('job_responses')->where('id', $id)->first();
 
-        return 0;
-    }
 
     /**
      * Show the form for editing the specified resource.

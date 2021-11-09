@@ -59,9 +59,11 @@ class JobPostController extends Controller
             ->where('status', 'active')
             ->paginate(15);
 
+        $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
+
         $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
 
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories'));
+        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses'));
     }
 
     /**
@@ -132,6 +134,7 @@ class JobPostController extends Controller
 
         return redirect()->route('system.users.index')->with('success', "Job Post successfully created!");
     }
+
     /**
      * Show the specified resource.
      *
@@ -224,5 +227,18 @@ class JobPostController extends Controller
         DB::table('job_posts')->where('id', $id)->delete();
 
         return redirect()->back()->with('Job Post has been deleted.');
+    }
+
+    /**
+     * Show the form for creating a new job post's submit a proposal.
+     *
+     * @return view
+     */
+    public function submit_a_proposal($id)
+    {
+        $job_post = JobPost::with(['service_category', 'user'])->find($id);
+        $own_response = JobResponses::where('job_post_id', $id)->where('user_id', auth()->user()['id'])->first();
+
+        return view('web.user.job_post.submit_a_proposal_inputs', compact('job_post', 'own_response'));
     }
 }
