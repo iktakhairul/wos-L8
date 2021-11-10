@@ -18,6 +18,9 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     // business
     Route::resource('businesses', BusinessController::class);
 
+    // Profile Resources
+    Route::resource('profiles', BusinessController::class);
+
     // Find Job Posts
     Route::get('find-jobs', [JobPostController::class, 'find_job_posts'])->name('find-jobs');
     Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_filter'])->name('find-jobs.service-category-filter');

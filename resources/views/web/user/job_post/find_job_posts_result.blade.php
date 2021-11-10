@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-12">
                 <ul class="list-group">
-                    @if(count($available_job_posts) > 0)
+                    @if(count($available_job_posts) > 0 && $profile_status === true)
                         @foreach($available_job_posts as $key => $index)
                         <li class="list-group-item mb-2">
                             <div class="row">
@@ -77,7 +77,7 @@
 
                                     @if(!empty($index->job_responses))
                                         @if(count($index->job_responses) > 0)
-                                            <a href="" class=""><p class="font-weight-bold">Available Offers - [{{ count($index->job_responses) }}]</p></a>
+                                            <a href="" class=""><p class="font-weight-bold">See Available Offers - [{{ count($index->job_responses) }}]</p></a>
                                             @foreach($index->job_responses as $key => $job_response)
                                                 <article class="card mt-2 mb-3">
                                                     <div class="card-body">
@@ -152,12 +152,22 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">No Post Found</li>
+                        @if($profile_status === false)
+                            <li class="list-group-item text-danger">
+                                Please complete your profile if you want to work.
+                                <a class="btn btn-sm btn-primary ml-2" href="{{ route('profile.profiles.edit', auth()->user()['id']) }}">Update Profile</a>
+                            </li>
+
+                        @else
+                            <li class="list-group-item">No Post Found</li>
+                        @endif
                     @endif
                 </ul>
+                @if(count($available_job_posts) > 0 )
                 <div class="d-flex justify-content-center">
                     {!! $available_job_posts->links() !!}
                 </div>
+                @endif
             </div>
         </div>
 

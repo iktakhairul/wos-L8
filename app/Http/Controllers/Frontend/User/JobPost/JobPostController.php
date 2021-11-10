@@ -45,15 +45,22 @@ class JobPostController extends Controller
      */
     public function find_job_posts()
     {
-        $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
-            ->where('status', 'active')
-            ->paginate(15);
+        $available_job_posts = [];
+        $own_responses = null;
+        $service_categories = [];
+        $profile_status = true;
 
-        $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
+        if (auth()->user()['complete_profile_status'] === 'complete') {
+            $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
+                ->where('status', 'active')
+                ->paginate(15);
+            $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
+            $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
+        }else {
+            $profile_status = false;
+        }
 
-        $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
-
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses'));
+        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
@@ -64,14 +71,24 @@ class JobPostController extends Controller
      */
     public function find_job_post_by_filter($id)
     {
+        $available_job_posts = [];
+        $own_responses = null;
+        $service_categories = [];
+        $profile_status = true;
+
+        if (auth()->user()['complete_profile_status'] === 'complete') {
         $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
             ->where('service_category_id', $id)
             ->where('status', 'active')
             ->paginate(15);
 
+        $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
         $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
+        }else {
+            $profile_status = false;
+        }
 
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories'));
+        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
