@@ -132,7 +132,7 @@ class JobPostController extends Controller
 
         DB::table('job_posts')->insert($data);
 
-        return redirect()->back()->with('success', "Job Post successfully created!");
+        return redirect()->route('profile.job-posts.index')->with('success', "Job Post successfully created!");
     }
 
     /**

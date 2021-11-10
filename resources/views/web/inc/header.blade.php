@@ -10,14 +10,8 @@
                 <div class="col-xl-6 col-lg-5 col-md-6">
                     <form action="#" class="search-header">
                         <div class="input-group w-100">
-                            <select class="custom-select border-right" name="category_name">
-                                <option value="">All type</option>
-                                <option value="codex">Special</option>
-                                <option value="comments">Only best</option>
-                                <option value="content">Latest</option>
-                            </select>
+                            <a class="p-2 pl-4 pr-4 border-right" href="{{ route('profile.find-jobs') }}">All Jobs</a>
                             <input type="text" class="form-control" placeholder="Search">
-
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fa fa-search"></i> Search

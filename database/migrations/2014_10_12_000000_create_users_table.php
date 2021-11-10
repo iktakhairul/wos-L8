@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->text('permissions')->nullable();
             $table->string('status')->nullable()->default('active');
             $table->string('password');
+            $table->string('complete_profile_status')->nullable()->default('incomplete');
             $table->rememberToken();
             $table->timestamps();
         });

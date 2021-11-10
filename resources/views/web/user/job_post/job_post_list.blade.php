@@ -97,7 +97,7 @@
                                                             {{ $job_response->user->user_profile->present_postal_code ?? ''}}</p>
 
                                                         <p class="font-weight-bold">Description</p>
-                                                        <p>{{ $index->description ?? ''}}</p>
+                                                        <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
 
                                                         <article class="card-group card-stat">
                                                             <figure class="card bg">
