@@ -128,7 +128,6 @@
                                                     </div>
                                                 </article>
                                             @endforeach
-
                                         @endif
                                     @else
                                         <div class="row ml-4 mb-2">
@@ -146,6 +145,9 @@
                         <li class="list-group-item">No Post Found</li>
                     @endif
                 </ul>
+                <div class="d-flex justify-content-center">
+                    {!! $job_posts->links() !!}
+                </div>
             </div>
         </div>
 

@@ -127,12 +127,12 @@ class JobPostController extends Controller
             'budget'              => $request['budget'],
             'tags'                => $request['tags'],
             'status'              => 'active',
-            'created_at'          => Carbon::now(),
+            'created_at'          => now(),
         ];
 
         DB::table('job_posts')->insert($data);
 
-        return redirect()->route('profile.find-jobs')->with('success', "Job Post successfully created!");
+        return redirect()->back()->with('success', "Job Post successfully created!");
     }
 
     /**
@@ -165,34 +165,47 @@ class JobPostController extends Controller
     /**
      * Update specified resource in storage.
      *
-     * @param $subdomain
+     * @param $id
      * @param Request $request
      * @return null
      */
-    public function update($subdomain, Request $request)
+    public function update($id, Request $request)
     {
+        $start_datetime = new \DateTime($request['start_datetime'], new \DateTimeZone('Asia/Dhaka'));
+        $end_datetime = new \DateTime($request['end_datetime'], new \DateTimeZone('Asia/Dhaka'));
+
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email' => 'required|email',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'service_category_id'  => 'required|exists:service_categories,id',
+            'title'                => 'required|string|min:3|max:250',
+            'division_id'          => 'required',
+            'district_id'          => 'required',
+            'thana_id'             => 'required',
+            'postal_code'          => 'required',
+            'start_datetime'       => 'required',
+            'required_persons'     => 'required',
+            'budget'               => 'required',
         ]);
 
         $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'updated_at' => Carbon::now(),
+            'service_category_id' => $request['service_category_id'],
+            'title'               => $request['title'],
+            'description'         => $request['description'],
+            'division_id'         => $request['division_id'],
+            'district_id'         => $request['district_id'],
+            'thana_id'            => $request['thana_id'],
+            'postal_code'         => $request['postal_code'],
+            'address'             => $request['address'],
+            'map_location'        => $request['map_location'],
+            'start_datetime'      => $start_datetime,
+            'end_datetime'        => $end_datetime,
+            'required_persons'    => $request['required_persons'],
+            'budget'              => $request['budget'],
+            'updated_at'          => now(),
         ];
 
-        DB::table('job_posts')->where('id',$request['id'])->update($data);
+        DB::table('job_posts')->where('id',$id)->update($data);
 
-        return redirect()->route('system.users.index')->with('success', "Job Post has been successfully updated!");
+        return redirect()->route('profile.job-posts.index')->with('success', "Job Post has been successfully updated!");
     }
 
     /**

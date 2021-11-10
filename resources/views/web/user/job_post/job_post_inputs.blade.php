@@ -160,7 +160,7 @@
                     {{--Row--}}
                     <div class="form-row form-group">
                         <div class="col-md-2 text-md-right">
-                            <label for="tag-input1" class="pt-2">Tags</label>
+                            <label for="tag-input1" class="pt-2">Tags (final)</label>
                         </div>
                         <div class="col-md-4">
                             @if(!empty($editRow))

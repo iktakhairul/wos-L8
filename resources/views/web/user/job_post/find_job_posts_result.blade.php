@@ -40,7 +40,7 @@
                                         </div>
                                         @if(!empty($own_responses) && !empty($own_responses->firstWhere('job_post_id', '==', $index->id)))
                                             <div class="col-sm-3 text-right">
-                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.submit-a-proposal', $index->id) }}">Submitted</a>
+                                                <a class="btn btn-primary" href="#">Submitted</a>
                                             </div>
                                         @else
                                             <div class="col-sm-3 text-right">
@@ -138,7 +138,6 @@
                                                     </div>
                                                 </article>
                                             @endforeach
-
                                         @endif
                                     @else
                                         <div class="row ml-4 mb-2">
@@ -156,8 +155,13 @@
                         <li class="list-group-item">No Post Found</li>
                     @endif
                 </ul>
+                <div class="d-flex justify-content-center">
+                    {!! $available_job_posts->links() !!}
+                </div>
             </div>
         </div>
+
+
 
     </div>
 </div>
