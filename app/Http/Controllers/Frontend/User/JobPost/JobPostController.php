@@ -25,16 +25,6 @@ class JobPostController extends Controller
     }
 
     /**
-     * Display a job post contents.
-     *
-     * @return View
-     */
-    public function job_post()
-    {
-        return view('web.user.job_post.job_post');
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return View
@@ -107,32 +97,42 @@ class JobPostController extends Controller
     {
         $start_datetime = new \DateTime($request['start_datetime'], new \DateTimeZone('Asia/Dhaka'));
         $end_datetime = new \DateTime($request['end_datetime'], new \DateTimeZone('Asia/Dhaka'));
-        $start_datetime->format('d-m-Y  H:i A');
-        $end_datetime->format('d-m-Y  H:i A');
 
-        dd($request->all());
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email'  => 'required|email|unique:users',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'service_category_id'  => 'required|exists:service_categories,id',
+            'title'                => 'required|string|min:3|max:250',
+            'division_id'          => 'required',
+            'district_id'          => 'required',
+            'thana_id'             => 'required',
+            'postal_code'          => 'required',
+            'start_datetime'       => 'required',
+            'required_persons'     => 'required',
+            'budget'               => 'required',
         ]);
 
         $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'created_at' => Carbon::now(),
+            'service_category_id' => $request['service_category_id'],
+            'user_id'             => auth()->user()['id'],
+            'title'               => $request['title'],
+            'description'         => $request['description'],
+            'division_id'         => $request['division_id'],
+            'district_id'         => $request['district_id'],
+            'thana_id'            => $request['thana_id'],
+            'postal_code'         => $request['postal_code'],
+            'address'             => $request['address'],
+            'map_location'        => $request['map_location'],
+            'start_datetime'      => $start_datetime,
+            'end_datetime'        => $end_datetime,
+            'required_persons'    => $request['required_persons'],
+            'budget'              => $request['budget'],
+            'tags'                => $request['tags'],
+            'status'              => 'active',
+            'created_at'          => Carbon::now(),
         ];
 
         DB::table('job_posts')->insert($data);
 
-        return redirect()->route('system.users.index')->with('success', "Job Post successfully created!");
+        return redirect()->route('profile.find-jobs')->with('success', "Job Post successfully created!");
     }
 
     /**

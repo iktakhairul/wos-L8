@@ -1,5 +1,5 @@
 <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-    <label for="description" class="col-sm-8 control-label fw500">Description</label>
+
     <div class="col-sm-12">
         <textarea name="description" id="description" cols="1" rows="2" class="form-control">{{ !empty($editRow->description) ? $editRow->description : old('description') }}</textarea>
         @if ($errors->has('description'))

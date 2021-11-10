@@ -59,7 +59,7 @@
                                     </p>
 
                                     <p class="font-weight-bold">Job Description</p>
-                                    <p>{{ $index->description ?? ''}}</p>
+                                    <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>
                                     <div class="photo-box">
                                         <img id="logo" src="{{ $index->job_image ?? '' ? asset('img/'.$index->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                     </div>

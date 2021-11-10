@@ -28,7 +28,7 @@ class CreateJobPostsTable extends Migration
             $table->dateTime('approval_datetime')->nullable();
             $table->dateTime('start_datetime')->nullable();
             $table->dateTime('end_datetime')->nullable();
-            $table->integer('required_person')->nullable();
+            $table->integer('required_persons')->nullable();
             $table->double('budget', 15, 2)->nullable();
             $table->string('tags')->nullable();
             $table->double('ratings', 5, 2)->nullable();

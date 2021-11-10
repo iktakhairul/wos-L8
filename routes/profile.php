@@ -18,11 +18,11 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     // business
     Route::resource('businesses', BusinessController::class);
 
-    // Job Posts
+    // Find Job Posts
     Route::get('find-jobs', [JobPostController::class, 'find_job_posts'])->name('find-jobs');
     Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_filter'])->name('find-jobs.service-category-filter');
 
-    Route::get('job-post', [JobPostController::class, 'job_post'])->name('job-post');
+    // Job Posts
     Route::resource('job-posts', JobPostController::class);
     Route::get('job-posts/{id}/submit-a-proposal', [JobPostController::class, 'submit_a_proposal'])->name('job-posts.submit-a-proposal');
 

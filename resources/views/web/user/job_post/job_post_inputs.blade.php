@@ -3,6 +3,7 @@
 
 @push('styles')
     <link href="{{ asset('plugins/select2/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('web/tag-input/tag.css') }}" rel="stylesheet" />
 @endpush
 
 @section('job_post_content')
@@ -57,7 +58,7 @@
                             <label for="description" class="pt-2">Job Description<small class="text-danger">*</small></label>
                         </div>
                         <div class="col-md-10">
-                            <textarea class="form-control" id="description" name="description" placeholder="Write you job description for workers." required="" autofocus="">{{ !empty($editRow) ? $editRow->description : old('description') }}</textarea>
+                            @include('dashboard.input_helpers.description')
                         </div>
                     </div>
                     {{--Row--}}
@@ -144,10 +145,10 @@
                     {{--Row--}}
                     <div class="form-row form-group">
                         <div class="col-md-2 text-md-right">
-                            <label for="required_person" class="pt-2">Required Person<small class="text-danger">*</small></label>
+                            <label for="required_persons" class="pt-2">Required Person<small class="text-danger">*</small></label>
                         </div>
                         <div class="col-md-4">
-                            <input type="number" class="form-control" id="required_person" name="required_person" value="{{ !empty($editRow) ? $editRow->required_person : old('required_person') }}" placeholder="05" required="">
+                            <input type="number" class="form-control" id="required_persons" name="required_persons" value="{{ !empty($editRow) ? $editRow->required_persons : old('required_persons') }}" placeholder="05" required="">
                         </div>
                         <div class="col-md-2 text-md-right">
                             <label for="budget" class="pt-2">Budget<small class="text-danger">*</small> (in BDT)</label>
@@ -159,11 +160,18 @@
                     {{--Row--}}
                     <div class="form-row form-group">
                         <div class="col-md-2 text-md-right">
-                            <label for="tags-input" class="pt-2">Tags</label>
+                            <label for="tag-input1" class="pt-2">Tags</label>
                         </div>
-                        <div class="col-md-10">
-                            <input type="text" id="tags-input" data-role="tagsinput" name="tags-input" placeholder="Up To Five" class="form-control">
-
+                        <div class="col-md-4">
+                            @if(!empty($editRow))
+                                <div class="mb-3">
+                                    @foreach(explode(',',$editRow->tags) as $tag)
+                                        <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                    @endforeach
+                                </div>
+                            @else
+                                <input type="text" id="tag-input1" name="tags">
+                            @endif
                         </div>
                     </div>
                     {{--Row--}}
@@ -195,6 +203,7 @@
 
 @push('scripts')
 <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
+<script src="{{ asset('web/tag-input/tag-helper.js') }}"></script>
 <script>
     $(document).ready(function(){
         var divisions = {!! json_encode($divisions) !!};

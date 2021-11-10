@@ -41,7 +41,7 @@
                                     </p>
 
                                     <p class="font-weight-bold">Job Description</p>
-                                    <p>{{ $job_post->description ?? ''}}</p>
+                                    <div class="mb-2">{!!html_entity_decode($job_post->description)!!}</div>
                                     <div class="photo-box">
                                         <img id="logo" src="{{ $job_post->job_image ?? '' ? asset('img/'.$job_post->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                     </div>

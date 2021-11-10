@@ -35,6 +35,7 @@ class CreateProfilesTable extends Migration
             $table->string('permanent_address')->nullable();
             $table->double('profile_score', 2, 2)->nullable();
             $table->string('referral_code')->nullable();
+            $table->double('ratings', 5, 2)->nullable();
             $table->timestamps();
         });
     }
