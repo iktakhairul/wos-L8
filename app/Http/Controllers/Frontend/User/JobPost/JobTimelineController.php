@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend\User\JobPost;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile\JobPost\JobPost;
+use App\Models\Profile\JobPost\JobTimeline;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +30,9 @@ class JobTimelineController extends Controller
      */
     public function index()
     {
-        return view('web.user.job_post.job_post');
+        $my_active_orders = JobTimeline::with('job_post')->where('job_post_user_id', auth()->user()['id'])->paginate(15);
+
+        return view('web.user.job_post.job-timeline.my_job_timeline', compact( 'my_active_orders'));
     }
 
     /**
