@@ -36,9 +36,14 @@ class JobTimelineController extends Controller
      *
      * @return view
      */
-    public function create()
+    public function create($id)
     {
-        return view("system.users.create");
+        $editRow = null;
+        $service_categories = DB::table('service_categories')->get();
+        $job_post = 1;
+        $job_response = 2;
+
+        return view('web.user.job_post.send_proposal_to_worker', compact('editRow','service_categories'));
     }
 
     /**
@@ -50,22 +55,17 @@ class JobTimelineController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email'  => 'required|email|unique:users',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'demanded_budget'  => 'required|numeric',
         ]);
 
         $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'created_at' => Carbon::now(),
+            'service_category_id' => $request['service_category_id'],
+            'job_post_id'         => $request['job_post_id'],
+            'user_id'             => auth()->user()['id'],
+            'description'         => $request['description'],
+            'demanded_budget'     => $request['demanded_budget'],
+            'status'              => 'active',
+            'created_at'          => Carbon::now(),
         ];
 
         DB::table('job_timelines')->insert($data);

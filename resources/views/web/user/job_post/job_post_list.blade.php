@@ -79,17 +79,15 @@
                                                                             <span class="fa fa-star" style="color: orange;"></span>
                                                                             <span class="fa fa-star"></span>
                                                                         </p>
-                                                                        <a href="" class="btn btn-sm btn-outline-primary">Sent Proposal</a>
+                                                                        <a href="{{ route('profile.job-post-responses.create-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Sent Proposal</a>
                                                                     </div>
                                                                 </figure>
                                                             </div>
                                                             <div class="col-sm-1">
                                                                 <div>SL: {{$key+1}}</div>
-
                                                             </div>
                                                         </div>
                                                         <hr>
-
                                                         <p><i class="fa-solid fa-location-dot"></i> {{ $job_response->user->user_profile->present_address ?? '' }},
                                                             {{ $job_response->user->user_profile->present_thana->name ?? ''}},
                                                             {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},

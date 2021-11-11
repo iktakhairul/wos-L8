@@ -266,8 +266,13 @@ class JobPostController extends Controller
      */
     public function submit_a_proposal($id)
     {
-        $job_post = JobPost::with(['service_category', 'user'])->find($id);
-        $own_response = JobResponses::where('job_post_id', $id)->where('user_id', auth()->user()['id'])->first();
+        $job_post = null;
+        $own_response = null;
+
+        if (auth()->user()['complete_profile_status'] === 'complete') {
+            $job_post = JobPost::with(['service_category', 'user'])->find($id);
+            $own_response = JobResponses::where('job_post_id', $id)->where('user_id', auth()->user()['id'])->first();
+        }
 
         return view('web.user.job_post.submit_a_proposal_inputs', compact('job_post', 'own_response'));
     }

@@ -31,6 +31,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 
     // Job Post Responses
     Route::resource('job-post-responses', JobResponseController::class);
+    Route::get('job-post-responses/{id}/create-proposal', [JobResponseController::class, 'create_proposal_for_worker'])->name('job-post-responses.create-proposal');
 
     // Job Post Timeline
     Route::resource('job-timelines', JobTimelineController::class);
