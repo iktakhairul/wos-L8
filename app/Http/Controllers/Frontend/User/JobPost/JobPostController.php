@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\User\JobPost;
 use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobPost;
 use App\Models\Profile\JobPost\JobResponses;
+use App\Models\Profile\JobPost\JobTimeline;
 use App\Models\Profile\JobPost\ServiceCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -34,7 +35,9 @@ class JobPostController extends Controller
         $job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', auth()->user()['id'])
             ->where('status', 'active')->paginate(5);
 
-        return view('web.user.job_post.job_post_list', compact('job_posts'));
+        $my_orders = JobTimeline::where('job_post_user_id', auth()->user()['id'])->get();
+
+        return view('web.user.job_post.job_post_list', compact('job_posts', 'my_orders'));
     }
 
     /**

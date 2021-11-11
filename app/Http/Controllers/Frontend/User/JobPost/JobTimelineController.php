@@ -55,22 +55,23 @@ class JobTimelineController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'demanded_budget'  => 'required|numeric',
+            'job_post_id'  => 'required|numeric',
+            'job_response_id'  => 'required|numeric',
+            'comments'  => 'required',
         ]);
 
         $data = [
-            'service_category_id' => $request['service_category_id'],
             'job_post_id'         => $request['job_post_id'],
-            'user_id'             => auth()->user()['id'],
-            'description'         => $request['description'],
-            'demanded_budget'     => $request['demanded_budget'],
-            'status'              => 'active',
+            'job_response_id'     => $request['job_response_id'],
+            'job_post_user_id'    => auth()->user()['id'],
+            'comments'            => $request['comments'],
+            'status'              => '1.place_order',
             'created_at'          => Carbon::now(),
         ];
 
         DB::table('job_timelines')->insert($data);
 
-        return redirect()->route('system.users.index')->with('success', "Job timeline successfully created!");
+        return redirect()->route('profile.job-posts.index')->with('success', "Job order successfully placed.");
     }
     /**
      * Show the specified resource.

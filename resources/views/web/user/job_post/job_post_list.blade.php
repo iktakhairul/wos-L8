@@ -79,7 +79,11 @@
                                                                             <span class="fa fa-star" style="color: orange;"></span>
                                                                             <span class="fa fa-star"></span>
                                                                         </p>
-                                                                        <a href="{{ route('profile.job-post-responses.create-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Sent Proposal</a>
+                                                                        @if($my_orders->firstWhere('job_response_id', $job_response->id))
+                                                                            <a href="" class="btn btn-sm btn-outline-primary active">Placed Order</a>
+                                                                        @else
+                                                                            <a href="{{ route('profile.job-post-responses.create-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Sent Proposal</a>
+                                                                        @endif
                                                                     </div>
                                                                 </figure>
                                                             </div>

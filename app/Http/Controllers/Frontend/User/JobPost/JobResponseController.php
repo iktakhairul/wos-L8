@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\User\JobPost;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile\JobPost\JobResponses;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,11 +40,11 @@ class JobResponseController extends Controller
      */
     public function create_proposal_for_worker($id)
     {
-        dd($id);
-        $editRow = null;
+        $job_response = JobResponses::with('job_post')->where('id', $id)->first();
         $service_categories = DB::table('service_categories')->get();
+        $editRow = null;
 
-        return view('web.user.job_post.job_post_inputs', compact('editRow','service_categories'));
+        return view('web.user.job_post.send_proposal_to_worker', compact('job_response','editRow','service_categories'));
     }
 
     /**
