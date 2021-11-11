@@ -38,13 +38,13 @@ class JobResponseController extends Controller
      *
      * @return view
      */
-    public function create_proposal_for_worker($id)
+    public function confirm_proposal_for_worker($id)
     {
         $job_response = JobResponses::with('job_post')->where('id', $id)->first();
         $service_categories = DB::table('service_categories')->get();
         $editRow = null;
 
-        return view('web.user.job_post.send_proposal_to_worker', compact('job_response','editRow','service_categories'));
+        return view('web.user.job_post.confirm_proposal_to_worker', compact('job_response','editRow','service_categories'));
     }
 
     /**

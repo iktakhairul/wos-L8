@@ -93,7 +93,7 @@
                                                                         @if($my_orders->firstWhere('job_response_id', $job_response->id))
                                                                             <a href="" class="btn btn-sm btn-outline-primary active">Placed Order</a>
                                                                         @else
-                                                                            <a href="{{ route('profile.job-post-responses.create-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Sent Proposal</a>
+                                                                            <a href="{{ route('profile.job-post-responses.confirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Confirm Proposal</a>
                                                                         @endif
                                                                     </div>
                                                                 </figure>

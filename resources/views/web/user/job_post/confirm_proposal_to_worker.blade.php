@@ -1,5 +1,5 @@
 @extends('web.user.job_post.index')
-@section('title', 'Send Proposal')
+@section('title', 'Confirm Proposal')
 
 @push('styles')
     <link href="{{ asset('plugins/select2/select2.min.css') }}" rel="stylesheet" />
@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="container">
-            <h4>Send Proposal To Worker</h4>
+            <h4>Confirm Proposal</h4>
             @if(!empty($job_response))
             <div class="card mx-auto">
                 <div class="row">

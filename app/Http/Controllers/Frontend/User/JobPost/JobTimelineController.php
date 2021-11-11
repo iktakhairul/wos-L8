@@ -31,7 +31,7 @@ class JobTimelineController extends Controller
     {
         $my_active_job_posts = JobPost::with('job_responses', 'job_timeline')
             ->whereHas('job_timeline', function($query){$query->where('status', '!=', 'complete');})
-            ->where('user_id', auth()->user()['id'])->where('status', 'active')->paginate(5);
+            ->where('user_id', auth()->user()['id'])->where('status', '!=', 'inactive')->paginate(5);
 
         return view('web.user.job_post.job-timeline.my_job_timeline', compact( 'my_active_job_posts'));
     }
@@ -73,6 +73,7 @@ class JobTimelineController extends Controller
         ];
 
         DB::table('job_timelines')->insert($data);
+        DB::table('job_responses')->where('id',$request['job_response_id'])->update(['status' => '1.confirm_order']);
 
         return redirect()->route('profile.job-posts.index')->with('success', "Job order successfully placed.");
     }

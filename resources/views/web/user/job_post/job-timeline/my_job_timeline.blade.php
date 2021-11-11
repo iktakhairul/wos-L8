@@ -86,7 +86,7 @@
                                                                     </figure>
                                                                 </div>
                                                                 <div class="col-sm-1">
-                                                                    <a class="" data-toggle="collapse" href="#collapseJobResponseInfo{{$job_response->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                                    <a class="float-right" data-toggle="collapse" href="#collapseJobResponseInfo{{$job_response->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                                                 </div>
                                                             </div>
                                                             <hr>

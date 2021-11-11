@@ -33,7 +33,7 @@ class JobPostController extends Controller
     public function index()
     {
         $job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', auth()->user()['id'])
-            ->where('status', 'active')->paginate(5);
+            ->where('status', '!=', 'inactive')->paginate(5);
 
         $my_orders = JobTimeline::where('job_post_user_id', auth()->user()['id'])->get();
 
@@ -55,7 +55,7 @@ class JobPostController extends Controller
 
         if (auth()->user()['complete_profile_status'] === 'complete') {
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
-                ->where('status', 'active')
+                ->where('status', '!=', 'inactive')
                 ->paginate(15);
             $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
             $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
@@ -82,7 +82,7 @@ class JobPostController extends Controller
         if (auth()->user()['complete_profile_status'] === 'complete') {
         $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
             ->where('service_category_id', $id)
-            ->where('status', 'active')
+            ->where('status', '!=', 'inactive')
             ->paginate(15);
 
         $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
