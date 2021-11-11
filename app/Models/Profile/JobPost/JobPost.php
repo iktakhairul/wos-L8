@@ -40,6 +40,11 @@ class JobPost extends Model
         return $this->hasMany(JobResponses::class);
     }
 
+    public function job_timeline()
+    {
+        return $this->hasMany(JobTimeline::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

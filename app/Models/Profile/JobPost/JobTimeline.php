@@ -19,4 +19,9 @@ class JobTimeline extends Model
     {
         return $this->belongsTo(JobPost::class);
     }
+
+    public function job_response()
+    {
+        return $this->belongsTo(JobResponses::class);
+    }
 }

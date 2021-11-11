@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend\User\JobPost;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobPost;
-use App\Models\Profile\JobPost\JobTimeline;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,9 +29,11 @@ class JobTimelineController extends Controller
      */
     public function index()
     {
-        $my_active_orders = JobTimeline::with('job_post')->where('job_post_user_id', auth()->user()['id'])->paginate(15);
+        $my_active_job_posts = JobPost::with('job_responses', 'job_timeline')
+            ->whereHas('job_timeline', function($query){$query->where('status', '!=', 'complete');})
+            ->where('user_id', auth()->user()['id'])->where('status', 'active')->paginate(5);
 
-        return view('web.user.job_post.job-timeline.my_job_timeline', compact( 'my_active_orders'));
+        return view('web.user.job_post.job-timeline.my_job_timeline', compact( 'my_active_job_posts'));
     }
 
     /**
@@ -44,8 +45,6 @@ class JobTimelineController extends Controller
     {
         $editRow = null;
         $service_categories = DB::table('service_categories')->get();
-        $job_post = 1;
-        $job_response = 2;
 
         return view('web.user.job_post.send_proposal_to_worker', compact('editRow','service_categories'));
     }

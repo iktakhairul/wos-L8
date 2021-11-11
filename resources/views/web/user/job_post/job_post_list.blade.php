@@ -26,9 +26,16 @@
                                         <div class="col">
                                             <h2>{{ $index->title ?? ''}}</h2>
                                         </div>
-                                        <div class="col-sm-1 text-right">
-                                            <a href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
-                                        </div>
+
+                                        @if(!empty($my_orders->firstWhere('job_post_id', $index->id)))
+                                            <div class="col-sm-2 text-right">
+                                            </div>
+                                        @else
+                                            <div class="col-sm-1 text-right">
+                                                <a href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                            </div>
+                                        @endif
+
                                     </div>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>

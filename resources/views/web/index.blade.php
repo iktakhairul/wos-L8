@@ -42,9 +42,9 @@
             @include('web.inc.header')
 
             <main id="page-content" class="page-content">
-                
+
                 @yield('web_content')
-                
+
             </main>
 
             @include('web.inc.footer')
