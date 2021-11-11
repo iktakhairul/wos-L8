@@ -26,8 +26,10 @@
                                             <h2>{{ $job_post->title ?? ''}}</h2>
                                         </div>
                                         <div class="col-sm-1 text-right">
+                                            <a class="" data-toggle="collapse" href="#collapseJobInfo{{$job_post->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                         </div>
                                     </div>
+
                                     <h5>Service Category: {{ $job_post->service_category->name ?? ''}}, Budget: {{ $job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$job_post->start_datetime ?? ''}} - {{$job_post->end_datetime ?? ''}})</p>
                                     <p><i class="fa-solid fa-location-dot"></i>
@@ -38,22 +40,24 @@
                                         {{$job_post->postal_code ?? ''}}
                                     </p>
 
-                                    <p class="font-weight-bold">Job Description</p>
-                                    <div class="mb-2">{!!html_entity_decode($job_post->description)!!}</div>
-                                    <div class="photo-box">
-                                        <img id="logo" src="{{ $job_post->job_image ?? '' ? asset('img/'.$job_post->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
-                                    </div>
-
-                                    <p class="font-weight-bold mt-4">Tags</p>
-                                    @if(!empty($job_post->tags))
-                                        <div class="mb-3">
-                                            @foreach(explode(',',$job_post->tags) as $tag)
-                                                <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
-                                            @endforeach
+                                    <div class="collapse" id="collapseJobInfo{{$job_post->id}}">
+                                        <p class="font-weight-bold">Job Description</p>
+                                        <div class="mb-2">{!!html_entity_decode($job_post->description)!!}</div>
+                                        <div class="photo-box">
+                                            <img id="logo" src="{{ $job_post->job_image ?? '' ? asset('img/'.$job_post->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                         </div>
-                                    @else
-                                        <p>{{ $job_post->tags ?? 'No tags found!'}}</p>
-                                    @endif
+
+                                        <p class="font-weight-bold mt-4">Tags</p>
+                                        @if(!empty($job_post->tags))
+                                            <div class="mb-3">
+                                                @foreach(explode(',',$job_post->tags) as $tag)
+                                                    <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <p>{{ $job_post->tags ?? 'No tags found!'}}</p>
+                                        @endif
+                                    </div>
 
                                     <a href="" class=""><p class="font-weight-bold">Placed Order To</p></a>
                                     @if(count($job_post->job_responses) > 0)
@@ -82,22 +86,24 @@
                                                                     </figure>
                                                                 </div>
                                                                 <div class="col-sm-1">
-                                                                    <div>SL: {{$key+1}}</div>
+                                                                    <a class="" data-toggle="collapse" href="#collapseJobResponseInfo{{$job_response->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                                                 </div>
                                                             </div>
                                                             <hr>
-                                                            <p>
-                                                                <i class="fa-solid fa-location-dot"></i>
-                                                                {{ $job_response->user->user_profile->present_address ?? '' }},
-                                                                {{ $job_response->user->user_profile->present_thana->name ?? ''}},
-                                                                {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},
-                                                                {{ $job_response->user->user_profile->present_division->name ?? ''}},
-                                                                {{ $job_response->user->user_profile->present_postal_code ?? ''}}
-                                                            </p>
-                                                            <p>Contact: <span class="font-weight-bold">{{ !empty($job_response->user->contact_number) ? $job_response->user->contact_number : $job_response->user->email }}</span></p>
-                                                            <p class="font-weight-bold">Description</p>
-                                                            <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
-                                                            <p>Comments: {{ $job_timeline->comments }}</p>
+                                                            <div class="collapse" id="collapseJobResponseInfo{{$job_response->id}}">
+                                                                <p>
+                                                                    <i class="fa-solid fa-location-dot"></i>
+                                                                    {{ $job_response->user->user_profile->present_address ?? '' }},
+                                                                    {{ $job_response->user->user_profile->present_thana->name ?? ''}},
+                                                                    {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},
+                                                                    {{ $job_response->user->user_profile->present_division->name ?? ''}},
+                                                                    {{ $job_response->user->user_profile->present_postal_code ?? ''}}
+                                                                </p>
+                                                                <p>Contact: <span class="font-weight-bold">{{ !empty($job_response->user->contact_number) ? $job_response->user->contact_number : $job_response->user->email }}</span></p>
+                                                                <p class="font-weight-bold">Description</p>
+                                                                <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
+                                                                <p>Comments: {{ $job_timeline->comments }}</p>
+                                                            </div>
 
                                                             <article class="card-group card-stat">
                                                                 <figure class="card bg">

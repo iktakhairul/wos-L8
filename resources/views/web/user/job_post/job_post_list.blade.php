@@ -28,11 +28,13 @@
                                         </div>
 
                                         @if(!empty($my_orders->firstWhere('job_post_id', $index->id)))
-                                            <div class="col-sm-2 text-right">
+                                            <div class="col-sm-1 text-right">
+                                                <a class="" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @else
-                                            <div class="col-sm-1 text-right">
+                                            <div class="col-sm-2 text-right">
                                                 <a href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                                <a class="ml-2" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @endif
 
@@ -47,22 +49,24 @@
                                         {{$index->postal_code ?? ''}}
                                     </p>
 
-                                    <p class="font-weight-bold">Job Description</p>
-                                    <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>
-                                    <div class="photo-box">
-                                        <img id="logo" src="{{ $index->job_image ?? '' ? asset('img/'.$index->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
-                                    </div>
-
-                                    <p class="font-weight-bold mt-4">Tags</p>
-                                    @if(!empty($index->tags))
-                                        <div class="mb-3">
-                                            @foreach(explode(',',$index->tags) as $tag)
-                                                <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
-                                            @endforeach
+                                    <div class="collapse" id="collapseMyJobInfo{{$index->id}}">
+                                        <p class="font-weight-bold">Job Description</p>
+                                        <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>
+                                        <div class="photo-box">
+                                            <img id="logo" src="{{ $index->job_image ?? '' ? asset('img/'.$index->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                         </div>
-                                    @else
-                                        <p>{{ $index->tags ?? 'No tags found!'}}</p>
-                                    @endif
+
+                                        <p class="font-weight-bold mt-4">Tags</p>
+                                        @if(!empty($index->tags))
+                                            <div class="mb-3">
+                                                @foreach(explode(',',$index->tags) as $tag)
+                                                    <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <p>{{ $index->tags ?? 'No tags found!'}}</p>
+                                        @endif
+                                    </div>
 
                                     @if(!empty($index->job_responses))
                                         @if(count($index->job_responses) > 0)
@@ -95,23 +99,29 @@
                                                                 </figure>
                                                             </div>
                                                             <div class="col-sm-1">
-                                                                <div>SL: {{$key+1}}</div>
+                                                                <p>SL: {{$key+1}}
+                                                                    <a class="float-right" data-toggle="collapse" href="#collapseJobResponseInfo{{$job_response->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                                </p>
                                                             </div>
                                                         </div>
-                                                        <hr>
-                                                        <p><i class="fa-solid fa-location-dot"></i> {{ $job_response->user->user_profile->present_address ?? '' }},
-                                                            {{ $job_response->user->user_profile->present_thana->name ?? ''}},
-                                                            {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},
-                                                            {{ $job_response->user->user_profile->present_division->name ?? ''}},
-                                                            {{ $job_response->user->user_profile->present_postal_code ?? ''}}</p>
-
-                                                        <p class="font-weight-bold">Description</p>
-                                                        <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
+                                                        <br>
+                                                        <div class="collapse" id="collapseJobResponseInfo{{$job_response->id}}">
+                                                            <hr>
+                                                            <p><i class="fa-solid fa-location-dot"></i>
+                                                                {{ $job_response->user->user_profile->present_address ?? '' }},
+                                                                {{ $job_response->user->user_profile->present_thana->name ?? ''}},
+                                                                {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},
+                                                                {{ $job_response->user->user_profile->present_division->name ?? ''}},
+                                                                {{ $job_response->user->user_profile->present_postal_code ?? ''}}
+                                                            </p>
+                                                            <p class="font-weight-bold">Description</p>
+                                                            <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
+                                                        </div>
 
                                                         <article class="card-group card-stat">
                                                             <figure class="card bg">
                                                                 <div class="p-3">
-                                                                    <h4 class="title">{{ $job_response->demanded_budget ?? '' }}</h4>
+                                                                    <h4 class="title">{{ $job_response->demanded_budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h4>
                                                                     <span>Demanded Budget</span>
                                                                 </div>
                                                             </figure>

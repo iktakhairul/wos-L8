@@ -13,7 +13,7 @@
 
 <div class="row">
     <div class="container">
-        <h4>Job Details</h4>
+        <h4>Submit Proposal To Job Post Owner</h4>
         <div class="card mx-auto">
 
             <div class="row">
@@ -27,7 +27,8 @@
                                             <h2>{{ $job_post->title ?? ''}}</h2>
                                         </div>
                                         <div class="col-sm-3 text-right">
-                                            <a href="{{ route('profile.find-jobs') }}"><i class="fa fa-lg fa-arrow-left"></i></a>
+                                            <a class="mr-4" href="{{ route('profile.find-jobs') }}"><i class="fa fa-lg fa-arrow-left"></i></a>
+                                            <a class="" data-toggle="collapse" href="#collapseMyJobInfo{{$job_post->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                         </div>
                                     </div>
                                     <h5>Service Category: {{ $job_post->service_category->name ?? ''}}, Budget: {{ $job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
@@ -40,23 +41,25 @@
                                         {{$job_post->postal_code ?? ''}}
                                     </p>
 
-                                    <p class="font-weight-bold">Job Description</p>
-                                    <div class="mb-2">{!!html_entity_decode($job_post->description)!!}</div>
-                                    <div class="photo-box">
-                                        <img id="logo" src="{{ $job_post->job_image ?? '' ? asset('img/'.$job_post->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
-                                    </div>
-
-                                    <p class="font-weight-bold mt-4">Tags</p>
-                                    @if(!empty($job_post->tags))
-                                        <div class="mb-3">
-                                            @foreach(explode(',',$job_post->tags) as $tag)
-                                                <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
-                                            @endforeach
+                                    <div class="collapse" id="collapseMyJobInfo{{$job_post->id}}">
+                                        <p class="font-weight-bold">Job Description</p>
+                                        <div class="mb-2">{!!html_entity_decode($job_post->description)!!}</div>
+                                        <div class="photo-box">
+                                            <img id="logo" src="{{ $job_post->job_image ?? '' ? asset('img/'.$job_post->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                         </div>
-                                    @else
-                                        <p>{{ $job_post->tags ?? 'No tags found!'}}</p>
-                                    @endif
-                                    <hr>
+
+                                        <p class="font-weight-bold mt-4">Tags</p>
+                                        @if(!empty($job_post->tags))
+                                            <div class="mb-3">
+                                                @foreach(explode(',',$job_post->tags) as $tag)
+                                                    <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                        @else
+                                            <p>{{ $job_post->tags ?? 'No tags found!'}}</p>
+                                        @endif
+                                        <hr>
+                                    </div>
                                     <h4>Write Proposal</h4>
                                     <br>
                                     @if(empty($own_response))
