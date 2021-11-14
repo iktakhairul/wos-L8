@@ -77,18 +77,6 @@ class JobTimelineController extends Controller
 
         return redirect()->route('profile.job-posts.index')->with('success', "Job order successfully placed.");
     }
-    /**
-     * Show the specified resource.
-     *
-     * @param $id
-     * @return int
-     */
-    public function show($id)
-    {
-        $user = DB::table('job_timelines')->where('id', $id)->first();
-
-        return 0;
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -106,11 +94,10 @@ class JobTimelineController extends Controller
     /**
      * Update specified resource in storage.
      *
-     * @param $subdomain
      * @param Request $request
      * @return null
      */
-    public function update($subdomain, Request $request)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',

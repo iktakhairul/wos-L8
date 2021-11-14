@@ -10,10 +10,9 @@
 <div class="row">
     <div class="container">
         <h4 class="mt-2">
-            Job Post List
+            My Job Post List
             <a class="btn btn-sm btn-outline-info pull-right" href="{{ route('profile.job-posts.create') }}">Create Job Post</a>
         </h4>
-
         <div class="row">
             <div class="col-12">
                 <ul class="list-group">
@@ -26,7 +25,6 @@
                                         <div class="col">
                                             <h2>{{ $index->title ?? ''}}</h2>
                                         </div>
-
                                         @if(!empty($my_orders->firstWhere('job_post_id', $index->id)))
                                             <div class="col-sm-1 text-right">
                                                 <a class="" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -37,7 +35,6 @@
                                                 <a class="ml-2" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @endif
-
                                     </div>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
@@ -48,14 +45,12 @@
                                         {{$index->division->name ?? ''}},
                                         {{$index->postal_code ?? ''}}
                                     </p>
-
                                     <div class="collapse" id="collapseMyJobInfo{{$index->id}}">
                                         <p class="font-weight-bold">Job Description</p>
                                         <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>
                                         <div class="photo-box">
                                             <img id="logo" src="{{ $index->job_image ?? '' ? asset('img/'.$index->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                         </div>
-
                                         <p class="font-weight-bold mt-4">Tags</p>
                                         @if(!empty($index->tags))
                                             <div class="mb-3">
@@ -90,8 +85,12 @@
                                                                             <span class="fa fa-star" style="color: orange;"></span>
                                                                             <span class="fa fa-star"></span>
                                                                         </p>
-                                                                        @if($my_orders->firstWhere('job_response_id', $job_response->id))
+                                                                        @if($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '1.confirm_order')
                                                                             <a href="" class="btn btn-sm btn-outline-primary active">Placed Order</a>
+                                                                            <a href="{{ route('profile.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>
+                                                                        @elseif($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '0.canceled_order')
+                                                                            <a href="" class="btn btn-sm btn-outline-info active">Order Canceled</a>
+                                                                            <a href="{{ route('profile.job-post-responses.reconfirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Reconfirm Proposal</a>
                                                                         @else
                                                                             <a href="{{ route('profile.job-post-responses.confirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Confirm Proposal</a>
                                                                         @endif

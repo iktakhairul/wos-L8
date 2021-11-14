@@ -37,7 +37,7 @@ class JobPostController extends Controller
 
         $my_orders = JobTimeline::where('job_post_user_id', auth()->user()['id'])->get();
 
-        return view('web.user.job_post.job_post_list', compact('job_posts', 'my_orders'));
+        return view('web.user.job_post.my_job_post_list', compact('job_posts', 'my_orders'));
     }
 
     /**
@@ -153,19 +153,6 @@ class JobPostController extends Controller
         DB::table('job_posts')->insert($data);
 
         return redirect()->route('profile.job-posts.index')->with('success', "Job Post successfully created!");
-    }
-
-    /**
-     * Show the specified resource.
-     *
-     * @param $id
-     * @return int
-     */
-    public function show($id)
-    {
-        $user = DB::table('job_posts')->where('id', $id)->first();
-
-        return 0;
     }
 
     /**

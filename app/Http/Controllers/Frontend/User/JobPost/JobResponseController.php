@@ -23,7 +23,7 @@ class JobResponseController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a job post layout view.
      *
      * @return View
      */
@@ -34,7 +34,7 @@ class JobResponseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Confirm job proposal to worker for individual resource.
      *
      * @return view
      */
@@ -45,6 +45,42 @@ class JobResponseController extends Controller
         $editRow = null;
 
         return view('web.user.job_post.confirm_proposal_to_worker', compact('job_response','editRow','service_categories'));
+    }
+
+    /**
+     * Confirm job proposal to worker for individual resource.
+     *
+     * @return null
+     */
+    public function reconfirm_proposal_for_worker($id)
+    {
+        DB::table('job_responses')->where('id', $id)->update(['status' => '1.confirm_order']);
+
+        return redirect()->back()->with('message', 'Order reconfirmed');
+    }
+
+    /**
+     * Cancel job order to worker for individual resource.
+     *
+     * @return null
+     */
+    public function cancel_order_to_worker($id)
+    {
+        DB::table('job_responses')->where('id', $id)->update(['status' => '0.canceled_order']);
+
+        return redirect()->back()->with('message', 'Order has been canceled.');
+    }
+
+    /**
+     * Cancel job proposal to owner for individual resource.
+     *
+     * @return null
+     */
+    public function cancel_job_proposal_to_job_owner($id)
+    {
+        DB::table('job_responses')->where('id', $id)->update(['status' => '0.canceled_proposal']);
+
+        return redirect()->back()->with('message', 'Order has been canceled.');
     }
 
     /**
@@ -74,7 +110,6 @@ class JobResponseController extends Controller
         return redirect()->back()->with('success', "Job Post successfully created!");
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,7 +126,7 @@ class JobResponseController extends Controller
     /**
      * Update specified resource in storage.
      *
-     * @param $subdomain
+     * @param $id
      * @param Request $request
      * @return null
      */
@@ -148,5 +183,16 @@ class JobResponseController extends Controller
         DB::table('job_responses')->where('id', $id)->delete();
 
         return redirect()->back()->with('Job Post has been deleted.');
+    }
+    /**
+     * Reconfirm job proposal to worker for individual resource.
+     *
+     * @return null
+     */
+    public function resubmit_a_proposal($id)
+    {
+        DB::table('job_responses')->where('id', $id)->update(['status' => 'active']);
+
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
     }
 }

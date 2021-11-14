@@ -6,6 +6,8 @@ use App\Http\Controllers\Frontend\User\Business\BusinessController;
 use App\Http\Controllers\Frontend\User\JobPost\JobPostController;
 use App\Http\Controllers\Frontend\User\JobPost\JobResponseController;
 use App\Http\Controllers\Frontend\User\JobPost\JobTimelineController;
+use App\Http\Controllers\Frontend\User\JobPost\PendingProposalController;
+
 
 // profile related all routes
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth','user']], function () {
@@ -28,11 +30,18 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     // Job Posts
     Route::resource('job-posts', JobPostController::class);
     Route::get('job-posts/{id}/submit-a-proposal', [JobPostController::class, 'submit_a_proposal'])->name('job-posts.submit-a-proposal');
+    Route::get('job-posts/{id}/resubmit-a-proposal', [JobResponseController::class, 'resubmit_a_proposal'])->name('job-posts.resubmit-a-proposal');
 
     // Job Post Responses
     Route::resource('job-post-responses', JobResponseController::class);
     Route::get('job-post-responses/{id}/confirm-proposal', [JobResponseController::class, 'confirm_proposal_for_worker'])->name('job-post-responses.confirm-proposal');
+    Route::get('job-post-responses/{id}/reconfirm-proposal', [JobResponseController::class, 'reconfirm_proposal_for_worker'])->name('job-post-responses.reconfirm-proposal');
+    Route::get('job-post-responses/{id}/cancel-order', [JobResponseController::class, 'cancel_order_to_worker'])->name('job-post-responses.cancel-order');
+    Route::get('job-post-responses/{id}/cancel-job-proposal', [JobResponseController::class, 'cancel_job_proposal_to_job_owner'])->name('job-post-responses.cancel-job-proposal');
 
     // Job Post Timeline
     Route::resource('job-timelines', JobTimelineController::class);
+
+    // My Pending Proposal
+    Route::resource('pending-proposal', PendingProposalController::class);
 });

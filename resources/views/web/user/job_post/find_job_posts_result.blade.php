@@ -38,10 +38,16 @@
                                         <div class="col">
                                             <h2>{{ $index->title ?? ''}}</h2>
                                         </div>
-                                        @if(!empty($own_responses) && !empty($own_responses->firstWhere('job_post_id', '==', $index->id)))
+
+                                        @if(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id))  && $own->status !== '0.canceled_proposal')
                                             <div class="col-sm-3 text-right">
                                                 <a class="btn btn-primary" href="#">Submitted</a>
-
+                                                <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                            </div>
+                                        @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')
+                                            <div class="col-sm-4 text-right">
+                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to submit this job offer ?')">Resubmit Your Proposal</a>
+                                                <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @else
                                             <div class="col-sm-3 text-right">
@@ -50,6 +56,7 @@
                                             </div>
                                         @endif
                                     </div>
+                                    <p><i class="fa fa-user mr-2"></i>{{ $index->user->name }}</p>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
                                     <p><i class="fa-solid fa-location-dot"></i>
