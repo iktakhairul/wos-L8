@@ -67,6 +67,7 @@ class JobTimelineController extends Controller
             'job_post_id'         => $request['job_post_id'],
             'job_response_id'     => $request['job_response_id'],
             'job_post_user_id'    => auth()->user()['id'],
+            'job_worker_user_id'  => $request['job_worker_user_id'],
             'comments'            => $request['comments'],
             'status'              => '1.place_order',
             'created_at'          => Carbon::now(),

@@ -92,6 +92,7 @@
                                                     {{ $job_response->user->user_profile->present_division->name ?? ''}},
                                                     {{ $job_response->user->user_profile->present_postal_code ?? ''}}</p>
 
+                                                <p>Contact: <span class="font-weight-bold">{{ !empty($job_response->user->contact_number) ? $job_response->user->contact_number : $job_response->user->email }}</span></p>
                                                 <p class="font-weight-bold">Description</p>
                                                 <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
 
@@ -134,6 +135,7 @@
 
                                                     <input type="text" class="hide" hidden name="job_post_id" value="{{ !empty($job_response->job_post) ? $job_response->job_post->id : '' }}">
                                                     <input type="text" class="hide" hidden name="job_response_id" value="{{ $job_response->id }}">
+                                                    <input type="text" class="hide" hidden name="job_worker_user_id" value="{{ $job_response->user_id }}">
 
                                                     {{--Row--}}
                                                     <div class="form-row form-group">

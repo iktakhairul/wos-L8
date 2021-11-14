@@ -18,6 +18,7 @@ class CreateJobTimelinesTable extends Migration
             $table->integer('job_post_id')->nullable();
             $table->integer('job_response_id')->nullable();
             $table->integer('job_post_user_id')->nullable();
+            $table->integer('job_worker_user_id')->nullable();
             $table->text('comments')->nullable();
             $table->double('ratings', 5, 2)->nullable();
             $table->string('status')->nullable();

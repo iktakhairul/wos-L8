@@ -7,10 +7,8 @@ use App\Models\Profile\JobPost\JobPost;
 use App\Models\Profile\JobPost\JobResponses;
 use App\Models\Profile\JobPost\JobTimeline;
 use App\Models\Profile\JobPost\ServiceCategory;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class JobPostController extends Controller

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\User\Profile\ProfileController;
 use App\Http\Controllers\Frontend\User\Business\BusinessController;
+use App\Http\Controllers\Frontend\User\JobPost\MyWorkController;
 use App\Http\Controllers\Frontend\User\JobPost\JobPostController;
 use App\Http\Controllers\Frontend\User\JobPost\JobResponseController;
 use App\Http\Controllers\Frontend\User\JobPost\JobTimelineController;
@@ -44,4 +45,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 
     // My Pending Proposal
     Route::resource('pending-proposal', PendingProposalController::class);
+
+    // My Pending Proposal
+    Route::resource('my-works', MyWorkController::class);
 });
