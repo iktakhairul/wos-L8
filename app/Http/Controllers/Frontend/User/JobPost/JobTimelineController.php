@@ -73,7 +73,7 @@ class JobTimelineController extends Controller
         ];
 
         DB::table('job_timelines')->insert($data);
-        DB::table('job_responses')->where('id',$request['job_response_id'])->update(['status' => '1.confirm_order']);
+        DB::table('job_responses')->where('id',$request['job_response_id'])->update(['status' => '1.confirm_order', 'updated_at' => now()]);
 
         return redirect()->route('profile.job-posts.index')->with('success', "Job order successfully placed.");
     }
@@ -85,9 +85,9 @@ class JobTimelineController extends Controller
      */
     public function start_working($id)
     {
-        DB::table('job_timelines')->where('id', $id)->update(['status' => '2.start_working']);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '2.start_working', 'updated_at' => now()]);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Start working');
     }
 
     /**
@@ -98,9 +98,9 @@ class JobTimelineController extends Controller
     public function done_the_job($id)
     {
 
-        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_worker']);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_worker', 'updated_at' => now()]);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Work done from worker, need confirmation.');
     }
 
     /**
@@ -110,9 +110,9 @@ class JobTimelineController extends Controller
      */
     public function work_done_from_owner($id)
     {
-        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_owner']);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_owner', 'updated_at' => now()]);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Work done confirmed by job owner.');
     }
 
     /**
@@ -122,9 +122,9 @@ class JobTimelineController extends Controller
      */
     public function payment_done_from_owner($id)
     {
-        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_done_from_owner']);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_done_from_owner', 'updated_at' => now()]);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Payment done from owner, need confirmation.');
     }
 
     /**
@@ -134,9 +134,9 @@ class JobTimelineController extends Controller
      */
     public function payment_confirmation_from_worker($id)
     {
-        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_confirmed_by_worker']);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_confirmed_by_worker', 'updated_at' => now()]);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Payment confirmed by worker.');
     }
 
     /**
@@ -147,8 +147,27 @@ class JobTimelineController extends Controller
      */
     public function ratings_and_comments_to_worker(Request $request)
     {
-        dd($request->all());
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        $this->validate($request, [
+            'job_timeline_id'    => 'required|numeric',
+            'job_worker_user_id' => 'required|numeric',
+            'comments'           => 'required',
+            'ratings'            => 'required',
+        ]);
+
+        $data = [
+            'job_timeline_id'    => $request['job_timeline_id'],
+            'job_post_user_id'   => auth()->user()['id'],
+            'job_worker_user_id' => $request['job_worker_user_id'],
+            'type'               => 'job_worker',
+            'comments'           => $request['comments'],
+            'ratings'            => $request['ratings'],
+            'created_at'         => now(),
+        ];
+
+        DB::table('ratings')->insert($data);
+        DB::table('job_timelines')->where('id', $request['job_timeline_id'])->update(['status' => '5.complete_from_owner', 'updated_at' => now()]);
+
+        return redirect()->back()->with('message', 'Thank you, this job has been completed.');
     }
 
     /**
@@ -159,7 +178,26 @@ class JobTimelineController extends Controller
      */
     public function ratings_and_comments_to_owner(Request $request)
     {
-        dd($request->all());
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        $this->validate($request, [
+            'job_timeline_id'    => 'required|numeric',
+            'job_post_user_id'   => 'required|numeric',
+            'comments'           => 'required',
+            'ratings'            => 'required',
+        ]);
+
+        $data = [
+            'job_timeline_id'    => $request['job_timeline_id'],
+            'job_post_user_id'   => $request['job_post_user_id'],
+            'job_worker_user_id' => auth()->user()['id'],
+            'type'               => 'job_owner',
+            'comments'           => $request['comments'],
+            'ratings'            => $request['ratings'],
+            'created_at'         => now(),
+        ];
+
+        DB::table('ratings')->insert($data);
+        DB::table('job_timelines')->where('id', $request['job_timeline_id'])->update(['status' => '5.complete_from_worker', 'updated_at' => now()]);
+
+        return redirect()->back()->with('message', 'Thank you, this job has been completed.');
     }
 }

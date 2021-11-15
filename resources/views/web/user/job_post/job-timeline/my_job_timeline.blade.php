@@ -101,6 +101,10 @@
                                                                                 @elseif($job_timeline->status === '4.payment_confirmed_by_worker')
                                                                                     <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}</span>.
                                                                                     <a class="btn btn-sm btn-success" data-toggle="collapse" href="#collapseWorkerRating{{$job_timeline->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down mr-2"></i>Rating And Comments</a>
+                                                                                @elseif($job_timeline->status === '5.complete_from_owner')
+                                                                                    <span class="text-success">Complete</span>
+                                                                                @else
+                                                                                    <span class="text-success">Completed</span>
                                                                                 @endif
                                                                             </p>
                                                                         </div>
@@ -117,13 +121,14 @@
                                                                     <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.job-timelines.ratings-and-comments-to-worker') }}">
                                                                         @csrf
                                                                         <input type="text" class="hide" hidden name="job_timeline_id" value="{{ $job_timeline->id }}">
+                                                                        <input type="text" class="hide" hidden name="job_worker_user_id" value="{{ $job_response->user->id }}">
                                                                         {{--Row--}}
                                                                         <div class="form-row form-group">
                                                                             <div class="col-md-2 text-md-right">
                                                                                 <label for="comments" class="pt-2">Comments<small class="text-danger">*</small></label>
                                                                             </div>
                                                                             <div class="col-md-9">
-                                                                                <textarea class="form-control" id="comments" name="comments" placeholder="Write your work experience with {{ $my_active_work->job_post->user->name ?? 'Job Owner' }}." required="" autofocus="">{{ old('comments') }}</textarea>
+                                                                                <textarea class="form-control" id="comments" name="comments" placeholder="Write your experience with {{ $job_response->user->name?? 'Job Worker' }}." required="" autofocus="">{{ old('comments') }}</textarea>
                                                                             </div>
                                                                         </div>
                                                                         {{--Row--}}
@@ -159,7 +164,7 @@
                                                             <article class="card-group card-stat">
                                                                 <figure class="card bg">
                                                                     <div class="p-3">
-                                                                        <h4 class="title">{{ $job_response->demanded_budget ?? '' }}</h4>
+                                                                        <h4 class="title">{{ $job_response->demanded_budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h4>
                                                                         <span>Demanded Budget</span>
                                                                     </div>
                                                                 </figure>
@@ -194,7 +199,7 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">You have no active placed job post.</li>
+                        <li class="list-group-item">Your job timeline is empty right now.</li>
                     @endif
                 </ul>
                 <div class="d-flex justify-content-center">

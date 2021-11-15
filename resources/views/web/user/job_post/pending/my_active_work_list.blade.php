@@ -100,6 +100,10 @@
                                                                     @elseif($my_active_work->status === '4.payment_confirmed_by_worker')
                                                                         <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>.
                                                                         <a class="btn btn-sm btn-success" data-toggle="collapse" href="#collapseJobOwnerRating{{$my_active_work->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down mr-2"></i>Rating And Comments</a>
+                                                                    @elseif($my_active_work->status === '5.complete_from_worker')
+                                                                        <span class="text-success">Complete</span>
+                                                                    @else
+                                                                        <span class="text-success">Completed</span>
                                                                     @endif
                                                                 </p>
                                                             </div>
@@ -117,6 +121,7 @@
                                                             @csrf
 
                                                             <input type="text" class="hide" hidden name="job_timeline_id" value="{{ $my_active_work->id }}">
+                                                            <input type="text" class="hide" hidden name="job_post_user_id" value="{{ $my_active_work->job_post->user->id }}">
                                                             {{--Row--}}
                                                             <div class="form-row form-group">
                                                                 <div class="col-md-2 text-md-right">
@@ -189,7 +194,7 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">You have no active placed job post.</li>
+                        <li class="list-group-item">You have no active work right now. <a class="btn btn-success btn-sm" href="{{ route('profile.find-jobs') }}">Find Jobs</a></li>
                     @endif
                 </ul>
                 <div class="d-flex justify-content-center">

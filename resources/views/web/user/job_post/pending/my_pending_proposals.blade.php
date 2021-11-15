@@ -138,7 +138,7 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">You have no active placed job post.</li>
+                        <li class="list-group-item">You have no pending job proposal right now. <a class="text-info" href="{{ route('profile.find-jobs') }}">See all available job posts.</a></li>
                     @endif
                 </ul>
                 <div class="d-flex justify-content-center">
