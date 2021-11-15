@@ -45,6 +45,11 @@ class JobPost extends Model
         return $this->hasMany(JobTimeline::class);
     }
 
+    public function user_ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

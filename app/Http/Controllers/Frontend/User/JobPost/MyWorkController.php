@@ -28,7 +28,7 @@ class MyWorkController extends Controller
      */
     public function index()
     {
-        $my_active_works = JobTimeline::with('job_post', 'job_response')
+        $my_active_works = JobTimeline::with('job_post', 'job_response', 'user_ratings')
             ->whereHas('job_response', function($query){$query->where('user_id', auth()->user()['id'])->where('status', '=', '1.confirm_order');})
             ->where('job_worker_user_id', auth()->user()['id'])->where('status','!=','inactive')->paginate(15);
 

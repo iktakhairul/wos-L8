@@ -23,4 +23,9 @@ class JobTimeline extends Model
     {
         return $this->belongsTo(JobResponses::class);
     }
+
+    public function user_ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
 }

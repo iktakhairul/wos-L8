@@ -56,7 +56,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                    <p><i class="fa fa-user mr-2"></i>{{ $index->user->name }}</p>
+                                    <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $index->user->name }}</span></p>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
                                     <p><i class="fa-solid fa-location-dot"></i>

@@ -28,8 +28,8 @@ class JobTimelineController extends Controller
      */
     public function index()
     {
-        $my_active_job_posts = JobPost::with('job_responses', 'job_timeline')
-            ->whereHas('job_timeline', function($query){$query->where('status', '!=', 'complete');})
+        $my_active_job_posts = JobPost::with('job_responses', 'job_timeline', 'user_ratings')
+            ->whereHas('job_timeline', function($query){$query->where('status', '!=', 'inactive');})
             ->where('user_id', auth()->user()['id'])->where('status', '!=', 'inactive')->paginate(5);
 
         return view('web.user.job_post.job-timeline.my_job_timeline', compact( 'my_active_job_posts'));
@@ -150,11 +150,13 @@ class JobTimelineController extends Controller
         $this->validate($request, [
             'job_timeline_id'    => 'required|numeric',
             'job_worker_user_id' => 'required|numeric',
+            'job_post_id'        => 'required|numeric',
             'comments'           => 'required',
             'ratings'            => 'required',
         ]);
 
         $data = [
+            'job_post_id'        => $request['job_post_id'],
             'job_timeline_id'    => $request['job_timeline_id'],
             'job_post_user_id'   => auth()->user()['id'],
             'job_worker_user_id' => $request['job_worker_user_id'],
@@ -181,11 +183,13 @@ class JobTimelineController extends Controller
         $this->validate($request, [
             'job_timeline_id'    => 'required|numeric',
             'job_post_user_id'   => 'required|numeric',
+            'job_post_id'        => 'required|numeric',
             'comments'           => 'required',
             'ratings'            => 'required',
         ]);
 
         $data = [
+            'job_post_id'        => $request['job_post_id'],
             'job_timeline_id'    => $request['job_timeline_id'],
             'job_post_user_id'   => $request['job_post_user_id'],
             'job_worker_user_id' => auth()->user()['id'],

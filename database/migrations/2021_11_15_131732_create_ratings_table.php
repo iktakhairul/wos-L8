@@ -16,6 +16,7 @@ class CreateRatingsTable extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->integer('job_timeline_id')->nullable();
+            $table->integer('job_post_id')->nullable();
             $table->integer('job_post_user_id')->nullable();
             $table->integer('job_worker_user_id')->nullable();
             $table->string('type')->nullable(); // 'job_owner' or 'job_worker'

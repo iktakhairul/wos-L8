@@ -100,10 +100,11 @@
                                                                     @elseif($my_active_work->status === '4.payment_confirmed_by_worker')
                                                                         <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>.
                                                                         <a class="btn btn-sm btn-success" data-toggle="collapse" href="#collapseJobOwnerRating{{$my_active_work->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down mr-2"></i>Rating And Comments</a>
-                                                                    @elseif($my_active_work->status === '5.complete_from_worker')
+                                                                    @elseif(empty($my_active_work->user_ratings->where('job_timeline_id', $my_active_work->id)->where('type', 'job_owner')->first()))
+                                                                        <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>.
+                                                                        <a class="btn btn-sm btn-success" data-toggle="collapse" href="#collapseJobOwnerRating{{$my_active_work->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down mr-2"></i>Rating And Comments</a>
+                                                                    @elseif(!empty($my_active_work->user_ratings->where('job_timeline_id', $my_active_work->id)->where('type', 'job_owner')->first()))
                                                                         <span class="text-success">Complete</span>
-                                                                    @else
-                                                                        <span class="text-success">Completed</span>
                                                                     @endif
                                                                 </p>
                                                             </div>
@@ -119,7 +120,7 @@
                                                         <p class="font-weight-bold">Ratings and Comments to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}
                                                         <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.job-timelines.ratings-and-comments-to-owner') }}">
                                                             @csrf
-
+                                                            <input type="text" class="hide" hidden name="job_post_id" value="{{ $my_active_work->job_post->id }}">
                                                             <input type="text" class="hide" hidden name="job_timeline_id" value="{{ $my_active_work->id }}">
                                                             <input type="text" class="hide" hidden name="job_post_user_id" value="{{ $my_active_work->job_post->user->id }}">
                                                             {{--Row--}}
