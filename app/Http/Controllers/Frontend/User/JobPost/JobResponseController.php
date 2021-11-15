@@ -184,6 +184,7 @@ class JobResponseController extends Controller
 
         return redirect()->back()->with('Job Post has been deleted.');
     }
+
     /**
      * Reconfirm job proposal to worker for individual resource.
      *

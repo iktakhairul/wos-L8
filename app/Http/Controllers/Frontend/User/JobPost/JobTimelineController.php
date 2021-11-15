@@ -7,7 +7,6 @@ use App\Models\Profile\JobPost\JobPost;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class JobTimelineController extends Controller
@@ -80,81 +79,87 @@ class JobTimelineController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Start working from worker.
      *
-     * @param $id
      * @return null
      */
-    public function edit($id)
+    public function start_working($id)
     {
-        $user = DB::table('job_timelines')->find($id);
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '2.start_working']);
 
-        return view("system.users.edit", compact('user'));
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
     }
 
     /**
-     * Update specified resource in storage.
+     * Work done from worker.
+     *
+     * @return null
+     */
+    public function done_the_job($id)
+    {
+
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_worker']);
+
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+    }
+
+    /**
+     * Work done from owner.
+     *
+     * @return null
+     */
+    public function work_done_from_owner($id)
+    {
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '3.work_done_from_owner']);
+
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+    }
+
+    /**
+     * Payment owner to worker.
+     *
+     * @return null
+     */
+    public function payment_done_from_owner($id)
+    {
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_done_from_owner']);
+
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+    }
+
+    /**
+     * Payment owner to worker.
+     *
+     * @return null
+     */
+    public function payment_confirmation_from_worker($id)
+    {
+        DB::table('job_timelines')->where('id', $id)->update(['status' => '4.payment_confirmed_by_worker']);
+
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+    }
+
+    /**
+     * Ratings and comments to worker.
      *
      * @param Request $request
      * @return null
      */
-    public function update(Request $request)
+    public function ratings_and_comments_to_worker(Request $request)
     {
-        $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email' => 'required|email',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
-        ]);
-
-        $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'updated_at' => Carbon::now(),
-        ];
-
-        DB::table('job_timelines')->where('id',$request['id'])->update($data);
-
-        return redirect()->route('system.users.index')->with('success', "Job timeline has been successfully updated!");
+        dd($request->all());
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
     }
 
     /**
-     * Update specified resource status.
+     * Ratings and comments to job owner.
      *
-     * @param $id
+     * @param Request $request
      * @return null
      */
-    public function update_status($id)
+    public function ratings_and_comments_to_owner(Request $request)
     {
-        $user = DB::table('job_posts')->find($id);
-
-        if($user->status === 'active')
-        {
-            DB::table('job_timelines')->where('id', $id)->update(['status' => 'inactive']);
-        }elseif($user->status === 'inactive')
-        {
-            DB::table('job_timelines')->where('id', $id)->update(['status' => 'active']);
-        }
-
-        return back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param $id
-     * @return null
-     */
-    public function destroy($id)
-    {
-        DB::table('job_timelines')->where('id', $id)->delete();
-
-        return redirect()->back()->with('Job timeline has been deleted.');
+        dd($request->all());
+        return redirect()->back()->with('message', 'Proposal reconfirmed.');
     }
 }

@@ -40,11 +40,17 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::get('job-post-responses/{id}/cancel-order', [JobResponseController::class, 'cancel_order_to_worker'])->name('job-post-responses.cancel-order');
     Route::get('job-post-responses/{id}/cancel-job-proposal', [JobResponseController::class, 'cancel_job_proposal_to_job_owner'])->name('job-post-responses.cancel-job-proposal');
 
-    // Job Post Timeline
+    // Job Post Timeline and Process
     Route::resource('job-timelines', JobTimelineController::class);
     Route::get('job-timelines/{id}/cancel-work-to-worker', [JobTimelineController::class, 'cancel_work_to_worker'])->name('job-timelines.cancel-work-to-worker');
-    Route::get('job-timelines/{id}/start-working', [JobTimelineController::class, 'start_working'])->name('job-timelines.start-working');
     Route::get('job-timelines/{id}/cancel-work-to-job-owner', [JobTimelineController::class, 'cancel_work_to_job_owner'])->name('job-timelines.cancel-work-to-job-owner');
+    Route::get('job-timelines/{id}/start-working', [JobTimelineController::class, 'start_working'])->name('job-timelines.start-working');
+    Route::get('job-timelines/{id}/done-the-job', [JobTimelineController::class, 'done_the_job'])->name('job-timelines.done-the-job');
+    Route::get('job-timelines/{id}/work-done-from-owner', [JobTimelineController::class, 'work_done_from_owner'])->name('job-timelines.work-done-from-owner');
+    Route::get('job-timelines/{id}/payment-done-from-owner', [JobTimelineController::class, 'payment_done_from_owner'])->name('job-timelines.payment-done-from-owner');
+    Route::get('job-timelines/{id}/payment-confirmation-from-worker', [JobTimelineController::class, 'payment_confirmation_from_worker'])->name('job-timelines.payment-confirmation-from-worker');
+    Route::post('job-timelines/ratings-and-comments-to-worker', [JobTimelineController::class, 'ratings_and_comments_to_worker'])->name('job-timelines.ratings-and-comments-to-worker');
+    Route::post('job-timelines/ratings-and-comments-to-owner', [JobTimelineController::class, 'ratings_and_comments_to_owner'])->name('job-timelines.ratings-and-comments-to-owner');
 
     // My Pending Proposal
     Route::resource('pending-proposal', PendingProposalController::class);

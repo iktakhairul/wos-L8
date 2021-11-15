@@ -87,14 +87,20 @@
                                                                                     <span class="text-success">Placed Order</span>
                                                                                     <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
                                                                                 @elseif($job_timeline->status === '2.start_working')
-                                                                                    <span class="text-success">Work Started</span>
+                                                                                    <span class="text-success">Working</span>
                                                                                     <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
-                                                                                @elseif($job_timeline->status === '3.work_done')
+                                                                                @elseif($job_timeline->status === '3.work_done_from_worker')
                                                                                     <span class="text-success">Work Done</span>
+                                                                                    <a href="{{ route('profile.job-timelines.work-done-from-owner', $job_timeline->id) }}" class="btn btn-sm btn-outline-info active" onclick="return confirm('Are you sure that work is done - {{ $job_post->title }}?')">Mark As Done</a>
                                                                                     <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this work?')">Pay For Work</a>
-                                                                                @elseif($job_timeline->status === '4.ask_for_payment')
-                                                                                    <span class="text-success">Pay Now</span>
-                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+                                                                                @elseif($job_timeline->status === '3.work_done_from_owner')
+                                                                                    <span class="text-success">Work Done</span>, Please pay for work to <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}</span> and click on -
+                                                                                    <a href="{{ route('profile.job-timelines.payment-done-from-owner', $job_timeline->id) }}" class="btn btn-sm btn-outline-info">Payment Done</a>
+                                                                                @elseif($job_timeline->status === '4.payment_done_from_owner')
+                                                                                    <span class="text-success">Paid For Work</span>, (Wait for payment confirmation from worker: <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}</span>)
+                                                                                @elseif($job_timeline->status === '4.payment_confirmed_by_worker')
+                                                                                    <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}</span>.
+                                                                                    <a class="btn btn-sm btn-success" data-toggle="collapse" href="#collapseWorkerRating{{$job_timeline->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down mr-2"></i>Rating And Comments</a>
                                                                                 @endif
                                                                             </p>
                                                                         </div>
@@ -105,6 +111,36 @@
                                                                 </div>
                                                             </div>
                                                             <hr>
+                                                            <div class="collapse" id="collapseWorkerRating{{$job_timeline->id}}">
+                                                                <article class="card-body">
+                                                                    <p class="font-weight-bold">Ratings and Comments to <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}
+                                                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.job-timelines.ratings-and-comments-to-worker') }}">
+                                                                        @csrf
+                                                                        <input type="text" class="hide" hidden name="job_timeline_id" value="{{ $job_timeline->id }}">
+                                                                        {{--Row--}}
+                                                                        <div class="form-row form-group">
+                                                                            <div class="col-md-2 text-md-right">
+                                                                                <label for="comments" class="pt-2">Comments<small class="text-danger">*</small></label>
+                                                                            </div>
+                                                                            <div class="col-md-9">
+                                                                                <textarea class="form-control" id="comments" name="comments" placeholder="Write your work experience with {{ $my_active_work->job_post->user->name ?? 'Job Owner' }}." required="" autofocus="">{{ old('comments') }}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        {{--Row--}}
+                                                                        <div class="form-row form-group">
+                                                                            <div class="col-md-2 text-md-right">
+                                                                                <label for="ratings" class="pt-2">Ratings<small class="text-danger">*</small></label>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control" id="ratings" name="ratings" value="{{ old('ratings') }}" placeholder="4.8" required="">
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </article>
+                                                            </div>
                                                             <div class="collapse" id="collapseJobResponseInfo{{$job_response->id}}">
                                                                 <p>
                                                                     <i class="fa-solid fa-location-dot"></i>
