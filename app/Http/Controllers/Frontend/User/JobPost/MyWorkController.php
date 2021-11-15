@@ -30,7 +30,7 @@ class MyWorkController extends Controller
     {
         $my_active_works = JobTimeline::with('job_post', 'job_response')
             ->whereHas('job_response', function($query){$query->where('user_id', auth()->user()['id'])->where('status', '=', '1.confirm_order');})
-            ->where('job_worker_user_id', auth()->user()['id'])->where('status','1.place_order')->paginate(15);
+            ->where('job_worker_user_id', auth()->user()['id'])->where('status','!=','inactive')->paginate(15);
 
         return view('web.user.job_post.pending.my_active_work_list', compact( 'my_active_works'));
     }

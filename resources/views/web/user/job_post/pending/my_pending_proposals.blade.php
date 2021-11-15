@@ -106,7 +106,7 @@
                                                 <article class="card-group card-stat">
                                                     <figure class="card bg">
                                                         <div class="p-3">
-                                                            <h4 class="title">{{ $my_pending_proposal->demanded_budget ?? '' }}</h4>
+                                                            <h4 class="title">{{ $my_pending_proposal->demanded_budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h4>
                                                             <span>Demanded Budget</span>
                                                         </div>
                                                     </figure>

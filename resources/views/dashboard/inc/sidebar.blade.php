@@ -31,6 +31,21 @@
                     <a href="{{ route('dashboard.subcategories.index') }}" class="{{ $route->getName() == 'dashboard.subcategories.index' ? 'active' : '' }}"><i class="fa fa-list"></i> Subcategories</a>
                 </li>
             </ul>
+
+            {{--User Reports--}}
+            <a data-toggle="collapse" href="#report_submenu" type="button"><i class="fa fa-minus-circle"></i> User Reports</a>
+            <ul class="list-group ml-4 collapse {{ $route->getName() == 'dashboard.reports.job-post-reports' || $route->getName() == 'dashboard.reports.job-owner-reports' || $route->getName() == 'dashboard.reports.job-worker-reports' ? 'show' : '' }}" id="report_submenu">
+                <li class=>
+                    <a class="{{ $route->getName() == 'dashboard.reports.job-post-reports' ? 'active' : '' }}" href="{{ route('dashboard.reports.job-post-reports') }}"><i class="fa fa-info mr-2"></i> Job Post</a>
+                </li>
+                <li>
+                    <a class="{{ $route->getName() == 'dashboard.reports.job-owner-reports' ? 'active' : '' }}" href="{{ route('dashboard.reports.job-owner-reports') }}"><i class="fa fa-info mr-2"></i> Job Owner</a>
+                </li>
+                <li>
+                    <a class="{{ $route->getName() == 'dashboard.reports.job-worker-reports' ? 'active' : '' }}" href="{{ route('dashboard.reports.job-worker-reports') }}"><i class="fa fa-info mr-2"></i> Worker</a>
+                </li>
+            </ul>
+
         </li>
     </ul>
 </div>

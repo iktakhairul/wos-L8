@@ -82,6 +82,21 @@
                                                                                 <span class="fa fa-star" style="color: orange;"></span>
                                                                                 <span class="fa fa-star"></span>
                                                                             </p>
+                                                                            <p>Status:
+                                                                                @if($job_timeline->status === '1.place_order')
+                                                                                    <span class="text-success">Placed Order</span>
+                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+                                                                                @elseif($job_timeline->status === '2.start_working')
+                                                                                    <span class="text-success">Work Started</span>
+                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+                                                                                @elseif($job_timeline->status === '3.work_done')
+                                                                                    <span class="text-success">Work Done</span>
+                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this work?')">Pay For Work</a>
+                                                                                @elseif($job_timeline->status === '4.ask_for_payment')
+                                                                                    <span class="text-success">Pay Now</span>
+                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+                                                                                @endif
+                                                                            </p>
                                                                         </div>
                                                                     </figure>
                                                                 </div>

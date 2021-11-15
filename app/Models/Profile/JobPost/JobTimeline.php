@@ -14,7 +14,6 @@ class JobTimeline extends Model
         'ratings',
         'status',
     ];
-
     public function job_post()
     {
         return $this->belongsTo(JobPost::class);

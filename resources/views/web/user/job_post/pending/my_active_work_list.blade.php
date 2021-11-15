@@ -70,8 +70,8 @@
                                                                 <img class="rounded-circle img-sm border" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
                                                             </div>
                                                             <div class="text">
-                                                                <strong> {{ $my_active_work->user->name ?? 'User not found!' }} </strong> <br>
-                                                                <p class="mb-2"> {{ $my_active_work->user->email ?? 'User not found!' }}</p>
+                                                                <strong> {{ $my_active_work->job_response->user->name ?? 'User not found!' }} </strong> <br>
+                                                                <p class="mb-2"> {{ $my_active_work->job_response->user->email ?? 'User not found!' }}</p>
                                                                 <p class="mb-2"> Ratings:
                                                                     <span class="fa fa-star" style="color: orange;"></span>
                                                                     <span class="fa fa-star" style="color: orange;"></span>
@@ -79,9 +79,18 @@
                                                                     <span class="fa fa-star" style="color: orange;"></span>
                                                                     <span class="fa fa-star"></span>
                                                                 </p>
-                                                                @if($my_active_work->status === 'active')
-                                                                    <a href="{{ route('profile.job-post-responses.cancel-job-proposal', $my_active_work->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this job proposal?')">Cancel Order</a>
-                                                                @endif
+                                                                <p>Status:
+                                                                    @if($my_active_work->status === '1.place_order')
+                                                                        <span class="text-success">Placed Order</span>
+                                                                        <a href="{{ route('profile.job-timelines.start-working', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are going to start working for the job - {{$my_active_work->job_post->title}}?')">Start Working</a>
+                                                                    @elseif($my_active_work->status === '2.start_working')
+                                                                        <span class="text-success">Work Started</span>
+                                                                    @elseif($my_active_work->status === '3.work_done')
+                                                                        <span class="text-success">Work Done</span>
+                                                                        <a href="{{ route('profile.job-timelines.start-working', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are going to start working for the job - {{$my_active_work->job_post->title}}?')">Ask For Payment</a>
+                                                                    @endif
+                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-job-owner', $my_active_work->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work - {{$my_active_work->job_post->title}}?')">Cancel Work</a>
+                                                                </p>
                                                             </div>
                                                         </figure>
                                                     </div>
@@ -106,7 +115,7 @@
                                                 <article class="card-group card-stat">
                                                     <figure class="card bg">
                                                         <div class="p-3">
-                                                            <h4 class="title">{{ $my_active_work->demanded_budget ?? '' }}</h4>
+                                                            <h4 class="title">{{ $my_active_work->job_response->demanded_budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h4>
                                                             <span>Demanded Budget</span>
                                                         </div>
                                                     </figure>

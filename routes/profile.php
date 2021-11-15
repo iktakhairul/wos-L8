@@ -42,6 +42,9 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 
     // Job Post Timeline
     Route::resource('job-timelines', JobTimelineController::class);
+    Route::get('job-timelines/{id}/cancel-work-to-worker', [JobTimelineController::class, 'cancel_work_to_worker'])->name('job-timelines.cancel-work-to-worker');
+    Route::get('job-timelines/{id}/start-working', [JobTimelineController::class, 'start_working'])->name('job-timelines.start-working');
+    Route::get('job-timelines/{id}/cancel-work-to-job-owner', [JobTimelineController::class, 'cancel_work_to_job_owner'])->name('job-timelines.cancel-work-to-job-owner');
 
     // My Pending Proposal
     Route::resource('pending-proposal', PendingProposalController::class);
