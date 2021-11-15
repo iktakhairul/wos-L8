@@ -30,7 +30,7 @@ class JobPostController extends Controller
      */
     public function index()
     {
-        $job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', auth()->user()['id'])
+        $job_posts = JobPost::with(['service_category', 'job_responses', 'user', 'job_timeline'])->where('user_id', auth()->user()['id'])
             ->where('status', '!=', 'inactive')->paginate(5);
 
         $my_orders = JobTimeline::where('job_post_user_id', auth()->user()['id'])->get();
@@ -41,7 +41,6 @@ class JobPostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param $id
      * @return View
      */
     public function find_job_posts()
