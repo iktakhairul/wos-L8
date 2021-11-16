@@ -8,74 +8,47 @@
                 <header class="mb-4">
                     <h4 class="card-title">Sign up</h4>
                 </header>
-                <form>
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.register') }}">
+                    @csrf
                     <div class="form-row">
                         <div class="col form-group">
-                            <label>First name</label>
-                            <input type="text" class="form-control" placeholder="">
-                        </div>
-                        <div class="col form-group">
-                            <label>Last name</label>
-                            <input type="text" class="form-control" placeholder="">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" placeholder="">
-                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="user@gmail.com">
+                        <small class="form-text text-muted">We'll never share your email without your need.</small>
                     </div>
                     <div class="form-group">
-                        <label class="custom-control custom-radio custom-control-inline">
-                            <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
-                            <span class="custom-control-label"> Male </span>
-                        </label>
-                        <label class="custom-control custom-radio custom-control-inline">
-                            <input class="custom-control-input" type="radio" name="gender" value="option2">
-                            <span class="custom-control-label"> Female </span>
-                        </label>
+                        <label for="contact_number">Contact Number</label>
+                        <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="01712345678">
+                        <small class="form-text text-muted">We'll never share your contact numner without your need.</small>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>City</label>
-                            <input type="text" class="form-control">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" minlength="8" required autocomplete="new-password" placeholder="Minimum 8 Characters" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Country</label>
-                            <select id="inputState" class="form-control">
-                                <option> Choose...</option>
-                                <option>Uzbekistan</option>
-                                <option>Russia</option>
-                                <option selected="">United States</option>
-                                <option>India</option>
-                                <option>Afganistan</option>
-                            </select>
+                            <label for="password_confirmation">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required autocomplete="new-password" minlength=8 placeholder="Minimum 8 Characters" />
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Create password</label>
-                            <input class="form-control" type="password">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Repeat password</label>
-                            <input class="form-control" type="password">
-                        </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked="" required>
+                            <div class="custom-control-label"> I am agree with <a href="#">terms and conditions</a> </div>
+                        </label>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block"> Register </button>
-                    </div>
-                    <div class="form-group">
-                        <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input"
-                                checked="">
-                            <div class="custom-control-label"> I am agree with <a href="#">terms and contitions</a> </div>
-                        </label>
                     </div>
                 </form>
             </article>
         </div>
         <p class="text-center mt-4">Have an account? <a href="{{ route('login') }}">Log In</a></p>
         <br><br>
-
 
     </section>
 @endsection

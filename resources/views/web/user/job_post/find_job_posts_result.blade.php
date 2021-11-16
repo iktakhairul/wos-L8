@@ -169,7 +169,7 @@
                         @if($profile_status === false)
                             <li class="list-group-item text-danger">
                                 Please complete your profile if you want to work.
-                                <a class="btn btn-sm btn-primary ml-2" href="{{ route('profile.profiles.edit', auth()->user()['id']) }}">Update Profile</a>
+                                <a class="btn btn-sm btn-primary ml-2" href="{{ route('profile.profiles.edit-present-info', auth()->user()['id']) }}">Update Profile</a>
                             </li>
 
                         @else

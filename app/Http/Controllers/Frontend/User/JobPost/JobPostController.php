@@ -39,6 +39,50 @@ class JobPostController extends Controller
     }
 
     /**
+     * Profiles present info upgrade.
+     *
+     * @param $id
+     * @return null
+     */
+    public function edit_present_info($id)
+    {
+        $editRow = DB::table('profiles')->find($id);
+
+        return view('web.user.job_post.profile_present_info_inputs', compact('editRow'));
+    }
+
+    /**
+     * Update profiles present info.
+     *
+     * @param Request $request
+     * @return null
+     */
+    public function update_present_info(Request $request)
+    {
+        $this->validate($request, [
+            'present_division_id' => 'required|numeric',
+            'present_district_id' => 'required|numeric',
+            'present_thana_id'    => 'required|numeric',
+            'present_postal_code' => 'required|numeric',
+            'present_address'     => 'required|string',
+        ]);
+
+        DB::table('profiles')->where('user_id', auth()->user()['id'])->update([
+            'present_division_id' => $request['present_division_id'],
+            'present_district_id' => $request['present_district_id'],
+            'present_thana_id'    => $request['present_thana_id'],
+            'present_postal_code' => $request['present_postal_code'],
+            'present_address'     => $request['present_address'],
+            'updated_at'          => now(),
+        ]);
+
+        DB::table('users')->where('id', auth()->user()['id'])->update(['complete_profile_status' => 'present_info_only']);
+
+        return redirect()->route('profile.find-jobs')->with('success', 'Job Post successfully created!');
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return View
@@ -50,7 +94,7 @@ class JobPostController extends Controller
         $service_categories = [];
         $profile_status = true;
 
-        if (auth()->user()['complete_profile_status'] === 'complete') {
+        if (auth()->user()['complete_profile_status'] !== 'incomplete') {
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])->where('user_id', '!=', auth()->user()['id'])
                 ->where('status', '!=', 'inactive')
                 ->paginate(15);

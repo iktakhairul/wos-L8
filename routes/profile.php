@@ -22,11 +22,15 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::resource('businesses', BusinessController::class);
 
     // Profile Resources
-    Route::resource('profiles', BusinessController::class);
+    Route::resource('profiles', ProfileController::class);
 
     // Find Job Posts
     Route::get('find-jobs', [JobPostController::class, 'find_job_posts'])->name('find-jobs');
     Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_filter'])->name('find-jobs.service-category-filter');
+
+    // Update present info for job post.
+    Route::get('profiles/{id}/edit-present-info', [JobPostController::class, 'edit_present_info'])->name('profiles.edit-present-info');
+    Route::post('update-present-info', [JobPostController::class, 'update_present_info'])->name('update-present-info');
 
     // Job Posts
     Route::resource('job-posts', JobPostController::class);

@@ -2,16 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\WebController;
+use \App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/clear-parasites', function () {
     $exitCode = Artisan::call('optimize:clear');
     return back();
 });
-
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('/');
-
+Route::post('auth/register', [RegisterController::class, 'register'])->name('auth.register');
 Route::get('/', [WebController::class, 'index'])->name('/');
 Route::get('/home', [WebController::class, 'index'])->name('home');
 Route::get('/about-us', [WebController::class, 'about_us'])->name('about-us');

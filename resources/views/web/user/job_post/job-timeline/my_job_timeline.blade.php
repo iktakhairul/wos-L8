@@ -148,6 +148,7 @@
                                                                     </form>
                                                                 </article>
                                                             </div>
+
                                                             <div class="collapse" id="collapseJobResponseInfo{{$job_response->id}}">
                                                                 <p>
                                                                     <i class="fa-solid fa-location-dot"></i>

@@ -32,7 +32,7 @@ class ProfileController extends Controller
         $profile = Profile::where('user_id',Auth::user()->id)->first();
         return view('web.user.profile.orders', compact('profile'));
     }
-    
+
     public function wishlist()
     {
         $profile = Profile::where('user_id',Auth::user()->id)->first();
