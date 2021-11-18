@@ -3,7 +3,6 @@
  * Get current location latitude and longitude on map by calling getLocation() function.
  * The getMyLocation(); function will pass position object to initialize() function.
  */
-
 function getMyLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initialize);
@@ -12,15 +11,17 @@ function getMyLocation() {
     }
 }
 
+getMyLocation();
 
 /**
  *
  * Get Map Ready By initialize() function.
  */
-
 function initialize(position) {
 
-    getMyLocation();
+    document.getElementById('my_latitude').value = position.coords.latitude;
+    document.getElementById('my_longitude').value = position.coords.longitude;
+
     var mapOptions, map, marker, searchBox, city,
 		infoWindow = '',
 		addressEl = document.querySelector( '#map-search' ),
@@ -117,13 +118,12 @@ function initialize(position) {
 	google.maps.event.addListener( marker, "dragend", function ( event ) {
 		var lat, long, address, resultArray, citi;
 
-		console.log( 'i am dragged' );
 		lat = marker.getPosition().lat();
 		long = marker.getPosition().lng();
 
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode( { latLng: marker.getPosition() }, function ( result, status ) {
-			if ( 'OK' === status ) {  // This line can also be written like if ( status == google.maps.GeocoderStatus.OK ) {
+			if ( 'OK' === status ) {
 				address = result[0].formatted_address;
 				resultArray =  result[0].address_components;
 
@@ -131,7 +131,6 @@ function initialize(position) {
 				for( var i = 0; i < resultArray.length; i++ ) {
 					if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
 						citi = resultArray[ i ].long_name;
-						console.log( citi );
 						city.value = citi;
 					}
 				}

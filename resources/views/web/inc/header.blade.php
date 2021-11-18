@@ -114,20 +114,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ready to ship</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Trade shows</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link @if (request()->routeIs(['profile.find-jobs'])) active @endif" href="{{ route('profile.find-jobs') }}">Job Posts</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sell with us</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link @if (request()->routeIs(['profile.profiles.edit-present-info'])) active @endif" href="{{ route('profile.profiles.edit-present-info', auth()->user()['id']) }}">Update My Location</a>
+                        </li>
+                    @endauth
                 </ul>
                 <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item">

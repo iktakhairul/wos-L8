@@ -33,13 +33,7 @@
                                     </div>
                                     <h5>Service Category: {{ $job_post->service_category->name ?? ''}}, Budget: {{ $job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$job_post->start_datetime ?? ''}} - {{$job_post->end_datetime ?? ''}})</p>
-                                    <p><i class="fa-solid fa-location-dot"></i>
-                                        {{$job_post->address ?? ''}},
-                                        {{$job_post->thana->name ?? ''}},
-                                        {{$job_post->district->name ?? ''}},
-                                        {{$job_post->division->name ?? ''}},
-                                        {{$job_post->postal_code ?? ''}}
-                                    </p>
+                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{$job_post->address ?? ''}}</p>
 
                                     <div class="collapse" id="collapseMyJobInfo{{$job_post->id}}">
                                         <p class="font-weight-bold">Job Description</p>
