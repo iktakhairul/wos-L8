@@ -29,16 +29,10 @@
                                             <a class="" data-toggle="collapse" href="#collapseJobInfo{{$my_pending_proposal->job_post->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                         </div>
                                     </div>
-                                    <p><i class="fa fa-user mr-2"></i>{{ $my_pending_proposal->job_post->user->name }}</p>
+                                    <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $my_pending_proposal->job_post->user->name }}</span></p>
                                     <h5>Service Category: {{ $my_pending_proposal->job_post->service_category->name ?? ''}}, Budget: {{ $my_pending_proposal->job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$my_pending_proposal->job_post->start_datetime ?? ''}} - {{$my_pending_proposal->job_post->end_datetime ?? ''}})</p>
-                                    <p><i class="fa-solid fa-location-dot"></i>
-                                        {{$my_pending_proposal->job_post->address ?? ''}},
-                                        {{$my_pending_proposal->job_post->thana->name ?? ''}},
-                                        {{$my_pending_proposal->job_post->district->name ?? ''}},
-                                        {{$my_pending_proposal->job_post->division->name ?? ''}},
-                                        {{$my_pending_proposal->job_post->postal_code ?? ''}}
-                                    </p>
+                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{$my_pending_proposal->job_post->address ?? ''}}</p>
 
                                     <div class="collapse" id="collapseJobInfo{{$my_pending_proposal->job_post->id}}">
                                         <p class="font-weight-bold">Job Description</p>
@@ -80,7 +74,7 @@
                                                                     <span class="fa fa-star"></span>
                                                                 </p>
                                                                 @if($my_pending_proposal->status === 'active')
-                                                                    <a href="{{ route('profile.job-post-responses.cancel-job-proposal', $my_pending_proposal->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this job proposal?')">Cancel Order</a>
+                                                                    <a href="{{ route('profile.job-post-responses.cancel-job-proposal', $my_pending_proposal->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this job proposal?')">Cancel Proposal</a>
                                                                 @endif
                                                             </div>
                                                         </figure>
@@ -92,12 +86,7 @@
                                                 <hr>
                                                 <div class="collapse" id="collapseJobResponseInfo{{$my_pending_proposal->id}}">
                                                     <p>
-                                                        <i class="fa-solid fa-location-dot"></i>
-                                                        {{ $my_pending_proposal->user->user_profile->present_address ?? '' }},
-                                                        {{ $my_pending_proposal->user->user_profile->present_thana->name ?? ''}},
-                                                        {{ $my_pending_proposal->user->user_profile->present_district->name ?? 'User profile not found!' }},
-                                                        {{ $my_pending_proposal->user->user_profile->present_division->name ?? ''}},
-                                                        {{ $my_pending_proposal->user->user_profile->present_postal_code ?? ''}}
+                                                        <i class="fa-solid fa-location-dot mr-2"></i>{{ $my_pending_proposal->user->user_profile->present_address ?? $my_pending_proposal->user->user_profile->present_city. ',' . $my_pending_proposal->user->user_profile->present_country }}
                                                     </p>
                                                     <p class="font-weight-bold">Description</p>
                                                     <div class="mb-2">{!!html_entity_decode($my_pending_proposal->description)!!}</div>

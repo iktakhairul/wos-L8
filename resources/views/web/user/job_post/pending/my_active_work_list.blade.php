@@ -1,5 +1,5 @@
 @extends('web.user.job_post.index')
-@section('title', 'My Active Work List')
+@section('title', 'My Work List')
 
 @push('styles')
 
@@ -10,7 +10,7 @@
 <div class="row">
     <div class="container">
         <h4 class="mt-2">
-            My Active Work List
+            My Work List
         </h4>
 
         <div class="row">
@@ -32,13 +32,7 @@
                                     <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span></p>
                                     <h5>Service Category: {{ $my_active_work->job_post->service_category->name ?? ''}}, Budget: {{ $my_active_work->job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$my_active_work->job_post->start_datetime ?? ''}} - {{$my_active_work->job_post->end_datetime ?? ''}})</p>
-                                    <p><i class="fa-solid fa-location-dot"></i>
-                                        {{$my_active_work->job_post->address ?? ''}},
-                                        {{$my_active_work->job_post->thana->name ?? ''}},
-                                        {{$my_active_work->job_post->district->name ?? ''}},
-                                        {{$my_active_work->job_post->division->name ?? ''}},
-                                        {{$my_active_work->job_post->postal_code ?? ''}}
-                                    </p>
+                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{$my_active_work->job_post->address ?? ''}}</p>
 
                                     <div class="collapse" id="collapseJobInfo{{$my_active_work->job_post->id}}">
                                         <p class="font-weight-bold">Job Description</p>
@@ -148,14 +142,7 @@
                                                     </article>
                                                 </div>
                                                 <div class="collapse" id="collapseJobResponseInfo{{$my_active_work->id}}">
-                                                    <p>
-                                                        <i class="fa-solid fa-location-dot"></i>
-                                                        {{ $my_active_work->user->user_profile->present_address ?? '' }},
-                                                        {{ $my_active_work->user->user_profile->present_thana->name ?? ''}},
-                                                        {{ $my_active_work->user->user_profile->present_district->name ?? 'User profile not found!' }},
-                                                        {{ $my_active_work->user->user_profile->present_division->name ?? ''}},
-                                                        {{ $my_active_work->user->user_profile->present_postal_code ?? ''}}
-                                                    </p>
+                                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{ $my_active_work->job_post->user->user_profile->present_address ?? 'Not Found' }}</p>
                                                     <p class="font-weight-bold">Description</p>
                                                     <div class="mb-2">{!!html_entity_decode($my_active_work->job_response->description)!!}</div>
                                                 </div>

@@ -27,7 +27,11 @@ class CreateProfilesTable extends Migration
             $table->bigInteger('present_district_id')->nullable()->index();
             $table->bigInteger('present_thana_id')->nullable()->index();
             $table->integer('present_postal_code')->nullable();
-            $table->string('present_address')->nullable();
+            $table->string('present_latitude')->nullable();//
+            $table->string('present_longitude')->nullable();//
+            $table->string('present_city')->nullable();//
+            $table->string('present_country')->nullable();//
+            $table->string('present_address')->nullable();//
             $table->bigInteger('permanent_division_id')->nullable()->index();
             $table->bigInteger('permanent_district_id')->nullable()->index();
             $table->bigInteger('permanent_thana_id')->nullable()->index();
