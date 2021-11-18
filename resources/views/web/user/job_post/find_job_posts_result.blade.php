@@ -14,7 +14,7 @@
                 @if (request()->routeIs(['profile.find-jobs.service-category-filter']))
                     <a class="btn btn-sm btn-outline-info pull-right ml-2 @if (request()->routeIs(['profile.find-jobs'])) active @endif" href="{{ route('profile.find-jobs') }}">All Job Posts</a>
                 @endif
-                <div class="dropdown pull-right">
+                <div class="dropdown float-right">
                     <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['profile.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Category Filter</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @if(!empty($service_categories))
@@ -22,6 +22,16 @@
                                 <a class="dropdown-item" href="{{ route('profile.find-jobs.service-category-filter', $service_category->id) }}">{{ $service_category->name ?? old('service_category') }}</a>
                             @endforeach
                         @endif
+                    </div>
+                </div>
+                <div class="dropdown float-right mr-2">
+                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['profile.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 2) }}">2 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 5) }}">5 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 10) }}">10 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 50) }}">50 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('profile.find-jobs.all-jobs-in-country') }}">All Jobs In Your Country</a>
                     </div>
                 </div>
             </h4>
@@ -59,13 +69,7 @@
                                     <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $index->user->name }}</span>, Required Persons: {{ $index->required_persons ?? '' }}</p>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
-                                    <p><i class="fa-solid fa-location-dot"></i>
-                                        {{$index->address ?? ''}},
-                                        {{$index->thana->name ?? ''}},
-                                        {{$index->district->name ?? ''}},
-                                        {{$index->division->name ?? ''}},
-                                        {{$index->postal_code ?? ''}}
-                                    </p>
+                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{$index->address ?? ''}}</p>
 
                                     <div class="collapse" id="collapseMyJobInfo{{$index->id}}">
                                         <p class="font-weight-bold">Job Description</p>

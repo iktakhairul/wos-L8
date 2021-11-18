@@ -38,13 +38,7 @@
                                     </div>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
-                                    <p><i class="fa-solid fa-location-dot"></i>
-                                        {{$index->address ?? ''}},
-                                        {{$index->thana->name ?? ''}},
-                                        {{$index->district->name ?? ''}},
-                                        {{$index->division->name ?? ''}},
-                                        {{$index->postal_code ?? ''}}
-                                    </p>
+                                    <p><i class="fa-solid fa-location-dot mr-2"></i>{{$index->address ?? ''}}</p>
                                     <div class="collapse" id="collapseMyJobInfo{{$index->id}}">
                                         <p class="font-weight-bold">Job Description</p>
                                         <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>

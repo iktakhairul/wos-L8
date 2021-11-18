@@ -25,8 +25,12 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::resource('profiles', ProfileController::class);
 
     // Find Job Posts
-    Route::get('find-jobs', [JobPostController::class, 'find_job_posts'])->name('find-jobs');
-    Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_filter'])->name('find-jobs.service-category-filter');
+//    Route::get('find-jobs', [JobPostController::class, 'find_job_posts'])->name('find-jobs');
+//    Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_filter'])->name('find-jobs.service-category-filter');
+    Route::get('find-jobs', [JobPostController::class, 'find_job_posts_by_km'])->name('find-jobs');
+    Route::get('find-jobs/{km}/range-filter', [JobPostController::class, 'find_job_post_by_km_filter'])->name('find-jobs.range-filter');
+    Route::get('find-jobs/all-jobs-in-country', [JobPostController::class, 'find_job_post_by_all_jobs_in_country'])->name('find-jobs.all-jobs-in-country');
+    Route::get('find-jobs/{id}/service-category', [JobPostController::class, 'find_job_post_by_service_category_filter_with_fix_km'])->name('find-jobs.service-category-filter');
 
     // Update present info for job post.
     Route::get('profiles/{id}/edit-present-info', [JobPostController::class, 'edit_present_info'])->name('profiles.edit-present-info');
@@ -61,4 +65,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 
     // My Pending Proposal
     Route::resource('my-works', MyWorkController::class);
+
+    Route::get('test/calculate', [JobPostController::class, 'calculate_map_result'])->name('test.calculate');
+
 });

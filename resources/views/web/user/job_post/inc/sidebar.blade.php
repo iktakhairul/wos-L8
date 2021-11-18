@@ -7,7 +7,8 @@
         <a class="list-group-item @if (request()->routeIs(['profile.job-timelines.index'])) active @endif" href="{{ route('profile.job-timelines.index') }}"> My Job Timelines </a>
         @if(auth()->user()['complete_profile_status'] !== 'incomplete')
             <a class="list-group-item @if (request()->routeIs(['profile.pending-proposal.index'])) active @endif" href="{{ route('profile.pending-proposal.index') }}"> My Pending Job Proposals</a>
-            <a class="list-group-item @if (request()->routeIs(['profile.my-works.index'])) active @endif" href="{{ route('profile.my-works.index') }}"> My Active Works</a>
+            <a class="list-group-item @if (request()->routeIs(['profile.my-works.index'])) active @endif" href="{{ route('profile.my-works.index') }}"> My Works</a>
+{{--            <a class="list-group-item @if (request()->routeIs(['profile.my-works.show'])) active @endif" href="{{ route('profile.my-works.show', auth()->user()['id']) }}"> My Complete Works</a>--}}
         @endif
         <a class="list-group-item @if (request()->routeIs(['profile.setting'])) active @endif" href="{{ route('profile.setting') }}"> Settings </a>
         <a class="list-group-item" href="{{ route('logout') }}"

@@ -36,6 +36,25 @@ class MyWorkController extends Controller
     }
 
     /**
+     * Show the complete works.
+     *
+     * @param $id
+     * @return null
+     */
+    public function show($id)
+    {
+        dd(1);
+        $User_id = $id;
+        $my_complete_works = JobTimeline::with('job_post', 'job_response', 'user_ratings')
+            ->whereHas('job_response', function($query){$query->where('user_id', auth()->user()['id'])->where('status', '=', '1.confirm_order');})
+            ->where('job_worker_user_id', $id)->where('status','!=','inactive')
+            ->where('status', 'like', '5.complete_from')->paginate(15);
+
+
+        return view('web.user.job_post.pending.my_active_work_list', compact( 'my_complete_works'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param $id
