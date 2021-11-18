@@ -120,11 +120,7 @@
                                                         </div>
                                                         <div class="collapse" id="collapseJobResponseInfo{{$job_response->id}}">
                                                             <hr>
-                                                            <p><i class="fa-solid fa-location-dot"></i> {{ $job_response->user->user_profile->present_address ?? '' }},
-                                                                {{ $job_response->user->user_profile->present_thana->name ?? ''}},
-                                                                {{ $job_response->user->user_profile->present_district->name ?? 'User profile not found!' }},
-                                                                {{ $job_response->user->user_profile->present_division->name ?? ''}},
-                                                                {{ $job_response->user->user_profile->present_postal_code ?? ''}}</p>
+                                                            <p><i class="fa-solid fa-location-dot mr-2"></i> {{ $job_response->user->user_profile->present_address ?? '' }}
 
                                                             <article class="card-group card-stat">
                                                                 <figure class="card bg">

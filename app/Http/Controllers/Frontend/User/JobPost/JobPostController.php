@@ -326,7 +326,7 @@ class JobPostController extends Controller
         $own_responses = null;
         $service_categories = [];
         $profile_status = true;
-        $km = 2;
+        $km = 5;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
 
         $latitudeOne   = (float)$profile['present_latitude'] - (0.008983157 * $km);
