@@ -329,9 +329,9 @@ class JobPostController extends Controller
         $km = 5;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
 
-        $latitudeOne   = (float)$profile['present_latitude'] - (0.008983157 * $km);
+        $latitudeOne  = (float)$profile['present_latitude'] - (0.008983157 * $km);
         $latitudeTwo  = (float)$profile['present_latitude'] + (0.008983157 * $km);
-        $longitudeOne  = (float)$profile['present_longitude'] - (0.015060684 * $km);
+        $longitudeOne = (float)$profile['present_longitude'] - (0.015060684 * $km);
         $longitudeTwo = (float)$profile['present_longitude'] + (0.015060684 * $km);
 
         if (auth()->user()['complete_profile_status'] !== 'incomplete') {
@@ -364,9 +364,9 @@ class JobPostController extends Controller
         $profile_status = true;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
 
-        $latitudeOne   = (float)$profile['present_latitude'] - (0.008983157 * $km);
+        $latitudeOne  = (float)$profile['present_latitude'] - (0.008983157 * $km);
         $latitudeTwo  = (float)$profile['present_latitude'] + (0.008983157 * $km);
-        $longitudeOne  = (float)$profile['present_longitude'] - (0.015060684 * $km);
+        $longitudeOne = (float)$profile['present_longitude'] - (0.015060684 * $km);
         $longitudeTwo = (float)$profile['present_longitude'] + (0.015060684 * $km);
 
         if (auth()->user()['complete_profile_status'] !== 'incomplete') {
@@ -431,9 +431,9 @@ class JobPostController extends Controller
         $km = 2;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
 
-        $latitudeOne   = (float)$profile['present_latitude'] - (0.008983157 * $km);
+        $latitudeOne  = (float)$profile['present_latitude'] - (0.008983157 * $km);
         $latitudeTwo  = (float)$profile['present_latitude'] + (0.008983157 * $km);
-        $longitudeOne  = (float)$profile['present_longitude'] - (0.015060684 * $km);
+        $longitudeOne = (float)$profile['present_longitude'] - (0.015060684 * $km);
         $longitudeTwo = (float)$profile['present_longitude'] + (0.015060684 * $km);
 
         if (auth()->user()['complete_profile_status'] !== 'incomplete') {
