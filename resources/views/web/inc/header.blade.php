@@ -4,23 +4,10 @@
             <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-3 col-md-12">
                     <a href="/" class="brand-wrap">
-                        <span class="text-primary font-weight-bold" style="font-size: 30px">Find Work</span>
+                        <span class="text-success font-weight-bold" style="font-size: 30px">Find Work</span>
                     </a>
                 </div>
-                <div class="col-xl-6 col-lg-5 col-md-6">
-                    <form action="#" class="search-header">
-                        <div class="input-group w-100">
-                            <a class="p-2 pl-4 pr-4 border-right" href="{{ route('profile.find-jobs') }}">All Jobs</a>
-                            <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <i class="fa fa-search"></i> Search
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="col-xl-10 col-lg-4 col-md-12">
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header mr-3">
                             @auth
