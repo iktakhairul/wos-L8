@@ -6,7 +6,7 @@
         -webkit-box-orient: vertical;
     }
 </style>
-<section class="section-main padding-y" style="background-color: #ffffff">
+<section class="section-main" style=" padding-top: 50px; padding-bottom: 50px; background-color: #ffffff">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -18,9 +18,9 @@
                 <div id="carousel1_indicator" class="slider-home-banner carousel slide"
                      data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel1_indicator" data-slide-to="0" class="active bg-primary"></li>
-                        <li data-target="#carousel1_indicator" data-slide-to="1" class="bg-primary"></li>
-                        <li data-target="#carousel1_indicator" data-slide-to="2" class="bg-primary"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="0" class="active bg-secondary"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="1" class="bg-secondary"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="2" class="bg-secondary"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">

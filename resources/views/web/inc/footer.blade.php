@@ -50,7 +50,7 @@
                     </ul>
                 </aside>
             </div>
-        </section> 
+        </section>
 
         <section class="footer-bottom text-center">
 

@@ -1,16 +1,31 @@
+<style>
+    .search-job-component {
+        border-radius: 0;
+        height: 64px;
+        border: none;
+    }
+    .search-job-input[type=text]:focus {
+        border: none;
+        outline: none;
+    }
+    .search-job-options:focus {
+        border: none;
+        outline: none;
+    }
+</style>
+
 <section class="section-main padding-y" style="background-color: #ffffff">
-    <div class="container">
+    <div class="container mb-4">
         <div class="row">
             <div class="col-6 float-md-left">
-
             </div>
             <div class="col-6 float-md-right">
                 <div id="carousel1_indicator" class="slider-home-banner carousel slide"
                      data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel1_indicator" data-slide-to="0" class="active bg-primary"></li>
-                        <li data-target="#carousel1_indicator" data-slide-to="1" class="bg-primary"></li>
-                        <li data-target="#carousel1_indicator" data-slide-to="2" class="bg-primary"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="1"></li>
+                        <li data-target="#carousel1_indicator" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -34,6 +49,38 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div style="min-height: 150px; background-color: #e7faeb">
+        <div class="row" style="padding-top: 46px">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-3 text-md-center p-0 justify-content-between" style="background-color: white; width: 100%; border-top-left-radius: 5px; border-bottom-left-radius: 5px">
+                <span class="search-job-input pl-2"><i class="fa fa-search"></i></span>
+                <input type="text" class=" search-job-component search-job-input l-radius b-0 b-r" placeholder="Job Title or Keywords" style="width:85%;border-right: 1px solid #e5e7ea !important">
+            </div>
+            <div class="col-md-3 p-0 justify-content-between" style="background-color: white; width: 100%">
+                <span class="search-job-input"><i class="fa-solid fa-location-dot ml-2"></i></span>
+                <input type="text" class="search-job-component search-job-input b-0 b-r" placeholder="San Francisco, CA" style="width:85%;border-right: 1px solid #e5e7ea !important">
+            </div>
+            <div class="col-md-2 justify-content-between" style="background-color: white; width: 100%">
+                <select id="jb-category" class="js-states search-job-component search-job-options b-0" style="background-color: white; width: 100%">
+                    <option value="">Select Category &nbsp;</option>
+                    <option value="1">Accounting & Finance</option>
+                    <option value="2">Telecommunications</option>
+                    <option value="3">IT Companies</option>
+                    <option value="4">Art & Design</option>
+                    <option value="5">Automotive Jobs</option>
+                    <option value="6">Banking Jobs</option>
+                    <option value="7">Education Training</option>
+                    <option value="8">Designing & Multimedia</option>
+                </select>
+            </div>
+            <div class="col-md-2 p-0 justify-content-between">
+                <button type="button" class="search-job-component btn btn-dark r-radius full-width" style="width: 75%; border-bottom-right-radius: 5px; border-top-right-radius: 5px">Find Jobs</button>
+            </div>
+            <div class="col-md-1">
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <style>
 
 </style>
-<section class="section-main padding-y" style="background-color: #ffffff">
+<section class="section-main" style=" padding-top: 50px; padding-bottom: 50px; background-color: #ffffff">
     <div class="container">
         <div class="row">
             <div class="col-12">
