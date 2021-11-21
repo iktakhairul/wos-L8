@@ -94,6 +94,7 @@
                                         @if(count($index->job_responses) > 0)
                                             <a href="" class=""><p class="font-weight-bold">See Available Offers - [{{ count($index->job_responses) }}]</p></a>
                                             @foreach($index->job_responses as $key => $job_response)
+                                                @if($job_response->status !== '0.canceled_proposal')
                                                 <article class="card mt-2 mb-3">
                                                     <div class="card-body">
                                                         <div class="row">
@@ -151,6 +152,7 @@
                                                         </div>
                                                     </div>
                                                 </article>
+                                                @endif
                                             @endforeach
                                         @endif
                                     @else

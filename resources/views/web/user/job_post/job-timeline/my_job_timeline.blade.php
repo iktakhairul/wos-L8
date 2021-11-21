@@ -69,24 +69,17 @@
                                                                         <div class="text">
                                                                             <strong> {{ $job_response->user->name ?? 'User not found!' }} </strong> <br>
                                                                             <p class="mb-2"> {{ $job_response->user->email ?? 'User not found!' }}</p>
-                                                                            <p class="mb-2"> Ratings:
-                                                                                <span class="fa fa-star" style="color: orange;"></span>
-                                                                                <span class="fa fa-star" style="color: orange;"></span>
-                                                                                <span class="fa fa-star" style="color: orange;"></span>
-                                                                                <span class="fa fa-star" style="color: orange;"></span>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </p>
                                                                             <p>Status:
                                                                                 @if($job_timeline->status === '1.place_order')
                                                                                     <span class="text-success">Placed Order</span>
-                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+{{--                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>--}}
                                                                                 @elseif($job_timeline->status === '2.start_working')
                                                                                     <span class="text-success">Working</span>
-                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+{{--                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>--}}
                                                                                 @elseif($job_timeline->status === '3.work_done_from_worker')
                                                                                     <span class="text-success">Work Done</span>
                                                                                     <a href="{{ route('profile.job-timelines.work-done-from-owner', $job_timeline->id) }}" class="btn btn-sm btn-outline-info active" onclick="return confirm('Are you sure that work is done - {{ $job_post->title }}?')">Mark As Done</a>
-                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>
+{{--                                                                                    <a href="{{ route('profile.job-timelines.cancel-work-to-worker', $job_timeline->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work?')">Cancel Order</a>--}}
                                                                                 @elseif($job_timeline->status === '3.work_done_from_owner')
                                                                                     <span class="text-success">Work Done</span>, Please pay for work to <span class="text-info">{{ $job_response->user->name ?? 'Job Worker' }}</span> and click on -
                                                                                     <a href="{{ route('profile.job-timelines.payment-done-from-owner', $job_timeline->id) }}" class="btn btn-sm btn-outline-info">Payment Done</a>
@@ -104,6 +97,16 @@
                                                                             </p>
                                                                         </div>
                                                                     </figure>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p>Contact: <span class="font-weight-bold">{{ !empty($job_response->user->contact_number) ? $job_response->user->contact_number : $job_response->user->email }}</span></p>
+                                                                    <p class="mb-2"> Ratings:
+                                                                        <span class="fa fa-star" style="color: orange;"></span>
+                                                                        <span class="fa fa-star" style="color: orange;"></span>
+                                                                        <span class="fa fa-star" style="color: orange;"></span>
+                                                                        <span class="fa fa-star" style="color: orange;"></span>
+                                                                        <span class="fa fa-star"></span>
+                                                                    </p>
                                                                 </div>
                                                                 <div class="col-sm-1">
                                                                     <a class="float-right" data-toggle="collapse" href="#collapseJobResponseInfo{{$job_response->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -148,7 +151,6 @@
                                                                     <i class="fa-solid fa-location-dot"></i>
                                                                     {{ $job_response->user->user_profile->present_address ?? $job_response->user->user_profile->present_city. ',' . $job_response->user->user_profile->present_country }}
                                                                 </p>
-                                                                <p>Contact: <span class="font-weight-bold">{{ !empty($job_response->user->contact_number) ? $job_response->user->contact_number : $job_response->user->email }}</span></p>
                                                                 <p class="font-weight-bold">Description</p>
                                                                 <div class="mb-2">{!!html_entity_decode($job_response->description)!!}</div>
                                                                 <p>Comments: {{ $job_timeline->comments }}</p>

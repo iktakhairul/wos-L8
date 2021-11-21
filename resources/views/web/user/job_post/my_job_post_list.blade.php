@@ -81,10 +81,11 @@
                                                                         </p>
 
                                                                         @if($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '1.confirm_order')
-                                                                            <a href="" class="btn btn-sm btn-outline-primary active">Placed Order</a>
+                                                                            <p>Status: <span class="text-success">Placed Order</span>
                                                                             @if($index->job_timeline->where('job_post_id', $index->id)->where('job_response_id', $job_response->id)->first()['status'] === '1.place_order')
                                                                                 <a href="{{ route('profile.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>
                                                                             @endif
+                                                                            </p>
                                                                         @elseif($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '0.canceled_order')
                                                                             <a href="" class="btn btn-sm btn-outline-info active">Order Canceled</a>
                                                                             <a href="{{ route('profile.job-post-responses.reconfirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Reconfirm Proposal</a>

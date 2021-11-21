@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobPost;
 use App\Models\Profile\JobPost\JobResponses;
 use App\Models\Profile\JobPost\JobTimeline;
-use App\Models\Profile\JobPost\ServiceCategory;
-use App\Models\Profile\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;

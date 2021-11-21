@@ -14,6 +14,12 @@
         <div class="card mx-auto">
 
             <article class="card-body">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <small class="text-danger">{{ $error }}</small><br>
+                        <small class="text-danger">{{ 'Drug The Marker And Point Your Location Please.' }}</small><br>
+                    @endforeach
+                @endif
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.update-present-info') }}">
                     @csrf
                     <div class="form-row form-group">
