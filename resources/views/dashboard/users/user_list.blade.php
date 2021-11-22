@@ -34,28 +34,36 @@
                                 <tr>
                                     <th style="width: 55px;">Sl</th>
                                     <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Service Code</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Type</th>
+                                    <th>Domains</th>
+                                    <th>Role</th>
+                                    <th>Weight</th>
                                     <th>Status</th>
                                     <th width="100">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @if(!empty($serviceCategories))
-                                @foreach($serviceCategories as $k => $category)
+                            @if(!empty($users))
+                                @foreach($users as $k => $user)
                                 <tr>
                                     <td>{{ $k+1 }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td>{{ $category->slug }}</td>
-                                    <td>{{ $category->service_code }}</td>
-                                    <td class="text-{{ $category->status == 1 ? 'success' : 'danger' }}"><strong>{!! $category->status == 1 ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->contact_number }}</td>
+                                    <td>{{ $user->type }}</td>
+                                    <td>{{ $user->domains }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $user->weight }}</td>
+                                    <td class="text-{{ $user->status === 'active' ? 'success' : 'danger' }}"><strong>{!! $user->status === 'active' ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('dashboard.users.edit', $category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $category->name }}"><i class="fa fa-edit"></i></a>
-                                            <form action="{{ route('dashboard.users.destroy', $category->id) }}" method="POST">
+                                            <a href="{{ route('dashboard.users.edit', $user->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $user->name }}"><i class="fa fa-edit"></i></a>
+                                            <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="DELETE {{ $category->name }}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="DELETE {{ $user->name }}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
                                             </form>
                                         </div>
                                     </td>

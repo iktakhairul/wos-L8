@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = DB::table('service_categories')->get();
+        $users = DB::table('users')->get();
 
         return view('dashboard.users.user_list', compact('users'));
     }
@@ -54,27 +54,23 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email'  => 'required|email|unique:users',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'name'           => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
+            'email'          => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
+            'contact_number' => ['required', 'string', 'max:19', 'unique:users'],
         ]);
 
         $data = [
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'created_at' => Carbon::now(),
+            'name'           => $request['name'],
+            'email'          => $request['email'],
+            'contact_number' => $request['contact_number'],
+            'password'       => Hash::make('password'),
+            'status'       => !empty($request['status']) && $request['status'] === 'on' ? 'active' : 'inactive',
+            'created_at'     => Carbon::now(),
         ];
 
-        DB::table('service_categories')->insert($data);
+        DB::table('users')->insert($data);
 
-        return redirect()->route('system.users.index')->with('success', "Service category successfully created!");
+        return redirect()->route('dashboard.users.index')->with('success', 'Users successfully created!');
     }
     /**
      * Show the specified resource.
@@ -110,22 +106,17 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'email' => 'required|email',
-            'domain' => 'required',
-            'role'   => 'required',
-            'weight' => 'required',
+            'name'           => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
+            'email'          => ['nullable', 'string', 'email', 'max:255'],
+            'contact_number' => ['required', 'string', 'max:19'],
         ]);
 
-        DB::table('service_categories')->where('id', $id)->update([
-            'name'       => $request['name'],
-            'email'      => $request['email'],
-            'password'   => Hash::make('admin'),
-            'domain'     => $request['domain'],
-            'role'       => $request['role'],
-            'weight'     => $request['weight'],
-            'status'     => $request['status'],
-            'updated_at' => Carbon::now(),
+        DB::table('users')->where('id', $id)->update([
+            'name'           => $request['name'],
+            'email'          => $request['email'],
+            'contact_number' => $request['contact_number'],
+            'status'         => !empty($request['status']) && $request['status'] === 'on' ? 'active' : 'inactive',
+            'updated_at'     => Carbon::now(),
         ]);
 
         return redirect()->route('dashboard.users.index')->with('success', 'User has been successfully updated!');
