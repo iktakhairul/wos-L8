@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="contact_number">Contact Number</label>
                         <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="01712345678">
-                        <small class="form-text text-muted">We'll never share your contact numner without your need.</small>
+                        <small class="form-text text-muted">We'll never share your contact number without your need.</small>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
