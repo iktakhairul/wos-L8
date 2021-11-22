@@ -12,7 +12,7 @@
             </a>
         </li>
         <li>
-            <a class="{{ $route->getName() == 'dashboard.user.index' ? 'active' : '' }}" href="{{ route('dashboard.user.index') }}">
+            <a class="{{ $route->getName() == 'dashboard.users.index' ? 'active' : '' }}" href="{{ route('dashboard.users.index') }}">
                 <i class="fa fa-users"></i> Users
             </a>
         </li>

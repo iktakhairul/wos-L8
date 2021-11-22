@@ -30,7 +30,7 @@ class UserController extends Controller
     {
         $users = DB::table('service_categories')->get();
 
-        return view('web.user.business.business_list', compact('users'));
+        return view('dashboard.users.user_list', compact('users'));
     }
 
     /**
@@ -40,7 +40,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view("system.users.create");
+        $editRow = null;
+
+        return view('dashboard.users.user_inputs', compact('editRow'));
     }
 
     /**
@@ -82,8 +84,6 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = DB::table('service_categories')->where('id', $id)->first();
-
         return 0;
     }
 
@@ -95,9 +95,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = DB::table('service_categories')->find($id);
+        $editRow = DB::table('users')->find($id);
 
-        return view("system.users.edit", compact('user'));
+        return view('dashboard.users.user_inputs', compact('editRow'));
     }
 
     /**
@@ -107,7 +107,7 @@ class UserController extends Controller
      * @param Request $request
      * @return null
      */
-    public function update($subdomain, Request $request)
+    public function update($id, Request $request)
     {
         $this->validate($request, [
             'name'  => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
@@ -117,7 +117,7 @@ class UserController extends Controller
             'weight' => 'required',
         ]);
 
-        $data = [
+        DB::table('service_categories')->where('id', $id)->update([
             'name'       => $request['name'],
             'email'      => $request['email'],
             'password'   => Hash::make('admin'),
@@ -126,11 +126,9 @@ class UserController extends Controller
             'weight'     => $request['weight'],
             'status'     => $request['status'],
             'updated_at' => Carbon::now(),
-        ];
+        ]);
 
-        DB::table('service_categories')->where('id',$request['id'])->update($data);
-
-        return redirect()->route('system.users.index')->with('success', "Service category has been successfully updated!");
+        return redirect()->route('dashboard.users.index')->with('success', 'User has been successfully updated!');
     }
 
     /**
@@ -141,14 +139,14 @@ class UserController extends Controller
      */
     public function update_status($id)
     {
-        $user = DB::table('service_categories')->find($id);
+        $user = DB::table('users')->find($id);
 
         if($user->status === 'active')
         {
-            DB::table('service_categories')->where('id', $id)->update(['status' => 'inactive']);
+            DB::table('users')->where('id', $id)->update(['status' => 'inactive']);
         }elseif($user->status === 'inactive')
         {
-            DB::table('service_categories')->where('id', $id)->update(['status' => 'active']);
+            DB::table('users')->where('id', $id)->update(['status' => 'active']);
         }
 
         return back();
@@ -162,8 +160,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('service_categories')->where('id', $id)->delete();
+        DB::table('users')->where('id', $id)->delete();
 
-        return redirect()->back()->with('Service category has been deleted.');
+        return redirect()->back()->with('User has been deleted.');
     }
 }

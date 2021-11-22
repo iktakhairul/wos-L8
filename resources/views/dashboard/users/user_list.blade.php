@@ -1,9 +1,9 @@
 @extends('dashboard.index')
-@section('title','Service Categories')
+@section('title','Users')
 
 @section('breadcrumbs')
 
-    <li class="breadcrumb-item active"><a href="#">Service Categories</a></li>
+    <li class="breadcrumb-item active"><a href="#">Users</a></li>
 
 @endsection
 
@@ -14,8 +14,8 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-header">
-                <i class="fa fa-list"></i> Service Categories
-                <span class="pull-right"><a href="{{ route('dashboard.service-categories.create') }}" class="btn btn-sm btn-info">Create</a></span>
+                <i class="fa fa-list"></i> Users
+                <span class="pull-right"><a href="{{ route('dashboard.users.create') }}" class="btn btn-sm btn-info">Create</a></span>
             </h4>
         </div>
     </div>
@@ -51,8 +51,8 @@
                                     <td class="text-{{ $category->status == 1 ? 'success' : 'danger' }}"><strong>{!! $category->status == 1 ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('dashboard.service-categories.edit', $category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $category->name }}"><i class="fa fa-edit"></i></a>
-                                            <form action="{{ route('dashboard.service-categories.destroy', $category->id) }}" method="POST">
+                                            <a href="{{ route('dashboard.users.edit', $category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $category->name }}"><i class="fa fa-edit"></i></a>
+                                            <form action="{{ route('dashboard.users.destroy', $category->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="DELETE {{ $category->name }}" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
