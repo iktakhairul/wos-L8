@@ -78,7 +78,7 @@ class JobPostController extends Controller
 
         DB::table('users')->where('id', auth()->user()['id'])->update(['complete_profile_status' => 'present_info_only']);
 
-        return redirect()->route('profile.find-jobs')->with('success', 'Job Post successfully created!');
+        return redirect()->route('jobs.find-jobs')->with('success', 'Job Post successfully created!');
     }
 
     /**
@@ -138,7 +138,7 @@ class JobPostController extends Controller
 
         DB::table('job_posts')->insert($data);
 
-        return redirect()->route('profile.job-posts.index')->with('success', "Job Post successfully created!");
+        return redirect()->route('jobs.job-posts.index')->with('success', "Job Post successfully created!");
     }
 
     /**
@@ -199,7 +199,7 @@ class JobPostController extends Controller
 
         DB::table('job_posts')->where('id',$id)->update($data);
 
-        return redirect()->route('profile.job-posts.index')->with('success', "Job Post has been successfully updated!");
+        return redirect()->route('jobs.job-posts.index')->with('success', "Job Post has been successfully updated!");
     }
 
     /**

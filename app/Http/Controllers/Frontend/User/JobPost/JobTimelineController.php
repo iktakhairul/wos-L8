@@ -75,7 +75,7 @@ class JobTimelineController extends Controller
         DB::table('job_timelines')->insert($data);
         DB::table('job_responses')->where('id',$request['job_response_id'])->update(['status' => '1.confirm_order', 'updated_at' => now()]);
 
-        return redirect()->route('profile.job-posts.index')->with('success', "Job order successfully placed.");
+        return redirect()->route('jobs.job-posts.index')->with('success', "Job order successfully placed.");
     }
 
     /**
