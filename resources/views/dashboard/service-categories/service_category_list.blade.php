@@ -51,6 +51,7 @@
                                     <td class="text-{{ $category->status == 1 ? 'success' : 'danger' }}"><strong>{!! $category->status == 1 ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">
+                                            <a href="{{ route('dashboard.service-categories.update-status', $category->id) }}" class="btn btn-sm btn-secondary btn-{{ $category->status == 1 ? 'info' : 'warning' }}" title="{{ $category->status == 1 ? 'Deactivate ' : 'Activate ' }}" data-toggle="tooltip" data-placement="top"><i class="fa fa-{{ $category->status == 1 ? 'check-square ' : 'ban' }}"></i></a>
                                             <a href="{{ route('dashboard.service-categories.edit', $category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $category->name }}"><i class="fa fa-edit"></i></a>
                                             <form action="{{ route('dashboard.service-categories.destroy', $category->id) }}" method="POST">
                                                 {{ csrf_field() }}

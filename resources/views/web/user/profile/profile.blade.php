@@ -15,17 +15,13 @@
                     <img class="rounded-circle img-sm border" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
                 </div>
                 <div class="text">
-                    <strong> Mr. Jackson Someone </strong> <br>
-                    <p class="mb-2"> myloginname@gmail.com </p>
+                    <strong> {{ $user->name ?? 'Not Found'}} </strong> <br>
+                    <p class="mb-2"> {{ $user->email ?? 'Not Found'}} </p>
                     <a href="#" class="btn btn-light btn-sm">Edit</a>
                 </div>
             </figure>
             <hr>
-            <p>
-                <i class="fa fa-map-marker text-muted"></i> &nbsp; My address:
-                <br>
-                Tashkent city, Street name, Building 123, House 321 &nbsp
-                <a href="#" class="btn-link"> Edit</a>
+            <p><i class="fa-solid fa-location-dot mr-2"></i>My address: {{ $user->profile->present_address ?? 'Not Found'}}
             </p>
             <article class="card-group card-stat">
                 <figure class="card bg">

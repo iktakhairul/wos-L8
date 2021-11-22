@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile\Profile;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -59,16 +61,18 @@ class UserController extends Controller
             'contact_number' => ['required', 'string', 'max:19', 'unique:users'],
         ]);
 
-        $data = [
+        $user = User::create([
             'name'           => $request['name'],
             'email'          => $request['email'],
             'contact_number' => $request['contact_number'],
             'password'       => Hash::make('password'),
-            'status'       => !empty($request['status']) && $request['status'] === 'on' ? 'active' : 'inactive',
-            'created_at'     => Carbon::now(),
-        ];
+            'status'         => !empty($request['status']) && $request['status'] === 'on' ? 'active' : 'inactive',
+        ]);
 
-        DB::table('users')->insert($data);
+        $user->profile = Profile::create([
+            'user_id'           => $user->id,
+            'full_name'         => $user->name,
+        ]);
 
         return redirect()->route('dashboard.users.index')->with('success', 'Users successfully created!');
     }
@@ -152,6 +156,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         DB::table('users')->where('id', $id)->delete();
+        DB::table('profiles')->where('user_id', $id)->delete();
 
         return redirect()->back()->with('User has been deleted.');
     }

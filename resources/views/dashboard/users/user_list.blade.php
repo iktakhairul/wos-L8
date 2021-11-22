@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-header">
-                <i class="fa fa-list"></i> Users
+                <i class="fa fa-users"></i> Users
                 <span class="pull-right"><a href="{{ route('dashboard.users.create') }}" class="btn btn-sm btn-info">Create</a></span>
             </h4>
         </div>
@@ -59,6 +59,7 @@
                                     <td class="text-{{ $user->status === 'active' ? 'success' : 'danger' }}"><strong>{!! $user->status === 'active' ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">
+                                            <a href="{{ route('dashboard.users.update-status', $user->id) }}" class="btn btn-sm btn-secondary btn-{{ $user->status == 'active' ? 'info' : 'warning' }}" title="{{ $user->status == 'active' ? 'Deactivate ' : 'Activate ' }}" data-toggle="tooltip" data-placement="top"><i class="fa fa-{{ $user->status == 'active' ? 'check-square ' : 'ban' }}"></i></a>
                                             <a href="{{ route('dashboard.users.edit', $user->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $user->name }}"><i class="fa fa-edit"></i></a>
                                             <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="POST">
                                                 {{ csrf_field() }}

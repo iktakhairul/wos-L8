@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-header">
-                <i class="fa fa-list-alt"></i> {{ !empty($editRow) ? 'Edit ' . $editRow->name : 'Create Users' }}
+                <i class="fa fa-users"></i> {{ !empty($editRow) ? 'Edit ' . $editRow->name : 'Create Users' }}
                 <span class="pull-right"><a href="{{ route('dashboard.users.index') }}" class="btn btn-sm btn-info">See All</a></span>
             </h4>
         </div>

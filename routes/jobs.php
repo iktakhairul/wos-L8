@@ -8,7 +8,6 @@ use App\Http\Controllers\Frontend\User\JobPost\JobResponseController;
 use App\Http\Controllers\Frontend\User\JobPost\JobTimelineController;
 use App\Http\Controllers\Frontend\User\JobPost\PendingProposalController;
 
-// profile related all routes
 Route::group(['prefix' => 'jobs', 'as' => 'jobs.', 'middleware' => ['auth','user']], function () {
 
     // Find Job Posts

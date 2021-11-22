@@ -130,4 +130,25 @@ class ServiceCategoryController extends Controller
 
         return redirect()->back()->with('Service category has been deleted.');
     }
+
+    /**
+     * Update specified resource status.
+     *
+     * @param $id
+     * @return null
+     */
+    public function update_status($id)
+    {
+        $user = DB::table('service_categories')->find($id);
+
+        if($user->status === 1)
+        {
+            DB::table('service_categories')->where('id', $id)->update(['status' => 0]);
+        }elseif($user->status === 0)
+        {
+            DB::table('service_categories')->where('id', $id)->update(['status' => 1]);
+        }
+
+        return back();
+    }
 }
