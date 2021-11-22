@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User\JobPost;
+namespace App\Http\Controllers\Backend\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
-class ServiceCategoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Valid constructor for user resource.

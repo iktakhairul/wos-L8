@@ -17,20 +17,7 @@
             </a>
         </li>
         <li>
-            <a data-toggle="collapse" href="#submenu" type="button">
-                <i class="fa fa-circle-o"></i> Categorization
-            </a>
-            <ul class="list-group bg-dark text-light collapse {{ $route->getName() == 'dashboard.groups.index' || $route->getName() == 'dashboard.categories.index' || $route->getName() == 'dashboard.subcategories.index' ? 'show' : '' }}" id="submenu">
-                <li class="list-group-item bg-dark text-light">
-                    <a href="{{ route('dashboard.groups.index') }}" class="{{ $route->getName() == 'dashboard.groups.index' ? 'active' : '' }}"><i class="fa fa-list"></i> Groups</a>
-                </li>
-                <li class="list-group-item bg-dark text-light">
-                    <a href="{{ route('dashboard.categories.index') }}" class="{{ $route->getName() == 'dashboard.categories.index' ? 'active' : '' }}"><i class="fa fa-list"></i> Categories</a>
-                </li>
-                <li class="list-group-item bg-dark text-light">
-                    <a href="{{ route('dashboard.subcategories.index') }}" class="{{ $route->getName() == 'dashboard.subcategories.index' ? 'active' : '' }}"><i class="fa fa-list"></i> Subcategories</a>
-                </li>
-            </ul>
+            <a href="{{ route('dashboard.service-categories.index') }}" class="{{ $route->getName() == 'dashboard.service-categories.index' ? 'active' : '' }}"><i class="fa fa-list-alt"></i> Service Categories</a>
 
             {{--User Reports--}}
             <a data-toggle="collapse" href="#report_submenu" type="button"><i class="fa fa-minus-circle"></i> User Reports</a>

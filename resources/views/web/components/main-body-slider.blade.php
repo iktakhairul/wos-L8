@@ -22,7 +22,7 @@
                 <h4 class="text-muted" style="">Find great talent. Build your business. Take your career to the next level.</h4>
                 <div class="mt-4 pt-4 mb-4">
                     <button class="btn btn-lg badge-pill badge-success mb-2" style="font-weight: normal; margin-right: 15px; color: white; outline: none"><span style="padding: 6px 20px 6px 20px;">Find Talent</span></button>
-                    <a href="#" class="text-success border-success" style="font-weight: normal;"><span style="padding: 13px 40px 13px 40px; border: 1px solid green !important; border-radius: 25px">Find Work</span></a>
+                    <a href="#" class="border-success" style="font-weight: normal; color: #556B2F;"><span style="padding: 13px 40px 13px 40px; border: 1px solid green !important; border-radius: 25px">Find Work</span></a>
                 </div>
             </div>
             <div class="col-md-6 text-md-right">
