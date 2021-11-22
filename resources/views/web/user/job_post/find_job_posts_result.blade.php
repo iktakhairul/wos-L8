@@ -11,27 +11,27 @@
     <div class="container">
             <h4 class="mt-2">
                 Available Job Posts
-                @if (request()->routeIs(['profile.find-jobs.service-category-filter']))
-                    <a class="btn btn-sm btn-outline-info pull-right ml-2 @if (request()->routeIs(['profile.find-jobs'])) active @endif" href="{{ route('profile.find-jobs') }}">All Job Posts</a>
+                @if (request()->routeIs(['jobs.find-jobs.service-category-filter']))
+                    <a class="btn btn-sm btn-outline-info pull-right ml-2 @if (request()->routeIs(['jobs.find-jobs'])) active @endif" href="{{ route('jobs.find-jobs') }}">All Job Posts</a>
                 @endif
                 <div class="dropdown float-right">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['profile.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Category Filter</a>
+                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['jobs.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Category Filter</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @if(!empty($service_categories))
                         @foreach($service_categories as $key => $service_category)
-                                <a class="dropdown-item" href="{{ route('profile.find-jobs.service-category-filter', $service_category->id) }}">{{ $service_category->name ?? old('service_category') }}</a>
+                                <a class="dropdown-item" href="{{ route('jobs.find-jobs.service-category-filter', $service_category->id) }}">{{ $service_category->name ?? old('service_category') }}</a>
                             @endforeach
                         @endif
                     </div>
                 </div>
                 <div class="dropdown float-right mr-2">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['profile.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
+                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['jobs.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 2) }}">2 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 5) }}">5 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 10) }}">10 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('profile.find-jobs.range-filter', 50) }}">50 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('profile.find-jobs.all-jobs-in-country') }}">All Jobs In Your Country</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 2) }}">2 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 5) }}">5 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 10) }}">10 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 50) }}">50 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.all-jobs-in-country') }}">All Jobs In Your Country</a>
                     </div>
                 </div>
             </h4>
@@ -56,12 +56,12 @@
                                             </div>
                                         @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')
                                             <div class="col-sm-4 text-right">
-                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to resubmit this job proposal?')">Resubmit Your Proposal</a>
+                                                <a class="btn btn-primary" href="{{ route('jobs.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to resubmit this job proposal?')">Resubmit Your Proposal</a>
                                                 <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @else
                                             <div class="col-sm-3 text-right">
-                                                <a class="btn btn-primary" href="{{ route('profile.job-posts.submit-a-proposal', $index->id) }}">Submit A Proposal</a>
+                                                <a class="btn btn-primary" href="{{ route('jobs.job-posts.submit-a-proposal', $index->id) }}">Submit A Proposal</a>
                                                 <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @endif

@@ -11,7 +11,7 @@
     <div class="container">
         <h4 class="mt-2">
             My Job Post List
-            <a class="btn btn-sm btn-outline-info pull-right" href="{{ route('profile.job-posts.create') }}">Create Job Post</a>
+            <a class="btn btn-sm btn-outline-info pull-right" href="{{ route('jobs.job-posts.create') }}">Create Job Post</a>
         </h4>
         <div class="row">
             <div class="col-12">
@@ -31,7 +31,7 @@
                                             </div>
                                         @else
                                             <div class="col-sm-2 text-right">
-                                                <a href="{{ route('profile.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                                <a href="{{ route('jobs.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
                                                 <a class="ml-2" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @endif
@@ -83,14 +83,14 @@
                                                                         @if($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '1.confirm_order')
                                                                             <p>Status: <span class="text-success">Placed Order</span>
                                                                             @if($index->job_timeline->where('job_post_id', $index->id)->where('job_response_id', $job_response->id)->first()['status'] === '1.place_order')
-                                                                                <a href="{{ route('profile.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>
+                                                                                <a href="{{ route('jobs.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>
                                                                             @endif
                                                                             </p>
                                                                         @elseif($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '0.canceled_order')
                                                                             <a href="" class="btn btn-sm btn-outline-info active">Order Canceled</a>
-                                                                            <a href="{{ route('profile.job-post-responses.reconfirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Reconfirm Proposal</a>
+                                                                            <a href="{{ route('jobs.job-post-responses.reconfirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Reconfirm Proposal</a>
                                                                         @else
-                                                                            <a href="{{ route('profile.job-post-responses.confirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Confirm Proposal</a>
+                                                                            <a href="{{ route('jobs.job-post-responses.confirm-proposal', $job_response->id) }}" class="btn btn-sm btn-outline-primary">Confirm Proposal</a>
                                                                         @endif
                                                                     </div>
                                                                 </figure>

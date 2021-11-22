@@ -1,9 +1,9 @@
-@extends('dashboard.index')
-@section('title','Subcategories')
+extends('dashboard.index')
+@section('title','Categories')
 
 @section('breadcrumbs')
 
-    <li class="breadcrumb-item active"><a href="#">Subcategories</a></li>
+    <li class="breadcrumb-item active"><a href="#">Categories</a></li>
 
 @endsection
 
@@ -14,9 +14,9 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-header">
-                <i class="fa fa-list"></i> Subcategories
-                <span class="pull-right"><a href="{{ route('dashboard.subcategories.create') }}" class="btn btn-sm btn-info">Create</a></span>
-            </h4>                    
+                <i class="fa fa-list"></i> Categories
+                <span class="pull-right"><a href="{{ route('dashboard.categories.create') }}" class="btn btn-sm btn-info">Create</a></span>
+            </h4>
         </div>
     </div>
 
@@ -36,7 +36,6 @@
                                         Sl
                                     </th>
                                     <th>Group</th>
-                                    <th>Category</th>
                                     <th>Name</th>
                                     <th>Code</th>
                                     <th>Serial No</th>
@@ -46,28 +45,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @if(!empty($subcategories))
-                                @foreach($subcategories as $k => $subcategory)
+                            @if(!empty($categories))
+                                @foreach($categories as $k => $category)
                                 <tr>
                                     <td>
                                         {{ $k+1 }}
                                     </td>
-                                    <td>{{ $subcategory->group->name }}</td>
-                                    <td>{{ $subcategory->category->name }}</td>
-                                    <td>{{ $subcategory->name }}</td>
-                                    <td>{{ $subcategory->category_code }}</td>
-                                    <td>{{ $subcategory->serial_no }}</td>
-                                    <td style="max-width: 120px;">{!! $subcategory->details !!}</td>
-                                    <td class="text-{{ $subcategory->status == 1 ? 'success' : 'danger' }}"><strong>{!! $subcategory->status == 1 ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
+                                    <td>{{ $category->group->name }}</td>
+                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $category->category_code }}</td>
+                                    <td>{{ $category->serial_no }}</td>
+                                    <td style="max-width: 120px;">{!! $category->details !!}</td>
+                                    <td>{{ $category->is_featured == true ? 'Yes' : 'No' }}</td>
+                                    <td class="text-{{ $category->status == 1 ? 'success' : 'danger' }}"><strong>{!! $category->status == 1 ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
 
                                     <td>
                                         <div class="btn-group">
-                                            
-                                            <a href="{{ route('dashboard.subcategories.edit',$subcategory->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $subcategory->name }}"><i class="fa fa-edit"></i></a>
 
-                                            <a href="{{ route('dashboard.subcategories.destroy',$subcategory->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="DELETE {{ $subcategory->name }}"><i class="fa fa-trash"></i></a>
+                                            <a href="{{ route('dashboard.categories.edit',$category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="EDIT {{ $category->name }}"><i class="fa fa-edit"></i></a>
 
-                                        </div> 
+                                            <a href="{{ route('dashboard.categories.destroy',$category->id) }}" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" data-placement="top" title="DELETE {{ $category->name }}"><i class="fa fa-trash"></i></a>
+
+                                        </div>
                                     </td>
 
                                 </tr>
@@ -82,7 +81,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 @endsection
@@ -92,6 +91,9 @@
 <script type="text/javascript">
     $(document).ready(function(){
         // tooltip
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger : 'hover'
+        });
     });
 </script>
 

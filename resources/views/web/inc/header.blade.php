@@ -73,7 +73,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link @if (request()->routeIs(['profile.find-jobs'])) active @endif" href="{{ route('profile.find-jobs') }}">Job Posts</a>
+                        <a class="nav-link @if (request()->routeIs(['jobs.find-jobs'])) active @endif" href="{{ route('jobs.find-jobs') }}">Job Posts</a>
                     </li>
                     @auth
                         <li class="nav-item">

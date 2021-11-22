@@ -19,7 +19,7 @@
                         <small class="text-danger">{{ $error }}</small><br>
                     @endforeach
                 @endif
-                <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('profile.job-posts.update', $editRow->id) : route('profile.job-posts.store') }}" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('jobs.job-posts.update', $editRow->id) : route('jobs.job-posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     @if(!empty($editRow))
                         {{ method_field('PATCH') }}

@@ -76,20 +76,20 @@
                                                                 <p>Status:
                                                                     @if($my_active_work->status === '1.place_order')
                                                                         <span class="text-success">Placed Order</span>
-                                                                        <a href="{{ route('profile.job-timelines.start-working', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are going to start working for the job - {{$my_active_work->job_post->title}}?')">Start Working</a>
+                                                                        <a href="{{ route('jobs.job-timelines.start-working', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are going to start working for the job - {{$my_active_work->job_post->title}}?')">Start Working</a>
 {{--                                                                        <a href="{{ route('profile.job-timelines.cancel-work-to-job-owner', $my_active_work->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work - {{$my_active_work->job_post->title}}?')">Cancel Work</a>--}}
                                                                     @elseif($my_active_work->status === '2.start_working')
                                                                         <span class="text-success">Working</span>
-                                                                        <a href="{{ route('profile.job-timelines.done-the-job', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are done the job - {{$my_active_work->job_post->title}}?')">Work Done</a>
+                                                                        <a href="{{ route('jobs.job-timelines.done-the-job', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you are done the job - {{$my_active_work->job_post->title}}?')">Work Done</a>
 {{--                                                                        <a href="{{ route('profile.job-timelines.cancel-work-to-job-owner', $my_active_work->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work - {{$my_active_work->job_post->title}}?')">Cancel Work</a>--}}
                                                                     @elseif($my_active_work->status === '3.work_done_from_worker')
                                                                         <span class="text-success">Work Done</span>, (Wait for confirmation from <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>)
-                                                                        <a href="{{ route('profile.job-timelines.cancel-work-to-job-owner', $my_active_work->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work - {{$my_active_work->job_post->title}}?')">Cancel Work</a>
+{{--                                                                        <a href="{{ route('jobs.job-timelines.cancel-work-to-job-owner', $my_active_work->id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Would you like to cancel this work - {{$my_active_work->job_post->title}}?')">Cancel Work</a>--}}
                                                                     @elseif($my_active_work->status === '3.work_done_from_owner')
                                                                         <span class="text-success">Work Done</span>, (Wait for payment from <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span> or direct contact to job owner: <span class="text-info">{{ $my_active_work->job_post->user->contact_number ?? $my_active_work->job_post->user->email }}</span>)
                                                                     @elseif($my_active_work->status === '4.payment_done_from_owner')
                                                                         <span class="text-success">Payment Done</span>
-                                                                        <a href="{{ route('profile.job-timelines.payment-confirmation-from-worker', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you already paid for - {{$my_active_work->job_post->title}}?')">Confirm Payment</a><br>
+                                                                        <a href="{{ route('jobs.job-timelines.payment-confirmation-from-worker', $my_active_work->id) }}" class="btn btn-sm btn-success" onclick="return confirm('Are you sure that you already paid for - {{$my_active_work->job_post->title}}?')">Confirm Payment</a><br>
                                                                         (Please check your payment method that you gave to job owner <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>. If you aren't paid yet please contact to job owner: <span class="text-info">{{ $my_active_work->job_post->user->contact_number ?? $my_active_work->job_post->user->email }}</span>)
                                                                     @elseif($my_active_work->status === '4.payment_confirmed_by_worker')
                                                                         <span class="text-success">Payment Confirmed</span>, Please give rating to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span>.
@@ -112,7 +112,7 @@
                                                 <div class="collapse" id="collapseJobOwnerRating{{$my_active_work->id}}">
                                                     <article class="card-body">
                                                         <p class="font-weight-bold">Ratings and Comments to <span class="text-info">{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}
-                                                        <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.job-timelines.ratings-and-comments-to-owner') }}">
+                                                        <form class="form-horizontal" role="form" method="POST" action="{{ route('jobs.job-timelines.ratings-and-comments-to-owner') }}">
                                                             @csrf
                                                             <input type="text" class="hide" hidden name="job_post_id" value="{{ $my_active_work->job_post->id }}">
                                                             <input type="text" class="hide" hidden name="job_timeline_id" value="{{ $my_active_work->id }}">
@@ -182,7 +182,7 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">You have no active work right now. <a class="btn btn-success btn-sm" href="{{ route('profile.find-jobs') }}">Find Jobs</a></li>
+                        <li class="list-group-item">You have no active work right now. <a class="btn btn-success btn-sm" href="{{ route('jobs.find-jobs') }}">Find Jobs</a></li>
                     @endif
                 </ul>
                 <div class="d-flex justify-content-center">

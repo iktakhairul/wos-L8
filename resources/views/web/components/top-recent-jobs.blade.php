@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="container text-center">
-                    <h1>Top Recent <span class="text-success">Jobs</span></h1>
+                    <h1>Recent <span class="text-success">Jobs</span></h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <br>
