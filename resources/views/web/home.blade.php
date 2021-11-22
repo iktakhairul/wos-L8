@@ -15,8 +15,9 @@
     @include('web.components.main-body-slider')
     @include('web.components.service-categories')
     @include('web.components.top-features-job')
-    @include('web.components.top-employers')
     @include('web.components.top-recent-jobs')
+    @include('web.components.top-employers')
+
 
 </div>
 

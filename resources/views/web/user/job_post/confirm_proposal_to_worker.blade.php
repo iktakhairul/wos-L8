@@ -23,7 +23,7 @@
                                                 <h2>{{ $job_response->job_post->title ?? ''}}</h2>
                                             </div>
                                             <div class="col-sm-3 text-right">
-                                                <a class="mr-4" href="{{ route('profile.find-jobs') }}"><i class="fa fa-lg fa-arrow-left"></i></a>
+                                                <a class="mr-4" href="{{ route('jobs.find-jobs') }}"><i class="fa fa-lg fa-arrow-left"></i></a>
                                                 <a class="" data-toggle="collapse" href="#collapseMyJobInfo{{$job_response->job_post->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                                         <h4>To Worker</h4>
                                         @if(!empty($job_response))
                                             <div class="">
-                                                <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('profile.job-timelines.update', $editRow->id) : route('profile.job-timelines.store') }}" enctype="multipart/form-data">
+                                                <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('jobs.job-timelines.update', $editRow->id) : route('jobs.job-timelines.store') }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @if(!empty($editRow))
                                                         {{ method_field('PATCH') }}

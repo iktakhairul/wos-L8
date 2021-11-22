@@ -74,7 +74,7 @@
                                                                     <span class="fa fa-star"></span>
                                                                 </p>
                                                                 @if($my_pending_proposal->status === 'active')
-                                                                    <a href="{{ route('profile.job-post-responses.cancel-job-proposal', $my_pending_proposal->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this job proposal?')">Cancel Proposal</a>
+                                                                    <a href="{{ route('jobs.job-post-responses.cancel-job-proposal', $my_pending_proposal->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this job proposal?')">Cancel Proposal</a>
                                                                 @endif
                                                             </div>
                                                         </figure>
@@ -127,7 +127,7 @@
                         </li>
                         @endforeach
                     @else
-                        <li class="list-group-item">You have no pending job proposal right now. <a class="text-info" href="{{ route('profile.find-jobs') }}">See all available job posts.</a></li>
+                        <li class="list-group-item">You have no pending job proposal right now. <a class="text-info" href="{{ route('jobs.find-jobs') }}">See all available job posts.</a></li>
                     @endif
                 </ul>
                 <div class="d-flex justify-content-center">
