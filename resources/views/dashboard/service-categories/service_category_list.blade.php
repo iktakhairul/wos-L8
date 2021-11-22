@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-header">
-                <i class="fa fa-list"></i> Service Categories
+                <i class="fa fa-list-alt"></i> Service Categories
                 <span class="pull-right"><a href="{{ route('dashboard.service-categories.create') }}" class="btn btn-sm btn-info">Create</a></span>
             </h4>
         </div>
