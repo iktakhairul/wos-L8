@@ -58,27 +58,27 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            @if(Auth::check() && Auth::user()->weight >= 79.99)
+                        @if(Auth::check() && Auth::user()->weight >= 79.99)
+                            <li class="nav-item">
                                 <div class="widget-header mr-3">
-                                    <a href="{{ route('dashboard./') }}" class="widget-view">Dashboard</a>
+                                    <a href="{{ route('dashboard./') }}" class="widget-view nav-link">Dashboard</a>
                                 </div>
-                            @endif
-                        </li>
+                            </li>
+                        @endif
                         @auth
                             <li class="nav-item">
                                 <div class="widget-header mr-3">
-                                    <a href="{{ route('profile./') }}" class="widget-view @if (request()->routeIs(['profile./'])) active-hover active @endif">My profile</a>
+                                    <a href="{{ route('profile./') }}" class="widget-view nav-link @if (request()->routeIs(['profile./'])) active-hover @endif">My profile</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <div class="widget-header mr-3">
-                                    <a class="nav-link @if (request()->routeIs(['jobs.find-jobs'])) active-hover active @endif" href="{{ route('jobs.find-jobs') }}">All Jobs</a>
+                                    <a class="nav-link @if (request()->routeIs(['jobs.find-jobs'])) active-hover @endif" href="{{ route('jobs.find-jobs') }}">All Jobs</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <div class="widget-header mr-3">
-                                    <a class="nav-link @if (request()->routeIs(['profile.profiles.edit-present-info'])) active-hover active @endif" href="{{ route('profile.profiles.edit-present-info', auth()->user()['id']) }}">Update My Location</a>
+                                    <a class="nav-link @if (request()->routeIs(['profile.profiles.edit-present-info'])) active-hover @endif" href="{{ route('profile.profiles.edit-present-info', auth()->user()['id']) }}">Update My Location</a>
                                 </div>
                             </li>
                         @endauth
