@@ -1,4 +1,16 @@
 <style>
+    .card-recent-job-post-title {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .card-recent-job-post-address {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 
 </style>
 <section class="section-main" style=" padding-top: 50px; padding-bottom: 50px; background-color: #ffffff">
@@ -16,10 +28,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For TestingService Electric Line Repair with Long Job Title For TestingService Electric Line Repair with Long Job Title For TestingService Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh143/E Jamtola Rd, Dhaka, Bangladesh143/E Jamtola Rd, Dhaka, Bangladesh143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -44,10 +56,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -72,10 +84,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -104,10 +116,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -132,10 +144,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
@@ -160,10 +172,10 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-                                        <a href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                        <a href="#"><h5 class="card-title card-recent-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                         <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
                                         <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                        <span><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
+                                        <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
                                     </div>
                                     <div class="col-sm-1 text-right">
                                         <a class="" data-toggle="collapse" href="#collapseJobInfoOne" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
