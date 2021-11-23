@@ -12,6 +12,19 @@
         border: none;
         outline: none;
     }
+    #web-all-jobs-btn{
+        padding: 13px 15% 13px 15%;
+        border: 1px solid green !important;
+        font-weight: normal;
+        color: #556B2F;
+        border-radius: 25px;
+    }
+
+    #web-all-jobs-btn:hover{
+        border: 1px solid #ff6a00 !important;
+        color: #ff6a00;
+        transition-duration: .5s;
+    }
 </style>
 
 <section class="section-main padding-y" style="background-color: #ffffff">
@@ -21,8 +34,12 @@
                 <h1 class="text-success" style="font-weight: bold; font-family: Times New Roman, Times, serif;font-size: 65px">Join the worldwide find work marketplace</h1>
                 <h4 class="text-muted" style="">Find great talent. Build your business. Take your career to the next level.</h4>
                 <div class="mt-4 pt-4 mb-4">
-                    <button class="btn btn-lg badge-pill badge-success mb-2" style="font-weight: normal; margin-right: 15px; color: white; outline: none"><span style="padding: 6px 20px 6px 20px;">Find Talent</span></button>
-                    <a href="#" class="border-success" style="font-weight: normal; color: #556B2F;"><span style="padding: 13px 40px 13px 40px; border: 1px solid green !important; border-radius: 25px">Find Work</span></a>
+                    @auth
+                        <a href="{{ route('jobs.find-jobs') }}" id="web-all-jobs-btn">All Jobs</a>
+                    @endauth
+                    @guest
+                        <a href="#" id="web-all-jobs-btn">All Jobs</a>
+                    @endguest
                 </div>
             </div>
             <div class="col-md-6 text-md-right">

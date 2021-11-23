@@ -41,13 +41,6 @@
         }
     }
 
-    .header {
-        text-align: center;
-        line-height: 0.8;
-        margin-bottom: 50px;
-        margin-top: 100px;
-    }
-
     .header p {
         margin: 0 auto;
         line-height: 2;
@@ -127,6 +120,14 @@
         }
 
     }
+    .web-open-jobs{
+        color: green !important;
+    }
+
+    .web-open-jobs:hover{
+        color: #ff6a00 !important;
+        transition-duration: .3s;
+    }
 </style>
 <section class="section-main" style=" padding-top: 50px; padding-bottom: 100px; background-color: #ffffff">
     <div class="container text-center">
@@ -139,7 +140,7 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
-                    <p class="text-success">Open Jobs: 28</p>
+                    <a href="" class="web-open-jobs">Open Jobs: 28</a>
                 </div>
                 <div class="col-3 p-0">
                     <img class="rounded-circle" src="{{ asset('web/images/avatars/avatar2.jpg')}}" alt="" style="max-height: 80px">
@@ -151,7 +152,7 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
-                    <p class="text-success">Open Jobs: 03</p>
+                    <a href="" class="web-open-jobs">Open Jobs: 13</a>
                 </div>
                 <div class="col-3 p-0">
                     <img class="rounded-circle" src="{{ asset('web/images/avatars/avatar3.jpg')}}" alt="" style="max-height: 80px">
@@ -164,7 +165,7 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
-                    <p class="text-success">Open Jobs: 13</p>
+                    <a href="" class="web-open-jobs">Open Jobs: 13</a>
                 </div>
                 <div class="col-3 p-0">
                     <img class="rounded-circle" src="{{ asset('web/images/avatars/avatar2.jpg')}}" alt="" style="max-height: 80px">
@@ -178,7 +179,7 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
-                    <p class="text-success">Open Jobs: 09</p>
+                    <a href="" class="web-open-jobs">Open Jobs: 09</a>
                 </div>
                 <div class="col-3 p-0">
                     <img class="rounded-circle" src="{{ asset('web/images/avatars/avatar1.jpg')}}" alt="" style="max-height: 80px">
