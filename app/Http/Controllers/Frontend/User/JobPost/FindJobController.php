@@ -134,21 +134,13 @@ class FindJobController extends Controller
         $own_responses = null;
         $service_categories = [];
         $profile_status = true;
-        $km = 2;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
-
-        $latitudeOne  = (float)$profile['present_latitude'] - (0.008983157 * $km);
-        $latitudeTwo  = (float)$profile['present_latitude'] + (0.008983157 * $km);
-        $longitudeOne = (float)$profile['present_longitude'] - (0.015060684 * $km);
-        $longitudeTwo = (float)$profile['present_longitude'] + (0.015060684 * $km);
 
         if (auth()->user()['complete_profile_status'] !== 'incomplete') {
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
                 ->where('user_id', '!=', auth()->user()['id'])
                 ->where('service_category_id', $id)
                 ->where('status', '!=', 'inactive')
-                ->whereBetween('latitude', [$latitudeOne, $latitudeTwo])
-                ->orWhereBetween('latitude', [$longitudeOne, $longitudeTwo])
                 ->paginate(15);
 
             $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
