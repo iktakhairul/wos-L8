@@ -18,7 +18,6 @@
     @include('web.components.top-recent-jobs')
     @include('web.components.top-employers')
 
-
 </div>
 
 @endsection

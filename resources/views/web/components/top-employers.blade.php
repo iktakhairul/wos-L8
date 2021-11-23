@@ -130,7 +130,7 @@
     }
 </style>
 <section class="section-main" style=" padding-top: 50px; padding-bottom: 100px; background-color: #ffffff">
-    <div class="container text-center">
+    <div class="container mb-4 text-center">
         <h1>Check Out Top <span class="text-success">Employers</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
