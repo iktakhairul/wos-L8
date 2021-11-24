@@ -27,10 +27,10 @@
             <div class="container">
 
                 <a href="/" class="brand-wrap navbar-brand">
-                    <span class="text-success font-weight-bold" style="font-size: 30px">Find Work</span>
+                    <span id="web-header-project-title" class="text-success font-weight-bold" style="font-size: 30px">Find Work</span>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler"  id="web-header-nav-toggler-btn"type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -99,21 +99,21 @@
                             </div>
                         </li>
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item" id="main-nav-login">
                                 <div class="widget-header mt-2">
-                                    <a href="{{ route('login') }}" style="font-weight: normal; color: #556B2F;"><span style="padding: 5px 30px 5px 30px;">Log In</span></a>
+                                    <a href="{{ route('login') }}" style="font-weight: normal; color: #556B2F;"><span id="main-nav-login-span" style="padding: 5px 30px 5px 30px;">Log In</span></a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <div class="widget-header">
-                                    <a class="btn badge-pill badge-success" href="{{ route('register') }}" style="font-weight: normal; margin-right: 15px; color: white; outline: none"><span style="padding: 6px 20px 6px 20px;">Sign Up</span></a>
+                                    <a class="btn badge-pill badge-success" href="{{ route('register') }}" style="font-weight: normal; margin-right: 15px; color: white; outline: none"><span id="main-nav-sign-up-span"  style="padding: 6px 20px 6px 20px;">Sign Up</span></a>
                                 </div>
                             </li>
                         @endguest
                         @auth
                             <li class="nav-item">
                                 <div class="widget-header mt-2">
-                                    <a class="border-success" id="web-logout-btn" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
+                                    <a class="border-success" id="web-logout-btn" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
