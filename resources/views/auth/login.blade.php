@@ -10,23 +10,18 @@
                     @csrf
                     <div class="form-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address" autofocus>
+                        @if($errors->has('email'))
+                            <small class="text-danger">{{ $errors->first('email') }}</small>
+                        @endif
                     </div>
                     <div class="form-group">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                            name="password" required autocomplete="current-password">
+                            name="password" placeholder="Password"  required autocomplete="current-password">
 
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        @if($errors->has('password'))
+                            <small class="text-danger">{{ $errors->first('password') }}</small>
+                        @endif
                     </div>
 
                     <div class="form-group">

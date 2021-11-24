@@ -43,6 +43,8 @@
 
             <main id="page-content" class="page-content" style="width: 100%;">
 
+                @include('web.inc.message')
+
                 @yield('web_content')
 
             </main>

@@ -42,12 +42,18 @@
                                     @endforeach
                                 @endif
                             </select>
+                            @if($errors->has('service_category_id'))
+                                <small class="text-danger">{{ $errors->first('service_category_id') }}</small>
+                            @endif
                         </div>
                         <div class="col-md-2 text-md-right">
                             <label for="title" class="pt-2">Job Post Title<small class="text-danger">*</small></label>
                         </div>
                         <div class="col-md-4">
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ !empty($editRow) ? $editRow->title : old('title') }}" placeholder="Job Post Title" required autofocus="">
+                            @if($errors->has('title'))
+                                <small class="text-danger">{{ $errors->first('title') }}</small>
+                            @endif
                         </div>
                     </div>
                     {{--Row--}}
@@ -57,12 +63,18 @@
                         </div>
                         <div class="col-md-4">
                             <input type="number" class="form-control @error('required_persons') is-invalid @enderror" id="required_persons" name="required_persons" value="{{ !empty($editRow) ? $editRow->required_persons : old('required_persons') }}" placeholder="05" required="">
+                            @if($errors->has('required_persons'))
+                                <small class="text-danger">{{ $errors->first('required_persons') }}</small>
+                            @endif
                         </div>
                         <div class="col-md-2 text-md-right">
                             <label for="budget" class="pt-2">Budget<small class="text-danger">*</small> (in BDT)</label>
                         </div>
                         <div class="col-md-4">
                             <input type="number" class="form-control @error('budget') is-invalid @enderror" id="budget" name="budget" value="{{ !empty($editRow->budget) ? $editRow->budget : old('budget') }}" placeholder="Job Budget in BDT" required="">
+                            @if($errors->has('budget'))
+                                <small class="text-danger">{{ $errors->first('budget') }}</small>
+                            @endif
                         </div>
                     </div>
                     {{--Row--}}
@@ -72,12 +84,18 @@
                         </div>
                         <div class="col-md-4">
                             <input class="form-control @error('start_datetime') is-invalid @enderror" type="datetime-local" id="start_datetime" name="start_datetime" data-date-format="dd-mm-yyyy" required="">
+                            @if($errors->has('start_datetime'))
+                                <small class="text-danger">{{ $errors->first('start_datetime') }}</small>
+                            @endif
                         </div>
                         <div class="col-md-2 text-md-right">
                             <label for="end_datetime" class="pt-2">End Date Time</label>
                         </div>
                         <div class="col-md-4">
                             <input class="form-control @error('end_datetime') is-invalid @enderror" type="datetime-local" id="end_datetime" name="end_datetime" data-date-format="dd-mm-yyyy">
+                            @if($errors->has('end_datetime'))
+                                <small class="text-danger">{{ $errors->first('end_datetime') }}</small>
+                            @endif
                         </div>
                     </div>
                     {{--Row--}}
@@ -94,6 +112,9 @@
                                 </div>
                             @else
                                 <input type="text" id="tag-input1" class="@error('tags') is-invalid @enderror" name="tags">
+                                @if($errors->has('tags'))
+                                    <small class="text-danger">{{ $errors->first('tags') }}</small>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -106,9 +127,21 @@
                         <div class="col-md-6 text-md-center">
                             <label for="map-search" class="pt-2">Job Location<small class="text-danger">*</small></label><br>
                             <input name="address" id="map-search" value="{{ !empty($editRow->address) ? $editRow->address : old('address')}}" class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Write Address Or Search Here" style="width: 100%" required>
+                            @if($errors->has('address'))
+                                <small class="text-danger">{{ $errors->first('address') }}</small>
+                            @endif
                             <input name="latitude" id="my_latitude" type="text" class="latitude form-control" value="{{ !empty($editRow->latitude) ? $editRow->latitude : old('latitude')}}" hidden>
+                            @if($errors->has('latitude'))
+                                <small class="text-danger">{{ $errors->first('latitude') }}</small>
+                            @endif
                             <input name="longitude" id="my_longitude" type="text" class="longitude form-control" value="{{ !empty($editRow->longitude) ? $editRow->longitude : old('longitude')}}" hidden>
+                            @if($errors->has('longitude'))
+                                <small class="text-danger">{{ $errors->first('longitude') }}</small>
+                            @endif
                             <input name="city" id="my-city" type="text" class="reg-input-city form-control" placeholder="City" value="{{ !empty($editRow->city) ? $editRow->city : old('city')}}" hidden>
+                            @if($errors->has('city'))
+                                <small class="text-danger">{{ $errors->first('city') }}</small>
+                            @endif
                             <div class="form-group text-md-left">
                                     <small class="form-text text-muted">Drug the marker and select understandable address.
                                         <a class="float-right" data-toggle="collapse" href="#collapseMapHelp" role="button" aria-expanded="false" aria-controls="collapseExample">Help<i class="fa fa-angle-down fa-sm ml-1"></i></a>
