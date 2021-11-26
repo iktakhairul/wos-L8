@@ -19,6 +19,18 @@
          transition: box-shadow .6s ease-in-out;
      }
 
+     .nav-header-notification {
+         padding: 1%;
+         background-color: #e4e6eb;
+         border-radius: 50%;
+         width: 45px;
+     }
+
+     .nav-messenger-icon {
+         max-height: 30px;
+         border-radius: 40%;
+     }
+
 </style>
 <header class="section-header position-sticky fixed-top">
     <section class="header-main border-bottom p-0">
@@ -39,7 +51,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <div class="widget-header mr-3">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Services Categories</a>
+                                <a class="nav-link dropdown-toggle pt-1" data-toggle="dropdown" href="#">Services Categories</a>
                                 <div class="dropdown-menu dropdown-large">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -88,7 +100,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <div class="widget-header mr-3">
+                            <div class="widget-header">
                                 <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Russian</a>
@@ -111,6 +123,16 @@
                             </li>
                         @endguest
                         @auth
+                            <li class="nav-item mr-3 p-0 nav-header-messenger">
+                                <div class="widget-header">
+                                    <a class="nav-link p-1 @if (request()->routeIs(['profile./'])) active-hover @endif" href="{{ route('profile./')}}"><img class="nav-messenger-icon" src="{{asset('web/images/icons/messenger.png')}}" alt=""></a>
+                                </div>
+                            </li>
+                            <li class="nav-item mr-3">
+                                <div class="widget-header nav-header-notification text-center">
+                                    <a class="nav-link text-success @if (request()->routeIs(['profile./'])) active-hover @endif" href="{{ route('profile./') }}"><i class="fa fa-bell fa-lg"></i></a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <div class="widget-header mt-2">
                                     <a class="border-success" id="web-logout-btn" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
