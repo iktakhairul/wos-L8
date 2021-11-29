@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\WebController;
-use \App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Frontend\MessengerController;
+use App\Http\Controllers\Frontend\NotificationController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/clear-parasites', function () {
     $exitCode = Artisan::call('optimize:clear');
@@ -18,6 +21,8 @@ Route::get('/faq', [WebController::class, 'faq'])->name('faq');
 Route::get('/privacy-policy', [WebController::class, 'privacy_policy'])->name('privacy-policy');
 
 Auth::routes();
+Route::get('/messages', [MessengerController::class, 'index'])->name('messages');
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
 
 require __DIR__.'/profile.php';
 require __DIR__.'/dashboard.php';

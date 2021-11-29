@@ -11,10 +11,9 @@ use App\Http\Controllers\Frontend\User\JobPost\PendingProposalController;
 Route::group(['prefix' => 'jobs', 'as' => 'jobs.', 'middleware' => ['auth','user']], function () {
 
     // Find Job Posts
-    Route::get('find-jobs', [FindJobController::class, 'find_job_posts_by_km'])->name('find-jobs');
-    Route::get('find-jobs/{km}/range-filter', [FindJobController::class, 'find_job_post_by_km_filter'])->name('find-jobs.range-filter');
+    Route::get('find-jobs', [FindJobController::class, 'find_job_posts'])->name('find-jobs');
     Route::get('find-jobs/all-jobs-in-country', [FindJobController::class, 'find_job_post_by_all_jobs_in_country'])->name('find-jobs.all-jobs-in-country');
-    Route::get('find-jobs/{id}/service-category', [FindJobController::class, 'find_job_post_by_service_category_filter_with_fix_km'])->name('find-jobs.service-category-filter');
+    Route::get('find-jobs/service-category/{id}', [FindJobController::class, 'find_job_post_by_service_category_filter_with_fix_km'])->name('find-jobs.service-category-filter');
 
     // Job Posts
     Route::resource('job-posts', JobPostController::class);

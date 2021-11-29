@@ -246,7 +246,6 @@
         .header p {
             width: 30%;
         }
-
     }
     .web-open-jobs{
         color: green !important;

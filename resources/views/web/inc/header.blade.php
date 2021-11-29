@@ -18,19 +18,62 @@
          box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
          transition: box-shadow .6s ease-in-out;
      }
-
-     .nav-header-notification {
-         padding: 1%;
-         background-color: #e4e6eb;
-         border-radius: 50%;
+     .nav-header-notification-icon {
+         font-size: 20px;
          width: 45px;
      }
-
      .nav-messenger-icon {
-         max-height: 30px;
+         max-height: 28px;
          border-radius: 40%;
      }
+    .nav-header-mn-plate {
+        box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
+        transition: box-shadow .6s ease-in-out;
+        border: none;
+    }
+    @media (min-width: 950px) {
+        .nav-header-mn-plate {
+            margin-left: 60%;
+            min-height: 750px;
+        }
+        .nav-header-mn-icon {
+            font-size: 25px;
+            padding-top: 1rem !important;
+        }
+    }
 
+    @media (max-width: 950px) and (min-width: 450px) {
+        .nav-header-mn-icon {
+            font-size: 25px;
+            padding-top: 1rem !important;
+        }
+    }
+
+    @media (max-width: 767px) and (min-width: 450px) {
+        .nav-header-mn-icon {
+            font-size: 25px;
+            padding-top: .8rem !important;
+        }
+    }
+
+    @media (max-width: 450px) and (min-width: 364px) {
+        .nav-header-mn-title {
+            font-size: 20px !important;
+        }
+        .nav-header-mn-icon {
+            font-size: 15px !important;
+            padding-top: .5rem !important;
+        }
+    }
+
+    @media (max-width: 364px) {
+        .nav-header-mn-title {
+            font-size: 20px !important;
+        }
+        .nav-header-mn-icon {
+            padding-top: .5rem !important;
+        }
+    }
 </style>
 <header class="section-header position-sticky fixed-top">
     <section class="header-main border-bottom p-0">
@@ -100,7 +143,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <div class="widget-header">
+                            <div class="widget-header mr-2">
                                 <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="#">Russian</a>
@@ -123,14 +166,36 @@
                             </li>
                         @endguest
                         @auth
-                            <li class="nav-item mr-3 p-0 nav-header-messenger">
-                                <div class="widget-header">
-                                    <a class="nav-link p-1 @if (request()->routeIs(['profile./'])) active-hover @endif" href="{{ route('profile./')}}"><img class="nav-messenger-icon" src="{{asset('web/images/icons/messenger.png')}}" alt=""></a>
+                            <li class="nav-item mr-2 p-0">
+                                <div class="text-center">
+                                    <a class="nav-link p-1" data-toggle="dropdown" href="#"><img class="nav-messenger-icon float-left" src="{{asset('web/images/icons/messenger.png')}}" alt=""></a>
+                                    <div class="dropdown-menu dropdown-large nav-header-mn-plate">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <a href="#"><h2 class="nav-header-mn-title">Messenger</h2></a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a class="float-left mr-3 text-muted" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                <a class="text-muted" href="#"><i class="fa fa-arrows-alt nav-header-mn-icon"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Chat One</a>
+                                        </div>
+                                        <hr>
+                                        <a href="#">Open Messenger</a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="nav-item mr-3">
-                                <div class="widget-header nav-header-notification text-center">
-                                    <a class="nav-link text-success @if (request()->routeIs(['profile./'])) active-hover @endif" href="{{ route('profile./') }}"><i class="fa fa-bell fa-lg"></i></a>
+                                <div class="text-center">
+                                    <a class="nav-link text-success nav-header-notification-icon" data-toggle="dropdown" href="#"><i class="fa fa-bell fa-lg"></i></a>
+                                    <div class="dropdown-menu dropdown-large nav-header-mn-plate">
+                                        <h2>Notifications</h2>
+                                        <div class="col-md-12">
+                                            <a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Notification One</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                             <li class="nav-item">
