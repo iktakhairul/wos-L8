@@ -53,7 +53,7 @@
                                         @endif
                                     </div>
 
-                                    <a href="" class=""><p class="font-weight-bold">Placed Order To</p></a>
+                                    <a href="" class=""><p class="font-weight-bold">Confirmed Order To</p></a>
                                     @if(count($job_post->job_responses) > 0)
                                         @foreach($job_post->job_responses as $key => $job_response)
                                             @foreach($job_post->job_timeline as $job_timeline)

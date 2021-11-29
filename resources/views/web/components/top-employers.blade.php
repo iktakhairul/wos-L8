@@ -18,9 +18,6 @@
         background-color: var(--veryLightGray);
     }
 
-    .attribution {
-        font-size: 11px; text-align: center;
-    }
     .attribution a {
         color: hsl(228, 45%, 44%);
     }
@@ -63,16 +60,147 @@
         float: right;
     }
 
-    @media (max-width: 450px) {
+    .web-main-hero-title {
+        font-family: Times New Roman, Times, serif;
+        font-size: 65px
+    }
+
+    .web-hero-search-background {
+        min-height: 150px;
+        background-color: #e7faeb
+    }
+    #web-header-nav-toggler-btn {
+        border: none;
+        outline: none;
+    }
+
+    @media (max-width: 308px) {
         .box {
-            height: 200px;
+            height: 260px;
+        }
+        #web-header-project-title {
+            font-size: 24px !important;
+        }
+        .navbar-brand{
+            margin-right: 0;
+        }
+        #main-nav-login {
+            margin-bottom: 15px;
+        }
+        #main-nav-login-span {
+            padding: 0 !important;
+        }
+        #main-nav-sign-up-span {
+            padding: 6px 50px 6px 50px !important;
+        }
+        .web-main-hero-title {
+            font-size: 35px
+        }
+        .web-main-hero-sub-title {
+            font-size: 20px;
+        }
+        #web-header-nav-toggler-btn {
+            font-size: 15px !important;
+            border: none;
+        }
+        .search-job-component {
+            width: 100%;
+            height: 40px;
+        }
+        .web-all-jobs-div {
+            margin-top: 0 !important;
+        }
+        #web-all-jobs-btn{
+            padding: 13px 35% 13px 35%;
+        }
+        .web-hero-search-background {
+            min-height: 250px;
         }
     }
+
+    @media (max-width: 450px) and (min-width: 309px) {
+        .box {
+            height: 220px;
+        }
+        #main-nav-login {
+            margin-bottom: 15px;
+        }
+        #main-nav-login-span {
+            padding: 0 !important;
+        }
+        #main-nav-sign-up-span {
+            padding: 6px 70px 6px 70px !important;
+        }
+        .web-main-hero-title {
+            font-size: 45px
+        }
+        .web-main-hero-sub-title {
+            font-size: 20px;
+        }
+        .search-job-component {
+            width: 100%;
+            height: 40px;
+        }
+        .web-all-jobs-div {
+            margin-top: 0 !important;
+        }
+        #web-all-jobs-btn{
+            padding: 13px 38% 13px 38%;
+        }
+        .web-hero-search-background {
+            min-height: 250px;
+        }
+    }
+
+    @media (max-width: 767px) and (min-width: 450px) {
+        .box {
+            text-align: center;
+            height: 220px;
+        }
+        #main-nav-login {
+            margin-bottom: 15px;
+        }
+        #main-nav-login-span {
+            padding: 0 !important;
+        }
+        #main-nav-sign-up-span {
+            padding: 6px 70px 6px 70px !important;
+        }
+        .web-main-hero-title {
+            font-size: 55px
+        }
+        .web-all-jobs-div {
+            margin-top: 0 !important;
+        }
+        .web-main-hero-sub-title {
+            font-size: 20px;
+        }
+        .web-hero-search-background {
+            min-height: 350px;
+        }
+    }
+
 
     @media (max-width: 950px) and (min-width: 450px) {
         .box {
             text-align: center;
             height: 220px;
+        }
+        #main-nav-login {
+            margin-bottom: 15px;
+        }
+        #main-nav-login-span {
+            padding: 0 !important;
+        }
+        #main-nav-sign-up-span {
+            padding: 6px 40px 6px 40px !important;
+        }
+        .web-main-hero-title {
+            font-size: 55px
+        }
+
+        .search-job-component {
+            width: 100%;
         }
     }
 
@@ -118,7 +246,6 @@
         .header p {
             width: 30%;
         }
-
     }
     .web-open-jobs{
         color: green !important;
@@ -140,6 +267,13 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
+                    <p class="mb-2"> Ratings:
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
                     <a href="" class="web-open-jobs">Open Jobs: 28</a>
                 </div>
                 <div class="col-3 p-0">
@@ -152,6 +286,13 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
+                    <p class="mb-2"> Ratings:
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                    </p>
                     <a href="" class="web-open-jobs">Open Jobs: 13</a>
                 </div>
                 <div class="col-3 p-0">
@@ -165,6 +306,13 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
+                    <p class="mb-2"> Ratings:
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
                     <a href="" class="web-open-jobs">Open Jobs: 13</a>
                 </div>
                 <div class="col-3 p-0">
@@ -179,6 +327,13 @@
             <p><i class="fa-solid fa-location-dot"></i> {{ '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh' }} </p>
             <div class="row p-0 flex justify-content-between">
                 <div class="col-9">
+                    <p class="mb-2"> Ratings:
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star" style="color: orange;"></span>
+                        <span class="fa fa-star"></span>
+                    </p>
                     <a href="" class="web-open-jobs">Open Jobs: 09</a>
                 </div>
                 <div class="col-3 p-0">

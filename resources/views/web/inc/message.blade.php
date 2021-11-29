@@ -8,7 +8,7 @@
 	</div>
 
 @elseif (Session::has('message_warning'))
-	
+
 	<div class="container">
 		<div class="alert alert-danger alert-dismissible text-center">
 		    <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -21,7 +21,7 @@
 	</div>
 
 @elseif (Session::has('message'))
-	
+
 	<div class="container">
 		<div class="alert alert-info alert-dismissible text-center">
 		    <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -30,3 +30,14 @@
 	</div>
 
 @endif
+
+{{--@if ($errors->any())--}}
+
+{{--    <div class="container">--}}
+{{--        <div class="alert alert-danger alert-dismissible text-center">--}}
+{{--            @foreach ($errors->all() as $error)--}}
+{{--                <small class="p-4 text-danger">{{ $error }}</small><br>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--@endif--}}

@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             'user_id'           => $user->id,
             'full_name'         => $user->name,
             'present_address'   => '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh',
+            'present_country'   => 'Bangladesh',
             'present_latitude'  => '23.7942306',
             'present_longitude' => '90.4044471',
         ]);
@@ -59,6 +60,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
             'full_name' => $user->name,
             'present_address'   => '65b Kemal Ataturk Ave, Dhaka 1213, Bangladesh',
+            'present_country'   => 'Bangladesh',
             'present_latitude'  => '23.7942306',
             'present_longitude' => '90.4044471',
         ]);
@@ -88,6 +90,7 @@ class DatabaseSeeder extends Seeder
             'service_category_id' => 1,
             'user_id'             => 1,
             'title'               => 'Service Electric Line Repair',
+            'type'                => 'local',
             'description'         =>
                 '<p>I had two flat in khilkhet, one of them had a problem with kitchen light, i need to repair them and want two people.</p>
 

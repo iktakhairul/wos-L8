@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 <div class="dropdown float-right mr-2">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['jobs.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
+                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 2) }}">2 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 5) }}">5 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 10) }}">10 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.range-filter', 50) }}">50 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 2]) }}">2 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 5]) }}">5 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 10]) }}">10 &#13218;</a>
+                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 50]) }}">50 &#13218;</a>
                         <a class="dropdown-item" href="{{ route('jobs.find-jobs.all-jobs-in-country') }}">All Jobs In Your Country</a>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                                             <a class="" data-toggle="collapse" href="#collapseJobInfo{{$my_active_work->job_post->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                         </div>
                                     </div>
-                                    <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span></p>
+                                    <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $my_active_work->job_post->user->name ?? 'Job Owner' }}</span> - {{ $my_active_work->job_post->user->contact_number ?? $my_active_work->job_post->user->email }}</p>
                                     <h5>Service Category: {{ $my_active_work->job_post->service_category->name ?? ''}}, Budget: {{ $my_active_work->job_post->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$my_active_work->job_post->start_datetime ?? ''}} - {{$my_active_work->job_post->end_datetime ?? ''}})</p>
                                     <p><i class="fa-solid fa-location-dot mr-2"></i>{{$my_active_work->job_post->address ?? ''}}</p>

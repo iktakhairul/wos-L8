@@ -44,38 +44,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
-            'contact_number' => ['required', 'string', 'max:19', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'contact_number' => $data['contact_number'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param Request $request
@@ -83,10 +51,10 @@ class RegisterController extends Controller
      */
     protected function register(Request $request)
     {
-        Validator::make($request->all(), [
+        $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
-            'contact_number' => ['required', 'string', 'max:19', 'unique:users'],
+            'contact_number' => ['required', 'string', 'max:19', 'min:8', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
