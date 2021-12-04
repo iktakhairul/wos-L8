@@ -23,13 +23,12 @@ class FindJobController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the job post.
      *
      * @return View
      */
     public function find_job_posts(Request $request)
     {
-//        dd($request->all());
         $available_job_posts = [];
         $own_responses = null;
         $service_categories = [];
@@ -59,7 +58,7 @@ class FindJobController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the job post filter by city.
      *
      * @return View
      */
@@ -88,7 +87,7 @@ class FindJobController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the job post filter by country.
      *
      * @return View
      */
@@ -117,7 +116,7 @@ class FindJobController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the job post filter by service category.
      *
      * @param $id
      * @return View
@@ -125,8 +124,8 @@ class FindJobController extends Controller
     public function find_job_post_by_service_category_filter_with_fix_km($id)
     {
         $available_job_posts = [];
-        $own_responses = null;
         $service_categories = [];
+        $own_responses = null;
         $profile_status = true;
         $profile = Profile::where('user_id', auth()->user()['id'])->first();
 

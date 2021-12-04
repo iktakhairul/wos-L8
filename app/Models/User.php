@@ -53,11 +53,6 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile()
-    {
-        return $this->belongsTo(Profile::class);
-    }
-
     public function businesses()
     {
         return $this->belongsTo(Business::class);

@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="dropdown float-right mr-2">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range &#13218;</a>
+                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @if(!empty($profile['present_longitude']) && $profile['present_latitude'])
                         <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 2]) }}">2 &#13218;</a>
@@ -53,8 +53,8 @@
                                         </div>
 
                                         @if(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id))  && $own->status !== '0.canceled_proposal')
-                                            <div class="col-sm-3 text-right">
-                                                <a class="btn btn-primary" href="#">Submitted</a>
+                                            <div class="col-sm-2 text-right">
+                                                <h6 class="text-success float-left pt-2 pl-4">Submitted</h6>
                                                 <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                             </div>
                                         @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')

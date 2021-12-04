@@ -30,14 +30,3 @@
 	</div>
 
 @endif
-
-{{--@if ($errors->any())--}}
-
-{{--    <div class="container">--}}
-{{--        <div class="alert alert-danger alert-dismissible text-center">--}}
-{{--            @foreach ($errors->all() as $error)--}}
-{{--                <small class="p-4 text-danger">{{ $error }}</small><br>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--@endif--}}
