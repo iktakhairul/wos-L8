@@ -26,9 +26,26 @@
                         <div class="col-md-12 text-md-left">
                             <label for="map-search" class="pt-2">Your Current Location<small class="text-danger">*</small></label><br>
                             <input name="address" id="map-search" value="{{ !empty($editRow->present_address) ? $editRow->present_address : old('address')}}" class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Write Address Or Search Here" style="width: 100%" required>
+                            {{--Row--}}
+                            <div class="row">
+                                <div class="col-md-6 text-md-left">
+                                    <label for="country" class="pt-2">City</label><br>
+                                    <input name="city" id="my-city" type="text" class="reg-input-city form-control" placeholder="City" value="{{ !empty($editRow->present_city) ? $editRow->present_city : old('city')}}">
+                                    @if($errors->has('city'))
+                                        <small class="text-danger">{{ $errors->first('city') }}</small>
+                                    @endif
+                                </div>
+                                <div class="col-md-6 text-md-left">
+                                    <label for="country" class="pt-2">Country</label><br>
+                                    <input name="country" id="country" type="text" class="country form-control" value="{{ !empty($editRow->present_country) ? $editRow->present_country : old('country')}}" placeholder="Country">
+                                    @if($errors->has('country'))
+                                        <small class="text-danger">{{ $errors->first('country') }}</small>
+                                    @endif
+                                </div>
+                            </div>
+                            {{--End Row--}}
                             <input name="latitude" id="my_latitude" type="text" class="latitude form-control" value="{{ !empty($editRow->present_latitude) ? $editRow->present_latitude : old('latitude')}}" hidden>
                             <input name="longitude" id="my_longitude" type="text" class="longitude form-control" value="{{ !empty($editRow->present_longitude) ? $editRow->present_longitude : old('longitude')}}" hidden>
-                            <input name="city" id="my-city" type="text" class="reg-input-city form-control" placeholder="City" value="{{ !empty($editRow->present_city) ? $editRow->present_city : old('city')}}" hidden>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">

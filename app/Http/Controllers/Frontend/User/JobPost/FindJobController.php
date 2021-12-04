@@ -55,13 +55,41 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.user.job_post.find_job_posts_result', compact('profile', 'available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @param $id
+     * @return View
+     */
+    public function find_job_post_by_all_jobs_in_city()
+    {
+        $available_job_posts = [];
+        $own_responses = null;
+        $service_categories = [];
+        $profile_status = true;
+        $profile = Profile::where('user_id', auth()->user()['id'])->first();
+
+        if (auth()->user()['complete_profile_status'] !== 'incomplete') {
+            $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
+                ->where('user_id', '!=', auth()->user()['id'])
+                ->where('status', '!=', 'inactive')
+                ->where('city', 'like', '%'.$profile['present_city'].'%')
+                ->paginate(15);
+
+            $own_responses = JobResponses::where('user_id', auth()->user()['id'])->get();
+            $service_categories = ServiceCategory::select('id', 'name')->where('status', 1)->get();
+        }else {
+            $profile_status = false;
+        }
+
+        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
      * @return View
      */
     public function find_job_post_by_all_jobs_in_country()
@@ -85,7 +113,7 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
@@ -100,6 +128,7 @@ class FindJobController extends Controller
         $own_responses = null;
         $service_categories = [];
         $profile_status = true;
+        $profile = Profile::where('user_id', auth()->user()['id'])->first();
 
         if (auth()->user()['complete_profile_status'] !== 'incomplete') {
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
@@ -114,6 +143,6 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 }

@@ -12,7 +12,8 @@ Route::group(['prefix' => 'jobs', 'as' => 'jobs.', 'middleware' => ['auth','user
 
     // Find Job Posts
     Route::get('find-jobs', [FindJobController::class, 'find_job_posts'])->name('find-jobs');
-    Route::get('find-jobs/all-jobs-in-country', [FindJobController::class, 'find_job_post_by_all_jobs_in_country'])->name('find-jobs.all-jobs-in-country');
+    Route::get('find-jobs/in-city', [FindJobController::class, 'find_job_post_by_all_jobs_in_city'])->name('find-jobs.in-city');
+    Route::get('find-jobs/in-country', [FindJobController::class, 'find_job_post_by_all_jobs_in_country'])->name('find-jobs.in-country');
     Route::get('find-jobs/service-category/{id}', [FindJobController::class, 'find_job_post_by_service_category_filter_with_fix_km'])->name('find-jobs.service-category-filter');
 
     // Job Posts
