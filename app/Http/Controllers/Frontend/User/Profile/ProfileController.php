@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        $user = User::with('profile')->where('id', Auth::user()['id'])->first();
+        $user = User::with('user_profile')->where('id', Auth::user()['id'])->first();
 
         return view('web.user.profile.profile', compact('user'));
     }
