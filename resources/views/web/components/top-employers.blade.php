@@ -277,7 +277,7 @@
                     <a href="" class="web-open-jobs">Open Jobs: 28</a>
                 </div>
                 <div class="col-3 p-0">
-                    <img class="rounded-circle" src="{{ asset('web/images/avatars/avatar2.jpg')}}" alt="" style="max-height: 80px">
+                    <img class="rounded-circle" src="{{ asset('img/glasses-profile.jpg')}}" alt="" style="max-height: 80px">
                 </div>
             </div>
         </div>

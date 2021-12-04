@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend\User\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class UpdatePersonalInfoController extends Controller
 {
@@ -36,6 +39,7 @@ class UpdatePersonalInfoController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws ValidationException
      */
     public function update_present_info(Request $request)
     {
@@ -58,6 +62,40 @@ class UpdatePersonalInfoController extends Controller
         DB::table('users')->where('id', auth()->user()['id'])->update(['complete_profile_status' => 'present_info_only']);
 
         return redirect()->route('jobs.find-jobs')->with('success', 'Job Post successfully created!');
+    }
+
+    /**
+     * Update profiles present info.
+     *
+     * @param Request $request
+     * @return null
+     * @throws ValidationException
+     */
+    public function updateDocuments($id, Request $request)
+    {
+        $this->validate($request, [
+            'birthCertificate' => 'required|nullable|mimes:jpeg,png,jpg,webp,svg|max:5120',
+        ]);
+
+        DB::beginTransaction();
+        $profile = DB::table('profiles')->where('user_id', $id)->first();
+        if ($request->hasFile('birthCertificate')) {
+            if (File::exists(public_path().'/images/dob/' . $profile->birthCertificate)) {
+                File::delete(public_path().'/images/dob/' . $profile->birthCertificate);
+            }
+            $birthCertificateImage = $request->file('birthCertificate');
+            $birthCertificateImageName = 'birth-certificate-'. time() .".". $birthCertificateImage->extension();
+            $birthCertificateImage->move(public_path('/images/dob'), $birthCertificateImageName);
+
+            DB::table('profiles')->where('user_id', $id)->update([
+                'birthCertificate' => $birthCertificateImageName,
+                'updated_at' => now(),
+            ]);
+        }
+
+        DB::commit();
+
+        return redirect()->back()->with('message', 'Profile has been updated successfully!');
     }
 
 }
