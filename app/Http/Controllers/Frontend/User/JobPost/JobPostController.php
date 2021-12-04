@@ -38,50 +38,6 @@ class JobPostController extends Controller
     }
 
     /**
-     * Profiles present info upgrade.
-     *
-     * @param $id
-     * @return null
-     */
-    public function edit_present_info($id)
-    {
-        $editRow = DB::table('profiles')->find($id);
-
-        return view('web.user.job_post.profile_present_info_inputs', compact('editRow'));
-    }
-
-    /**
-     * Update profiles present info.
-     *
-     * @param Request $request
-     * @return null
-     */
-    public function update_present_info(Request $request)
-    {
-        $addressArray = explode(',', $request['address']);
-
-        $this->validate($request, [
-            'latitude'    => 'required|string',
-            'longitude'   => 'required|string',
-            'city'        => 'required|string',
-            'address'     => 'required|string',
-        ]);
-
-        DB::table('profiles')->where('user_id', auth()->user()['id'])->update([
-            'present_latitude'  => $request['latitude'],
-            'present_longitude' => $request['longitude'],
-            'present_city'      => $request['city'],
-            'present_country'   => str_replace(' ', '', end($addressArray)),
-            'present_address'     => $request['address'],
-            'updated_at'          => now(),
-        ]);
-
-        DB::table('users')->where('id', auth()->user()['id'])->update(['complete_profile_status' => 'present_info_only']);
-
-        return redirect()->route('jobs.find-jobs')->with('success', 'Job Post successfully created!');
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return view
