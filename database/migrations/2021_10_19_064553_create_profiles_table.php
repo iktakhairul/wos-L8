@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('mother_name')->nullable();
             $table->string('spouse_name')->nullable();
             $table->date('dob')->nullable();
+            $table->string('birthCertificate')->nullable();
             $table->string('gender', 6)->nullable();
             $table->string('religion', 10)->nullable();
             $table->bigInteger('present_division_id')->nullable()->index();

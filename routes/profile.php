@@ -4,14 +4,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\User\Profile\ProfileController;
 use App\Http\Controllers\Frontend\User\Profile\UpdatePersonalInfoController;
 
-// profile related all routes
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth','user']], function () {
     Route::get('/', [ProfileController::class, 'profile'])->name('/');
 
-    // Profile Resources
+    /**
+     * Profile resources route.
+    */
     Route::resource('profiles', ProfileController::class);
 
-    // Update present info for job post.
+    /**
+     * Update profile documents route.
+     */
+    Route::patch('profiles/{id}/update-documents', [UpdatePersonalInfoController::class, 'updateDocuments'])->name('profiles.update-documents');
+
+    /**
+     * Update present info for job post routes.
+     */
     Route::get('profiles/{id}/edit-present-info', [UpdatePersonalInfoController::class, 'edit_present_info'])->name('profiles.edit-present-info');
     Route::post('update-present-info', [UpdatePersonalInfoController::class, 'update_present_info'])->name('update-present-info');
 });
