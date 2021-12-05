@@ -68,6 +68,36 @@
             outline: none;
         }
     </style>
+
+    {{--Style for update profile pic--}}
+    <style>
+        .change-photo {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .change-photo a .centered{
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;!important;
+            display: none;
+        }
+        .change-photo a:hover .centered {
+            display: inline-flex;
+        }
+        .change-photo .bottom-right {
+            position: absolute;
+            bottom: 18px;
+            right: 24px;
+            background: white;
+            padding: 6px;
+        }
+    </style>
+
+    <link href="{{ asset('web/tag-input/tag.css') }}" rel="stylesheet" />
+
 @endpush
 
 @section('profile_content')
@@ -76,12 +106,25 @@
         <div class="row">
             <div class="col-md-4 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle mt-5" width="150px" src="{{asset('img/glasses-profile.jpg')}}" alt="">
+                    <form id="imageUploadForm" enctype="multipart/form-data" method="POST" action="{{ route('profile.profiles.update-profile-picture', $user->user_profile->id) }}">
+                        @csrf
+                        {{method_field('PATCH')}}
+                        <div class="change-photo">
+                            <a href=""><img id="dp" class="rounded-circle mt-5" width="150px" src="{{!empty($user->user_profile->profileImage) ? asset('/images/profile/'.$user->user_profile['profileImage']) : asset('img/glasses-profile.jpg')}}" alt="">
+                                <div class="centered"><label for="profileImage"><i class="fa fa-camera" aria-hidden="true"></i><br><span>Change Photo</span></label>
+                                    <input onchange="imageChange(this,'#dp')" hidden id="profileImage" name="profileImage" type="file" />
+                                    @if($errors->has('profileImage'))
+                                        <small class="text-danger">{{ $errors->first('profileImage') }}</small>
+                                    @endif
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+
                     <span class="font-weight-bold">{{ $user->name ?? 'Not Found' }}</span>
                     <span class="text-black-50">{{ $user->email ?? 'Not Found' }}</span>
                     @if(!empty($user->user_profile->present_address))
                         <span class="text-black-50"><i class="fa-solid fa-location-dot mr-2"></i>{{ $user->user_profile->present_address }}</span>
-                        <span class="text-black-50">{{ !empty($user->user_profile->present_city) ? $user->user_profile->present_city .',' : '' }} {{ !empty($user->user_profile->present_country) ? $user->user_profile->present_country : '' }}</span>
                     @endif
                     <span></span>
                 </div>
@@ -93,7 +136,7 @@
                         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-basic" role="tab" aria-controls="nav-home" aria-selected="true">Basic Info</a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-documents" role="tab" aria-controls="nav-profile" aria-selected="false">Documents</a>
-                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-skills" role="tab" aria-controls="nav-about" aria-selected="false">Skills</a>
+                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-skills" role="tab" aria-controls="nav-about" aria-selected="false">Skills & Tags</a>
                         </div>
                     </nav>
                     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -189,6 +232,9 @@
                                         <span class="font-weight-bold" style="font-size: 18px">Birth Certificate</span>
                                         <div class="image-upload-wrap">
                                             <input name="birthCertificate" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                                            @if($errors->has('birthCertificate'))
+                                                <small class="text-danger">{{ $errors->first('birthCertificate') }}</small>
+                                            @endif
                                             <div class="drag-text">
                                                 @if(!empty($user->user_profile['birthCertificate']))
                                                     <img class="form-control dob-image-value" src="{{asset('/images/dob/'.$user->user_profile['birthCertificate'])}}" alt="Birth Certificate"/>
@@ -210,10 +256,42 @@
                         </div>
                         {{--Tab Start--}}
                         <div class="tab-pane fade" id="nav-skills" role="tabpanel" aria-labelledby="nav-about-tab">
+                            <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="p-3 py-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h4 class="text-right">Profile Settings</h4>
+                                    </div>
+                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('profile.profiles.update-skills', $user->id) }}" enctype="multipart/form-data">
+                                        @csrf
+                                        {{method_field('PATCH')}}
 
+                                        <div class="col-md-12 mb-2">
+                                            <label for="tag-input1" class="profile-labels">Job Tags (Max:5)<small class="text-danger">*</small></label>
+                                            @if(!empty($user->user_profile->tags))
+                                                <div class="mb-4" style="margin-bottom: 200px">
+                                                    <input type="text" id="tag-input1" class="@error('tags') is-invalid @enderror" name="tags">
+                                                </div>
+                                                <div class="mb-3">
+                                                    @foreach(explode(',', $user->user_profile->tags) as $tag)
+                                                        <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                                    @endforeach
+                                                </div>
+                                            @else
+                                                <input type="text" id="tag-input1" class="@error('tags') is-invalid @enderror" name="tags">
+                                                @if($errors->has('tags'))
+                                                    <small class="text-danger">{{ $errors->first('tags') }}</small>
+                                                @endif
+                                            @endif
+                                        </div>
+
+                                        <div class="mt-4 text-right">
+                                            <button class="btn btn-primary" type="submit">Save To Profile</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -224,6 +302,7 @@
 @push('scripts')
             <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
             <script>
+                // Birth Certificate Upload Js
                 function readURL(input) {
                     if (input.files && input.files[0]) {
 
@@ -240,7 +319,7 @@
 
                         reader.readAsDataURL(input.files[0]);
 
-                    } else {
+                    }else {
                         removeUpload();
                     }
                 }
@@ -257,4 +336,35 @@
                     $('.image-upload-wrap').removeClass('image-dropping');
                 });
             </script>
+            <script>
+                // Profile Pic Update Js.
+                function imageChange(input, target) {
+                    const fileType = (/.(gif|jpg|svg|webp|jpeg|tiff|png)$/i).test(input.files[0].name);
+                    if (fileType) {
+                        if (input.files && input.files[0]) {
+                            if(input.files[0].size/1000 >= 20000){
+                                $(input).val('')
+                                swal("", "Image should not larger than 2MB", "error");
+                            }else {
+                                console.log("bvgf");
+                                var reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    $(`${target}`).attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(input.files[0]);
+
+                                if (target === '#dp') {
+                                    $('#imageUploadForm').submit()
+                                }
+                            }
+                        }
+                    }
+                    else{
+                        $(input).val('')
+                        swal("", "You must select an image file only", "error");
+                    }
+                }
+            </script>
+            <script src="{{ asset('web/tag-input/tag-helper.js') }}"></script>
 @endpush
