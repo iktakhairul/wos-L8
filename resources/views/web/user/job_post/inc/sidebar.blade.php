@@ -1,4 +1,3 @@
-@php $my_businesses = my_businesses() @endphp
 <aside class="col-md-3">
     <nav class="list-group">
         <a class="list-group-item @if (request()->routeIs(['profile./'])) active @endif" href="{{ route('profile./') }}">Profile Overview</a>

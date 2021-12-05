@@ -16,6 +16,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
      * Update profile documents route.
      */
     Route::patch('profiles/{id}/update-documents', [UpdatePersonalInfoController::class, 'updateDocuments'])->name('profiles.update-documents');
+    Route::patch('profiles/{id}/update-profile-picture', [UpdatePersonalInfoController::class, 'updateProfilePicture'])->name('profiles.update-profile-picture');
+    Route::patch('profiles/{id}/update-skills', [UpdatePersonalInfoController::class, 'updateSkills'])->name('profiles.update-skills');
 
     /**
      * Update present info for job post routes.

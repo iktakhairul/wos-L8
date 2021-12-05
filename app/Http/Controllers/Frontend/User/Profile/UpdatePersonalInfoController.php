@@ -71,10 +71,44 @@ class UpdatePersonalInfoController extends Controller
      * @return null
      * @throws ValidationException
      */
+
+    public function updateProfilePicture($id, Request $request)
+    {
+        $this->validate($request, [
+            'profileImage' => 'required|nullable|mimes:jpeg,png,jpg,webp,svg|max:2024',
+        ]);
+
+        DB::beginTransaction();
+        $profile = DB::table('profiles')->where('user_id', $id)->first();
+        if ($request->hasFile('profileImage')) {
+            if (File::exists(public_path().'/images/profile/' . $profile->profileImage)) {
+                File::delete(public_path().'/images/profile/' . $profile->profileImage);
+            }
+            $profileImage = $request->file('profileImage');
+            $profileImageName = 'profile-image-'. time() .".". $profileImage->extension();
+            $profileImage->move(public_path('/images/profile'), $profileImageName);
+
+            DB::table('profiles')->where('user_id', $id)->update([
+                'profileImage' => $profileImageName,
+                'updated_at'   => now(),
+            ]);
+        }
+        DB::commit();
+
+        return redirect()->back()->with('message', 'Profile has been updated successfully!');
+    }
+
+    /**
+     * Update profiles present info.
+     *
+     * @param Request $request
+     * @return null
+     * @throws ValidationException
+     */
     public function updateDocuments($id, Request $request)
     {
         $this->validate($request, [
-            'birthCertificate' => 'required|nullable|mimes:jpeg,png,jpg,webp,svg|max:5120',
+            'birthCertificate' => 'required|nullable|mimes:jpeg,png,jpg,webp,svg|max:2024',
         ]);
 
         DB::beginTransaction();
@@ -96,6 +130,28 @@ class UpdatePersonalInfoController extends Controller
         DB::commit();
 
         return redirect()->back()->with('message', 'Profile has been updated successfully!');
+    }
+
+    /**
+     * Update profiles present info.
+     *
+     * @param $id
+     * @param Request $request
+     * @return null
+     * @throws ValidationException
+     */
+    public function updateSkills($id, Request $request)
+    {
+        $this->validate($request, [
+            'tags'    => 'required|string',
+        ]);
+
+        DB::table('profiles')->where('user_id', auth()->user()['id'])->update([
+            'tags'       => $request['tags'],
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('message', 'Profile skills successfully updated!');
     }
 
 }
