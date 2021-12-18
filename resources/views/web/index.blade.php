@@ -1,14 +1,13 @@
 @php $appInfo = appInfo() @endphp
-
 <!DOCTYPE html>
 <html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Financial Service, @yield('meta_keywords')">
-        <meta name="description" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Financial Service, @yield('meta_description')">
-        <meta name="author" content="mosharof.bdzones@gmail.com">
+        <meta name="keywords" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Find Work, @yield('meta_keywords')">
+        <meta name="description" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Find Work, @yield('meta_description')">
+        <meta name="author" content="Meta Web Builder">
 
         <!-- title -->
         <title>@yield('title', !empty($appInfo->name) ? $appInfo->name : config('app.name'))</title>

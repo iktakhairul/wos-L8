@@ -5,7 +5,7 @@
             <div class="container">
 
                 <a href="/" class="brand-wrap navbar-brand">
-                    <span id="web-header-project-title" class="text-success font-weight-bold" style="font-size: 30px">Find Work</span>
+                    <span id="web-header-project-title" class="text-success font-weight-bold" style="font-size: 30px">{{ config('app.name', 'Find Job') }}</span>
                 </a>
 
                 <button class="navbar-toggler"  id="web-header-nav-toggler-btn"type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
