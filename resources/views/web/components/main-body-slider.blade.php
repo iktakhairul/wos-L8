@@ -2,15 +2,10 @@
     <div class="container mb-4">
         <div class="row">
             <div class="col-md-6 text-md-left">
-                <h1 class="text-success web-main-hero-title" >Join the worldwide find work marketplace</h1>
+                <h1 class="text-success web-main-hero-title" >Join the worldwide find job marketplace</h1>
                 <h4 class="text-muted web-main-hero-sub-title">Find great talent. Build your business. Take your career to the next level.</h4>
                 <div class="mt-4 pt-4 mb-4 web-all-jobs-div">
-                    @auth
-                        <a href="{{ route('jobs.find-jobs') }}" id="web-all-jobs-btn">All Jobs</a>
-                    @endauth
-                    @guest
-                        <a href="#" id="web-all-jobs-btn">All Jobs</a>
-                    @endguest
+                    <a href="{{ route('jobs.find-jobs') }}" id="web-all-jobs-btn">All Jobs</a>
                 </div>
             </div>
             <div class="col-md-6 text-md-right">
