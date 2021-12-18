@@ -97,6 +97,7 @@
                                 <small class="text-danger">{{ $errors->first('end_datetime') }}</small>
                             @endif
                         </div>
+
                     </div>
                     {{--Row--}}
                     <div class="form-row form-group">

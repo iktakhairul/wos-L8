@@ -68,7 +68,7 @@ class JobPostController extends Controller
             'address'              => 'required|string',
             'city'                 => 'required',
             'start_datetime'       => 'required',
-            'required_persons'     => 'required|gte:1',
+            'required_persons'     => 'required|numeric|gte:1',
             'budget'               => 'required',
         ]);
 
@@ -128,10 +128,8 @@ class JobPostController extends Controller
             'service_category_id'  => 'required|exists:service_categories,id',
             'title'                => 'required|string|min:3|max:250',
             'address'              => 'required|string',
-//            'latitude'             => 'required',
-//            'longitude'            => 'required',
             'start_datetime'       => 'required',
-            'required_persons'     => 'required|gte:1',
+            'required_persons'     => 'required|numeric|gte:1',
             'budget'               => 'required',
         ]);
 
