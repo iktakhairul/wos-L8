@@ -12,7 +12,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6" id="footer-site-map-div">
                     <!--Column1-->
                     <div class="footer-pad">
                         <h5>SITE MAP</h5>
@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-3 col-sm-6" id="footer-services-div">
                     <!--Column1-->
                     <div class="footer-pad">
                         <h5>SERVICES</h5>
@@ -40,7 +40,7 @@
                 <div class="col-md-3">
                     <h5>CONTACT</h5>
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.facebook.com/Find-Job-111760624695415" target="_blank" class="icoFacebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
                         <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
                     </ul>
                 </div>

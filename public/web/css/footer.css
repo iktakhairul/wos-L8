@@ -128,3 +128,30 @@ ul.social-network li {
     background-color: #F9F9F9;
 }
 
+/*Media Query*/
+
+@media (max-width: 767px) {
+    #footer-services-div {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    #footer-site-map-div {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #footer-services-div {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 364px) {
+    #footer-site-map-div {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #footer-services-div {
+        margin-bottom: 20px;
+    }
+}
