@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="container">
-        <h4>Submit Proposal To Job Post Owner</h4>
+        <h4>Create Job Proposal</h4>
         <div class="card mx-auto">
 
             <div class="row">
@@ -20,7 +20,7 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <h2>{{ $job_post->title ?? ''}}</h2>
+                                            <h2 class="text-success">{{ $job_post->title ?? ''}}</h2>
                                         </div>
                                         <div class="col-sm-3 text-right">
                                             <a class="mr-4" href="{{ route('jobs.find-jobs') }}"><i class="fa fa-lg fa-arrow-left"></i></a>
@@ -50,7 +50,7 @@
                                         @endif
                                         <hr>
                                     </div>
-                                    <h4>Write Proposal</h4>
+                                    <h5>Write Proposal</h5>
                                     <br>
                                     @if(empty($own_response))
                                         <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('jobs.job-post-responses.update', $editRow->id) : route('jobs.job-post-responses.store') }}" enctype="multipart/form-data">

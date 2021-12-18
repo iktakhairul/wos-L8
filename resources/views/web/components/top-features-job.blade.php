@@ -1,19 +1,3 @@
-<style>
-    .card-job-post-title {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-
-    .card-recent-job-post-address {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-
-</style>
 <section class="section-main" style=" padding-top: 50px; padding-bottom: 40px; background-color: #ffffff">
     <div class="container">
         <div class="row">

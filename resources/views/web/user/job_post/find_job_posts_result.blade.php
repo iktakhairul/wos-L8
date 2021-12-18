@@ -9,37 +9,42 @@
 
 <div class="row">
     <div class="container">
-            <h4 class="mt-2">
-                Available Job Posts
-                @if (request()->routeIs(['jobs.find-jobs.service-category-filter']))
-                    <a class="btn btn-sm btn-outline-info pull-right ml-2 @if (request()->routeIs(['jobs.find-jobs'])) active @endif" href="{{ route('jobs.find-jobs') }}">All Job Posts</a>
-                @endif
-                <div class="dropdown float-right">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['jobs.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Category Filter</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        @if(!empty($service_categories))
-                        @foreach($service_categories as $key => $service_category)
-                                <a class="dropdown-item" href="{{ route('jobs.find-jobs.service-category-filter', $service_category->id) }}">{{ $service_category->name ?? old('service_category') }}</a>
-                            @endforeach
-                        @endif
+            <div class="row p-0">
+                <div class="col-md-8">
+                    <h4 class="mt-2">Available Job Posts</h4>
+                </div>
+                <div class="col-md-4 pt-2">
+                    @if (request()->routeIs(['jobs.find-jobs.service-category-filter']))
+                        <a class="btn btn-sm btn-outline-info pull-right ml-2 @if (request()->routeIs(['jobs.find-jobs'])) active @endif" href="{{ route('jobs.find-jobs') }}">All Job Posts</a>
+                    @endif
+                    <div class="dropdown float-right">
+                        <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle @if (request()->routeIs(['jobs.find-jobs.service-category-filter'])) active @endif" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Service Category Filter</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @if(!empty($service_categories))
+                                @foreach($service_categories as $key => $service_category)
+                                    <a class="dropdown-item" href="{{ route('jobs.find-jobs.service-category-filter', $service_category->id) }}">{{ $service_category->name ?? old('service_category') }}</a>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="dropdown float-right mr-2">
+                        <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @if(!empty($profile['present_longitude']) && $profile['present_latitude'])
+                                <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 2]) }}">2 &#13218;</a>
+                                <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 5]) }}">5 &#13218;</a>
+                                <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 10]) }}">10 &#13218;</a>
+                                <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 50]) }}">50 &#13218;</a>
+                            @endif
+                            <a class="dropdown-item" href="{{ route('jobs.find-jobs.in-city') }}">In Your City</a>
+                            <a class="dropdown-item" href="{{ route('jobs.find-jobs.in-country') }}">In Your Country</a>
+                        </div>
                     </div>
                 </div>
-                <div class="dropdown float-right mr-2">
-                    <a class="btn btn-sm btn-outline-info pull-right dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Range</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        @if(!empty($profile['present_longitude']) && $profile['present_latitude'])
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 2]) }}">2 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 5]) }}">5 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 10]) }}">10 &#13218;</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs', ['km' => 50]) }}">50 &#13218;</a>
-                        @endif
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.in-city') }}">In Your City</a>
-                        <a class="dropdown-item" href="{{ route('jobs.find-jobs.in-country') }}">In Your Country</a>
-                    </div>
-                </div>
-            </h4>
+            </div>
 
-        <div class="row">
+        {{--Start Post Row--}}
+        <div class="row pt-2">
             <div class="col-12">
                 <ul class="list-group">
                     @if(count($available_job_posts) > 0 && $profile_status === true)
@@ -47,28 +52,27 @@
                         <li class="list-group-item mb-2">
                             <div class="row">
                                 <div class="col">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h2>{{ $index->title ?? ''}}</h2>
-                                        </div>
 
-                                        @if(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id))  && $own->status !== '0.canceled_proposal')
-                                            <div class="col-sm-2 text-right">
-                                                <h6 class="text-success float-left pt-2 pl-4">Submitted</h6>
-                                                <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="float-left job-post-title-div">
+                                                <h2 class="text-success">{{ $index->title ?? ''}}</h2>
                                             </div>
-                                        @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')
-                                            <div class="col-sm-4 text-right">
-                                                <a class="btn btn-primary" href="{{ route('jobs.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to resubmit this job proposal?')">Resubmit Your Proposal</a>
-                                                <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                            <div class="float-right job-proposal-btn">
+                                                @if(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id))  && $own->status !== '0.canceled_proposal')
+                                                    <h6 class="text-primary float-left pt-2 pl-4 mr-3">Submitted</h6>
+                                                    <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')
+                                                    <a class="btn btn-primary" href="{{ route('jobs.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to resubmit this job proposal?')">Resubmit Your Proposal</a>
+                                                    <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                @else
+                                                    <a class="btn btn-primary" href="{{ route('jobs.job-posts.submit-a-proposal', $index->id) }}">Submit A Proposal</a>
+                                                    <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                @endif
                                             </div>
-                                        @else
-                                            <div class="col-sm-3 text-right">
-                                                <a class="btn btn-primary" href="{{ route('jobs.job-posts.submit-a-proposal', $index->id) }}">Submit A Proposal</a>
-                                                <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
-                                            </div>
-                                        @endif
+                                        </div>
                                     </div>
+
                                     <p><span class="text-info"><i class="fa fa-user mr-2"></i>{{ $index->user->name }}</span>, Required Persons: {{ $index->required_persons ?? '' }}</p>
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
@@ -77,6 +81,7 @@
                                     <div class="collapse" id="collapseMyJobInfo{{$index->id}}">
                                         <p class="font-weight-bold">Job Description</p>
                                         <div class="mb-2">{!!html_entity_decode($index->description)!!}</div>
+
                                         <div class="photo-box">
                                             <img id="logo" src="{{ $index->job_image ?? '' ? asset('img/'.$index->logo) : asset('img/dummy.jpg') }}" alt="{{ 'Not Found!'}}" class="img-responsive img-thumbnail img-fluid" style="max-width: 120px;">
                                         </div>
@@ -85,7 +90,7 @@
                                         @if(!empty($index->tags))
                                             <div class="mb-3">
                                                 @foreach(explode(',',$index->tags) as $tag)
-                                                    <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
+                                                    <span class="bg-gray p-2 rounded-pill">{{ $tag }}</span>
                                                 @endforeach
                                             </div>
                                         @else
@@ -93,6 +98,7 @@
                                         @endif
                                     </div>
 
+                                    {{--Start Post Response--}}
                                     @if(!empty($index->job_responses))
                                         @if(count($index->job_responses) > 0)
                                             <a href="" class=""><p class="font-weight-bold">See Available Offers - [{{ count($index->job_responses) }}]</p></a>
@@ -166,6 +172,8 @@
                                         </div>
                                     @endif
                                     <br>
+                                    {{--End Post Response--}}
+
                                 </div>
                             </div>
                         </li>
@@ -189,6 +197,7 @@
                 @endif
             </div>
         </div>
+        {{--End Post--}}
 
     </div>
 </div>

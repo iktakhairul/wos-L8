@@ -1,35 +1,3 @@
-<style>
-    .search-job-component {
-        border-radius: 0;
-        height: 64px;
-        border: none;
-        width: 75%;
-        border-bottom-right-radius: 5px;
-        border-top-right-radius: 5px
-    }
-    .search-job-input[type=text]:focus {
-        border: none;
-        outline: none;
-    }
-    .search-job-options:focus {
-        border: none;
-        outline: none;
-    }
-    #web-all-jobs-btn{
-        padding: 13px 15% 13px 15%;
-        border: 1px solid green !important;
-        font-weight: normal;
-        color: #556B2F;
-        border-radius: 25px;
-    }
-
-    #web-all-jobs-btn:hover {
-        border: 1px solid #ff6a00 !important;
-        color: #ff6a00;
-        transition-duration: .5s;
-    }
-</style>
-
 <section class="section-main padding-y" style="background-color: #ffffff">
     <div class="container mb-4">
         <div class="row">

@@ -1,80 +1,3 @@
-<style>
-    #web-logout-btn{
-        padding: 5px 30px 5px 30px;
-        border: 1px solid green !important;
-        border-radius: 25px;
-        font-weight: normal;
-        color: green
-    }
-    #web-logout-btn:hover{
-        border: 1px solid #ff6a00 !important;
-        color: #ff6a00;
-        transition-duration: .5s;
-    }
-    .active-hover {
-        color: #ff6a00 !important;
-    }
-     .add-shadow {
-         box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
-         transition: box-shadow .6s ease-in-out;
-     }
-     .nav-header-notification-icon {
-         font-size: 20px;
-         width: 45px;
-     }
-     .nav-messenger-icon {
-         max-height: 28px;
-         border-radius: 40%;
-     }
-    .nav-header-mn-plate {
-        box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
-        transition: box-shadow .6s ease-in-out;
-        border: none;
-    }
-    @media (min-width: 950px) {
-        .nav-header-mn-plate {
-            margin-left: 60%;
-            min-height: 750px;
-        }
-        .nav-header-mn-icon {
-            font-size: 25px;
-            padding-top: 1rem !important;
-        }
-    }
-
-    @media (max-width: 950px) and (min-width: 450px) {
-        .nav-header-mn-icon {
-            font-size: 25px;
-            padding-top: 1rem !important;
-        }
-    }
-
-    @media (max-width: 767px) and (min-width: 450px) {
-        .nav-header-mn-icon {
-            font-size: 25px;
-            padding-top: .8rem !important;
-        }
-    }
-
-    @media (max-width: 450px) and (min-width: 364px) {
-        .nav-header-mn-title {
-            font-size: 20px !important;
-        }
-        .nav-header-mn-icon {
-            font-size: 15px !important;
-            padding-top: .5rem !important;
-        }
-    }
-
-    @media (max-width: 364px) {
-        .nav-header-mn-title {
-            font-size: 20px !important;
-        }
-        .nav-header-mn-icon {
-            padding-top: .5rem !important;
-        }
-    }
-</style>
 <header class="section-header position-sticky fixed-top">
     <section class="header-main border-bottom p-0">
 
@@ -92,27 +15,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{--*** If Need Nav Items Left Then Add "mr-auto" To Bellow Line ***--}}
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <div class="widget-header mr-3">
-                                <a class="nav-link dropdown-toggle pt-1" data-toggle="dropdown" href="#">Services Categories</a>
-                                <div class="dropdown-menu dropdown-large">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>
-                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+{{--                        <li class="nav-item dropdown">--}}
+{{--                            <div class="widget-header mr-3">--}}
+{{--                                <a class="nav-link dropdown-toggle pt-1" data-toggle="dropdown" href="#">Services Categories</a>--}}
+{{--                                <div class="dropdown-menu dropdown-large">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>--}}
+{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
                         @if(Auth::check() && Auth::user()->weight >= 79.99)
                             <li class="nav-item">
                                 <div class="widget-header mr-3">
@@ -137,22 +60,22 @@
                                 </div>
                             </li>
                         @endauth
-                        <li class="nav-item">
-                            <div class="widget-header mr-3">
-                                <a class="nav-link" href="#">Get the app</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="widget-header mr-2">
-                                <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Russian</a>
-                                    <a class="dropdown-item" href="#">French</a>
-                                    <a class="dropdown-item" href="#">Spanish</a>
-                                    <a class="dropdown-item" href="#">Chinese</a>
-                                </div>
-                            </div>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <div class="widget-header mr-3">--}}
+{{--                                <a class="nav-link" href="#">Get the app</a>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <div class="widget-header mr-2">--}}
+{{--                                <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>--}}
+{{--                                <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                                    <a class="dropdown-item" href="#">Russian</a>--}}
+{{--                                    <a class="dropdown-item" href="#">French</a>--}}
+{{--                                    <a class="dropdown-item" href="#">Spanish</a>--}}
+{{--                                    <a class="dropdown-item" href="#">Chinese</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
                         @guest
                             <li class="nav-item" id="main-nav-login">
                                 <div class="widget-header mt-2">
@@ -175,25 +98,303 @@
                                                 <a href="#"><h2 class="nav-header-mn-title">Messenger</h2></a>
                                             </div>
                                             <div class="col-4">
-                                                <a class="float-left mr-3 text-muted" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                <a class="text-muted" href="#"><i class="fa fa-arrows-alt nav-header-mn-icon"></i></a>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <a class="text-muted" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a class="text-muted" href="#"><i class="fa fa-arrows-alt nav-header-mn-icon"></i></a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a class="text-muted" href="#"><i class="fa fa-pencil nav-header-mn-icon"></i></a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Chat One</a>
+                                        {{--Message List--}}
+                                        <div class="col-md-12 scroll-div nm-div-padding">
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
+                                                    <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
+                                                    <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
+                                                    <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <hr>
-                                        <a href="#">Open Messenger</a>
+                                        <div id="messenger-open" align="center">
+                                            <a href="#">Open Messenger</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
                             <li class="nav-item mr-3">
                                 <div class="text-center">
-                                    <a class="nav-link text-success nav-header-notification-icon" data-toggle="dropdown" href="#"><i class="fa fa-bell fa-lg"></i></a>
+                                    <a class="nav-link text-success nav-header-notification-icon" data-toggle="dropdown" href="#" style="padding-top: 3px !important;"><i class="fa fa-bell fa-lg"></i></a>
                                     <div class="dropdown-menu dropdown-large nav-header-mn-plate">
-                                        <h2>Notifications</h2>
-                                        <div class="col-md-12">
-                                            <a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Notification One</a>
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <a href="#"><h2 class="nav-header-mn-title">Notifications</h2></a>
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="row p-0">
+                                                    <div class="col p-0">
+                                                        <a class="text-muted" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{--Notification List--}}
+                                        <div class="col-md-12 scroll-div nm-div-padding">
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0 ">Hi Samun Mollik, A new job post near you!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr>
+                                        <div id="messenger-open" align="center">
+                                            <a href="#">See All Notifications</a>
                                         </div>
                                     </div>
                                 </div>

@@ -1,22 +1,3 @@
-<style>
-    .card-recent-job-post-title {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-    .card-recent-job-post-address {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-
-    .web-fr-job-title:hover{
-        transition-duration: .4s;
-    }
-
-</style>
 <section class="section-main" style=" padding-top: 50px; padding-bottom: 40px; background-color: #ffffff">
     <div class="container">
         <div class="row">

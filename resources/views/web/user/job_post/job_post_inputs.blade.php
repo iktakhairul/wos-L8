@@ -14,11 +14,11 @@
         <div class="card mx-auto">
 
             <article class="card-body">
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <small class="text-danger">{{ $error }}</small><br>
-                    @endforeach
-                @endif
+{{--                @if ($errors->any())--}}
+{{--                    @foreach ($errors->all() as $error)--}}
+{{--                        <small class="text-danger">{{ $error }}</small><br>--}}
+{{--                    @endforeach--}}
+{{--                @endif--}}
                 <form class="form-horizontal" role="form" method="POST" action="{{ !empty($editRow) ? route('jobs.job-posts.update', $editRow->id) : route('jobs.job-posts.store') }}" enctype="multipart/form-data">
                     @csrf
                     @if(!empty($editRow))
@@ -97,6 +97,7 @@
                                 <small class="text-danger">{{ $errors->first('end_datetime') }}</small>
                             @endif
                         </div>
+
                     </div>
                     {{--Row--}}
                     <div class="form-row form-group">
@@ -105,7 +106,7 @@
                         </div>
                         <div class="col-md-10">
                             @if(!empty($editRow))
-                                <div class="mb-3">
+                                <div class="mb-3 mt-2">
                                     @foreach(explode(',',$editRow->tags) as $tag)
                                         <span class="bg-gray p-2 rounded-pill" class="">{{ $tag }}</span>
                                     @endforeach
@@ -126,7 +127,7 @@
                         </div>
                         <div class="col-md-6 text-md-center">
                             <label for="map-search" class="pt-2">Job Location<small class="text-danger">*</small></label><br>
-                            <input name="address" id="map-search" value="{{ !empty($editRow->address) ? $editRow->address : old('address')}}" class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Write Address Or Search Here" style="width: 100%" required>
+                            <input name="address" id="map-search" value="{{ !empty($editRow->address) ? $editRow->address : old('address')}}" class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Write Address Or Search Here" required>
                             @if($errors->has('address'))
                                 <small class="text-danger">{{ $errors->first('address') }}</small>
                             @endif
@@ -138,10 +139,21 @@
                             @if($errors->has('longitude'))
                                 <small class="text-danger">{{ $errors->first('longitude') }}</small>
                             @endif
-                            <input name="city" id="my-city" type="text" class="reg-input-city form-control" placeholder="City" value="{{ !empty($editRow->city) ? $editRow->city : old('city')}}" hidden>
-                            @if($errors->has('city'))
-                                <small class="text-danger">{{ $errors->first('city') }}</small>
-                            @endif
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input name="city" id="my-city" type="text" class="reg-input-city form-control job-post-input-city" placeholder="City" value="{{ !empty($editRow->city) ? $editRow->city : old('city')}}">
+                                    @if($errors->has('city'))
+                                        <small class="text-danger">{{ $errors->first('city') }}</small>
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="country" id="country" type="text" class="form-control job-post-input-country" placeholder="Country" value="{{ !empty($editRow->country) ? $editRow->country : old('country')}}">
+                                    @if($errors->has('country'))
+                                        <small class="text-danger">{{ $errors->first('country') }}</small>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group text-md-left">
                                     <small class="form-text text-muted">Drug the marker and select understandable address.
                                         <a class="float-right" data-toggle="collapse" href="#collapseMapHelp" role="button" aria-expanded="false" aria-controls="collapseExample">Help<i class="fa fa-angle-down fa-sm ml-1"></i></a>
@@ -149,25 +161,42 @@
                                     <span class="spinner-grow spinner-grow-sm text-info float-right"></span>
                                 </small>
                                 <small class="form-text text-muted collapse" id="collapseMapHelp">
-                                    1. If map is not loaded correctly, Please turn on location service or Refresh Map.<br>
-                                    2. Check your browsers URL box's <i class="fa-solid fa-location-dot"></i> location icon and Allow Location Access.<br>
-                                    3. Drug the red marker to get readable address.<br>
-                                    4. You can search address after google map loaded.
+                                    1. You can create post without map loading. Just input address, city and county properly.<br>
+                                    2. If map is not loaded correctly, Please turn on location service or Refresh Map.<br>
+                                    3. Check your browsers URL box's <i class="fa-solid fa-location-dot"></i> location icon and Allow Location Access.<br>
+                                    4. Drug the red marker to get readable address.<br>
+                                    5. You can search address after google map loaded.
                                     <a href="https://support.google.com/maps/answer/2839911?"> Need More Help?</a>
                                 </small>
-                                <div id="map-canvas" style="min-height: 290px; width: 100%"></div>
+                                <div id="map-canvas" style="min-height: 270px; width: 100%"></div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row form-group">
-                        <div class="col-md-6">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <div>
+                                        <input class="form-check-input" type="radio" name="job_type" id="local" value="local" @if(!empty($editRow->type) && $editRow->type == 'local') checked @elseif(empty($editRow->type)) checked @endif>
+                                        <label class="form-check-label" for="local">Local</label>
+                                    </div>
+                                    <div>
+                                        <input class="form-check-input" type="radio" name="job_type" value="global" id="global" @if(!empty($editRow->type) && $editRow->type == 'global') checked @endif>
+                                        <label class="form-check-label" for="global">Global</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked="" required="">
-                                    <span class="custom-control-label"> I am agree with <a href="#">terms and conditions</a></span>
+                                    <span class="custom-control-label pt-1"> I am agree with <a href="#">terms and conditions</a></span>
                                 </label>
                             </div>
                         </div>
-                        <div class="col-md-6 text-right">
+                        <div class="col-md-2 text-right">
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>

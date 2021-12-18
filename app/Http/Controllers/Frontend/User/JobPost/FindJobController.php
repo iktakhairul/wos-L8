@@ -45,6 +45,8 @@ class FindJobController extends Controller
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
                 ->where('user_id', '!=', auth()->user()['id'])
                 ->where('status', '!=', 'inactive')
+                ->where('status', '!=', 'stop-proposing')
+                ->where('status', '!=', 'complete')
                 ->whereBetween('latitude', [$latitudeOne, $latitudeTwo])
                 ->orWhereBetween('latitude', [$longitudeOne, $longitudeTwo])
                 ->paginate(15);
@@ -74,6 +76,8 @@ class FindJobController extends Controller
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
                 ->where('user_id', '!=', auth()->user()['id'])
                 ->where('status', '!=', 'inactive')
+                ->where('status', '!=', 'stop-proposing')
+                ->where('status', '!=', 'complete')
                 ->where('city', 'like', '%'.$profile['present_city'].'%')
                 ->paginate(15);
 
@@ -103,6 +107,8 @@ class FindJobController extends Controller
             $available_job_posts = JobPost::with(['service_category', 'job_responses', 'user'])
                 ->where('user_id', '!=', auth()->user()['id'])
                 ->where('status', '!=', 'inactive')
+                ->where('status', '!=', 'stop-proposing')
+                ->where('status', '!=', 'complete')
                 ->where('country', $profile['present_country'])
                 ->paginate(15);
 

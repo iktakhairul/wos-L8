@@ -18,6 +18,7 @@ Route::group(['prefix' => 'jobs', 'as' => 'jobs.', 'middleware' => ['auth','user
 
     // Job Posts
     Route::resource('job-posts', JobPostController::class);
+    Route::get('job-posts/{id}/stop-proposal', [JobPostController::class, 'stop_proposal'])->name('job-posts.stop-proposal');
     Route::get('job-posts/{id}/submit-a-proposal', [JobPostController::class, 'submit_a_proposal'])->name('job-posts.submit-a-proposal');
     Route::get('job-posts/{id}/resubmit-a-proposal', [JobResponseController::class, 'resubmit_a_proposal'])->name('job-posts.resubmit-a-proposal');
 
