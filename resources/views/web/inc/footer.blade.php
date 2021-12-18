@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6" id="footer-site-map-div">
-                    <!--Column1-->
+                    <!--Column2-->
                     <div class="footer-pad">
                         <h5>SITE MAP</h5>
                         <ul class="list-unstyled">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6" id="footer-services-div">
-                    <!--Column1-->
+                    <!--Column3-->
                     <div class="footer-pad">
                         <h5>SERVICES</h5>
                         <ul class="list-unstyled">

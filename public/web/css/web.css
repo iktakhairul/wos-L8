@@ -48,6 +48,10 @@
 .nm-div-padding{
     padding-left: 30px;
 }
+.nav-header-mn-title{
+    padding-top: 10px;
+    padding-left: 25px;
+}
 @media (min-width: 976px) {
     .nav-header-mn-plate {
         margin-left: 60%;
