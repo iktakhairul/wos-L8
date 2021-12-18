@@ -1,7 +1,7 @@
 @extends('web.index')
 
 @section('web_content')
-
+    <link href="{{ asset('web/css/job-post.css') }}" rel="stylesheet" />
     <section class="section-content pt-2" style="margin-bottom: 250px">
         <div class="container">
 

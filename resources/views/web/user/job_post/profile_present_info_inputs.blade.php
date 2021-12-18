@@ -24,6 +24,9 @@
                     @csrf
                     <div class="form-row form-group">
                         <div class="col-md-12 text-md-left">
+                            <div class="col-md-12 text-right p-0">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
                             <label for="map-search" class="pt-2">Your Current Location<small class="text-danger">*</small></label><br>
                             <input name="address" id="map-search" value="{{ !empty($editRow->present_address) ? $editRow->present_address : old('address')}}" class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Write Address Or Search Here" style="width: 100%" required>
                             {{--Row--}}
@@ -65,17 +68,6 @@
                                     <div id="map-canvas" style="min-height: 450px; width: 100%"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-row form-group">
-                        <div class="col-md-2 text-md-right">
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                     {{--End Row--}}

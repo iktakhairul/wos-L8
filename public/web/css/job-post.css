@@ -1,0 +1,35 @@
+/*Normal Css*/
+
+
+
+
+
+/*Media query*/
+@media (min-width: 1260px) {
+
+}
+
+@media (max-width: 1269px) {
+
+}
+
+@media (max-width: 767px) {
+    .job-post-title-div{
+        /*float: none !important;*/
+    }
+    .job-proposal-btn{
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .job-proposal-btn{
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 364px) {
+    .job-proposal-btn{
+        margin-bottom: 10px;
+    }
+}

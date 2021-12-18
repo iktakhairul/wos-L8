@@ -1,0 +1,52 @@
+html {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+}
+a:hover {
+    text-decoration: none;
+}
+.bg {
+    background-color: #f6f7f9;
+}
+.bg-white {
+    background-color: #fff;
+}
+.bg-orange {
+    background-color: #ff6a00;
+}
+.bg-green {
+    background-color: #00b517;
+}
+.bg-blue {
+    background-color: #12225b;
+}
+
+.section-footer{
+    padding-top: 50px;
+}
+.section-footer ul li {
+    margin-bottom: 5px;
+}
+.section-footer ul a {
+    color: inherit;
+}
+.section-footer ul a:hover {
+    color: #ff6a00;
+}
+.section-footer .logo-footer {
+    height: 40px;
+}
+.section-footer .title {
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+.footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #1a3286;
+}
+.footer-copyright {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

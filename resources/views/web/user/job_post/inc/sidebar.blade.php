@@ -1,6 +1,7 @@
 <aside class="col-md-3">
     <nav class="list-group">
         <a class="list-group-item @if (request()->routeIs(['profile./'])) active @endif" href="{{ route('profile./') }}">Profile Overview</a>
+        <a class="list-group-item @if (request()->routeIs(['jobs.find-jobs'])) active @endif" href="{{ route('jobs.find-jobs') }}"> All Job Posts</a>
         <a class="list-group-item @if (request()->routeIs(['jobs.job-posts.index'])) active @endif" href="{{ route('jobs.job-posts.index') }}"> My Job Posts </a>
         <a class="list-group-item @if (request()->routeIs(['jobs.job-timelines.index'])) active @endif" href="{{ route('jobs.job-timelines.index') }}"> My Job Timeline </a>
         @if(auth()->user()['complete_profile_status'] !== 'incomplete')
