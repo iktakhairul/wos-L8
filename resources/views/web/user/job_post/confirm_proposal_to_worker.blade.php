@@ -60,11 +60,11 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <figure class="icontext">
-                                                            <div class="icon">
-                                                                <img class="rounded-circle img-sm border" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
+                                                        <figure class="row icontext">
+                                                            <div class="col-md-2 icon">
+                                                                <img class="rounded-circle img-sm border" width="75px" alt="" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
                                                             </div>
-                                                            <div class="text">
+                                                            <div class="col-md-10 text">
                                                                 <strong> {{ $job_response->user->name ?? 'User not found!' }} </strong> <br>
                                                                 <p class="mb-2"> {{ $job_response->user->email ?? 'User not found!' }}</p>
                                                                 <p class="mb-2"> Ratings:

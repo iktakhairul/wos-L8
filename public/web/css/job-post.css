@@ -14,11 +14,16 @@
 }
 
 @media (max-width: 767px) {
-    .job-post-title-div{
-        /*float: none !important;*/
-    }
     .job-proposal-btn{
         margin-bottom: 10px;
+    }
+    .job-post-input-city{
+        margin-left: 6px;
+        width: 98%;
+    }
+    .job-post-input-country{
+        margin-left: 6px;
+        width: 98%;
     }
 }
 
@@ -26,10 +31,26 @@
     .job-proposal-btn{
         margin-bottom: 10px;
     }
+    .job-post-input-city{
+        margin-left: 5px;
+        width: 97%;
+    }
+    .job-post-input-country{
+        margin-left: 5px;
+        width: 97%;
+    }
 }
 
 @media (max-width: 364px) {
     .job-proposal-btn{
         margin-bottom: 10px;
+    }
+    .job-post-input-city{
+        margin-left: 5px;
+        width: 97%;
+    }
+    .job-post-input-country{
+        margin-left: 5px;
+        width: 97%;
     }
 }

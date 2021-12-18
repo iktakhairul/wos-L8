@@ -21,21 +21,25 @@
                         <li class="list-group-item mb-2">
                             <div class="row">
                                 <div class="col">
+
                                     <div class="row">
-                                        <div class="col">
-                                            <h2>{{ $index->title ?? ''}}</h2>
+                                        <div class="col-12">
+                                            <div class="float-left job-post-title-div">
+                                                <h2 class="text-success">{{ $index->title ?? ''}}</h2>
+                                            </div>
+                                            <div class="float-right job-proposal-btn">
+                                                @if(!empty($my_orders->firstWhere('job_post_id', $index->id)))
+                                                    <a data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                @else
+                                                    <div class="text-right">
+                                                        <a class="float-left" href="{{ route('jobs.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
+                                                        <a class="ml-2" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
-                                        @if(!empty($my_orders->firstWhere('job_post_id', $index->id)))
-                                            <div class="col-sm-1 text-right">
-                                                <a class="" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
-                                            </div>
-                                        @else
-                                            <div class="col-sm-2 text-right">
-                                                <a href="{{ route('jobs.job-posts.edit', $index->id) }}"><i class="fa fa-edit fa-lg"></i></a>
-                                                <a class="ml-2" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
-                                            </div>
-                                        @endif
                                     </div>
+
                                     <h5>Service Category: {{ $index->service_category->name ?? ''}}, Budget: {{ $index->budget ?? '' }}<img src="{{ asset('/web/images/icons/taka.jpg') }}" alt=""></h5>
                                     <p class="font-weight-bold">Job Duration: ({{$index->start_datetime ?? ''}} - {{$index->end_datetime ?? ''}})</p>
                                     <p><i class="fa-solid fa-location-dot mr-2"></i>{{$index->address ?? ''}}</p>
@@ -65,11 +69,11 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col">
-                                                                <figure class="icontext">
-                                                                    <div class="icon">
-                                                                        <img class="rounded-circle img-sm border" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
+                                                                <figure class="row icontext">
+                                                                    <div class="col-md-2 icon">
+                                                                        <img class="rounded-circle img-sm border" width="75px" src="{{ asset('web/images/avatars/avatar3.jpg') }}">
                                                                     </div>
-                                                                    <div class="text">
+                                                                    <div class="col-md-10 text">
                                                                         <strong> {{ $job_response->user->name ?? 'User not found!' }} </strong> <br>
                                                                         <p class="mb-2"> {{ $job_response->user->email ?? 'User not found!' }}</p>
                                                                         <p class="mb-2"> Ratings:
@@ -79,12 +83,11 @@
                                                                             <span class="fa fa-star" style="color: orange;"></span>
                                                                             <span class="fa fa-star"></span>
                                                                         </p>
-
                                                                         @if($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '1.confirm_order')
                                                                             <p>Status: <span class="text-success">Order Confirmed</span>, Check My Job Timeline
-{{--                                                                            @if($index->job_timeline->where('job_post_id', $index->id)->where('job_response_id', $job_response->id)->first()['status'] === '1.place_order')--}}
-{{--                                                                                <a href="{{ route('jobs.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>--}}
-{{--                                                                            @endif--}}
+{{--                                                                                @if($index->job_timeline->where('job_post_id', $index->id)->where('job_response_id', $job_response->id)->first()['status'] === '1.place_order')--}}
+{{--                                                                                    <a href="{{ route('jobs.job-post-responses.cancel-order', $job_response->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Would you like to cancel this order to {{$job_response->user->name}} ?')">Cancel Order</a>--}}
+{{--                                                                                @endif--}}
                                                                             </p>
                                                                         @elseif($my_orders->firstWhere('job_response_id', $job_response->id) && $job_response->status === '0.canceled_order')
                                                                             <a href="" class="btn btn-sm btn-outline-info active">Order Canceled</a>

@@ -53,6 +53,7 @@ class JobTimelineController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws null
      */
     public function store(Request $request)
     {
@@ -71,9 +72,10 @@ class JobTimelineController extends Controller
             'status'              => '1.place_order',
             'created_at'          => Carbon::now(),
         ];
-
+        DB::beginTransaction();
         DB::table('job_timelines')->insert($data);
         DB::table('job_responses')->where('id',$request['job_response_id'])->update(['status' => '1.confirm_order', 'updated_at' => now()]);
+        DB::commit();
 
         return redirect()->route('jobs.job-posts.index')->with('success', "Job order successfully placed.");
     }
@@ -144,6 +146,7 @@ class JobTimelineController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws null
      */
     public function ratings_and_comments_to_worker(Request $request)
     {
@@ -155,6 +158,7 @@ class JobTimelineController extends Controller
             'ratings'            => 'required',
         ]);
 
+        DB::beginTransaction();
         $data = [
             'job_post_id'        => $request['job_post_id'],
             'job_timeline_id'    => $request['job_timeline_id'],
@@ -167,7 +171,9 @@ class JobTimelineController extends Controller
         ];
 
         DB::table('ratings')->insert($data);
+        DB::table('job_posts')->where('id', $request['job_post_id'])->update(['status' => 'complete', 'updated_at' => now()]);
         DB::table('job_timelines')->where('id', $request['job_timeline_id'])->update(['status' => '5.complete_from_owner', 'updated_at' => now()]);
+        DB::commit();
 
         return redirect()->back()->with('message', 'Thank you, this job has been completed.');
     }
@@ -177,6 +183,7 @@ class JobTimelineController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws null
      */
     public function ratings_and_comments_to_owner(Request $request)
     {
@@ -188,6 +195,7 @@ class JobTimelineController extends Controller
             'ratings'            => 'required',
         ]);
 
+        DB::beginTransaction();
         $data = [
             'job_post_id'        => $request['job_post_id'],
             'job_timeline_id'    => $request['job_timeline_id'],
@@ -201,6 +209,7 @@ class JobTimelineController extends Controller
 
         DB::table('ratings')->insert($data);
         DB::table('job_timelines')->where('id', $request['job_timeline_id'])->update(['status' => '5.complete_from_worker', 'updated_at' => now()]);
+        DB::commit();
 
         return redirect()->back()->with('message', 'Thank you, this job has been completed.');
     }

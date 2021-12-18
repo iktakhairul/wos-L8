@@ -194,6 +194,6 @@ class JobResponseController extends Controller
     {
         DB::table('job_responses')->where('id', $id)->update(['status' => 'active']);
 
-        return redirect()->back()->with('message', 'Proposal reconfirmed.');
+        return redirect()->back()->with('message', 'Proposal resubmitted.');
     }
 }

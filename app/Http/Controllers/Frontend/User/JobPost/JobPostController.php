@@ -66,8 +66,7 @@ class JobPostController extends Controller
             'service_category_id'  => 'required|exists:service_categories,id',
             'title'                => 'required|string|min:3|max:250',
             'address'              => 'required|string',
-            'latitude'             => 'required',
-            'longitude'            => 'required',
+            'city'                 => 'required',
             'start_datetime'       => 'required',
             'required_persons'     => 'required|gte:1',
             'budget'               => 'required',
@@ -76,13 +75,14 @@ class JobPostController extends Controller
         $data = [
             'service_category_id' => $request['service_category_id'],
             'user_id'             => auth()->user()['id'],
+            'type'                => $request['job_type'],
             'title'               => $request['title'],
             'description'         => $request['description'],
             'latitude'            => $request['latitude'],
             'longitude'           => $request['longitude'],
             'address'             => $request['address'],
             'city'                => $request['city'],
-            'country'             => str_replace(' ', '', end($address)),
+            'country'             => $request['country'] ?? str_replace(' ', '', end($address)),
             'start_datetime'      => $start_datetime,
             'end_datetime'        => $end_datetime,
             'required_persons'    => $request['required_persons'],
@@ -128,8 +128,8 @@ class JobPostController extends Controller
             'service_category_id'  => 'required|exists:service_categories,id',
             'title'                => 'required|string|min:3|max:250',
             'address'              => 'required|string',
-            'latitude'             => 'required',
-            'longitude'            => 'required',
+//            'latitude'             => 'required',
+//            'longitude'            => 'required',
             'start_datetime'       => 'required',
             'required_persons'     => 'required|gte:1',
             'budget'               => 'required',
@@ -138,17 +138,17 @@ class JobPostController extends Controller
         $data = [
             'service_category_id' => $request['service_category_id'],
             'title'               => $request['title'],
+            'type'                => $request['job_type'],
             'description'         => $request['description'],
             'latitude'            => $request['latitude'],
             'longitude'           => $request['longitude'],
             'address'             => $request['address'],
             'city'                => $request['city'],
-            'country'             => str_replace(' ', '', end($address)),
+            'country'             => $request['country'] ?? str_replace(' ', '', end($address)),
             'start_datetime'      => $start_datetime,
             'end_datetime'        => $end_datetime,
             'required_persons'    => $request['required_persons'],
             'budget'              => $request['budget'],
-            'tags'                => $request['tags'],
             'status'              => 'active',
             'updated_at'          => now(),
         ];
@@ -208,5 +208,19 @@ class JobPostController extends Controller
         }
 
         return view('web.user.job_post.submit_a_proposal_inputs', compact('job_post', 'own_response'));
+    }
+
+    /**
+     * Turn off active my job post proposing status.
+     *
+     * @param $id
+     * @return null
+     * @throws null
+     */
+    public function stop_proposal($id)
+    {
+        DB::table('job_posts')->where('id', $id)->update(['status' => 'stop-proposing', 'updated_at' => now()]);
+
+        return redirect()->back()->with('message', 'Stopped job posts proposal option for public workers');
     }
 }

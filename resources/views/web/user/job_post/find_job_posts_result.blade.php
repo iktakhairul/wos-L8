@@ -60,7 +60,7 @@
                                             </div>
                                             <div class="float-right job-proposal-btn">
                                                 @if(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id))  && $own->status !== '0.canceled_proposal')
-                                                    <h6 class="text-success float-left pt-2 pl-4">Submitted</h6>
+                                                    <h6 class="text-primary float-left pt-2 pl-4 mr-3">Submitted</h6>
                                                     <a class="btn btn-outline-info" data-toggle="collapse" href="#collapseMyJobInfo{{$index->id}}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-angle-down fa-lg"></i></a>
                                                 @elseif(!empty($own_responses) && !empty($own = $own_responses->firstWhere('job_post_id', '==', $index->id)) && $own->status === '0.canceled_proposal')
                                                     <a class="btn btn-primary" href="{{ route('jobs.job-posts.resubmit-a-proposal', $own->id) }}" onclick="return confirm('Would you like to resubmit this job proposal?')">Resubmit Your Proposal</a>
