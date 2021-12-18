@@ -19,7 +19,6 @@
                         <ul class="list-unstyled">
                             <li><a href="{{ route('jobs.find-jobs') }}">All Jobs</a></li>
                             <li><a href="{{ route('profile./') }}">My Profile</a></li>
-                            <li><a href="{{ route('profile.profiles.edit-present-info', auth()->user()['id']) }}">Update My Location</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">FAQs</a></li>
