@@ -23,16 +23,16 @@
                             <img src="{{ asset('web/images/banners/slide5.jpg')}}" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('web/images/banners/slide4.jpg')}}" alt="Second slide">
+                            <img src="{{ asset('web/images/banners/slide15.jpg')}}" alt="Second slide">
                         </div>
                         <div class="carousel-item">
                             <img src="{{asset('web/images/banners/slide8.jpg')}}" alt="Third slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('web/images/banners/slide6.jpg')}}" alt="Third slide">
+                            <img src="{{asset('web/images/banners/slide12.jpg')}}" alt="Third slide">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('web/images/banners/slide7.jpg')}}" alt="Third slide">
+                            <img src="{{asset('web/images/banners/slide10.jpg')}}" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carousel1_indicator" role="button"
