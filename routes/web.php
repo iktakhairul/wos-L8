@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\WebController;
 use App\Http\Controllers\Frontend\MessengerController;
