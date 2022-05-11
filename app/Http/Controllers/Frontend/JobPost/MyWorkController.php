@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile\JobPost\JobTimeline;
+use App\Models\JobPost\JobTimeline;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

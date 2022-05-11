@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile\JobPost\JobPost;
-use App\Models\Profile\JobPost\JobResponses;
-use App\Models\Profile\JobPost\ServiceCategory;
+use App\Models\JobPost\JobPost;
+use App\Models\JobPost\JobResponses;
+use App\Models\JobPost\ServiceCategory;
 use App\Models\Profile\Profile;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

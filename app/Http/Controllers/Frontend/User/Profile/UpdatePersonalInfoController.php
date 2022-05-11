@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 class UpdatePersonalInfoController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Profile\JobPost;
+namespace App\Models\JobPost;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
