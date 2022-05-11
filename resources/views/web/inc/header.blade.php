@@ -124,7 +124,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jon Doe</p>
                                                     <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
@@ -137,7 +137,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Wiliam Smith</p>
                                                     <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
@@ -147,10 +147,49 @@
 
                                             <div class="row mb-4">
                                                 <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jonson Dane</p>
+                                                    <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jon Doe</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Wiliam Smith</p>
+                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jonson Dane</p>
                                                     <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
@@ -163,7 +202,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jon Doe</p>
                                                     <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
@@ -176,21 +215,8 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Wiliam Smith</p>
                                                     <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-4">
-                                                <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
-                                                    <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -202,33 +228,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Md. Hasan</p>
-                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-4">
-                                                <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Samun Mollik</p>
-                                                    <p class="card-job-post-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-4">
-                                                <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Fariha Jabin</p>
+                                                    <p class="card-job-post-title p-0 pt-2 m-0 nm-list-title">Jonson Dane</p>
                                                     <p class="card-job-post-title p-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias aliquam aut commodi consectetur debitis eaque eum eveniet libero nulla quaerat quibusdam quisquam quos recusandae sunt suscipit voluptas voluptate voluptatem.</p>
                                                 </div>
                                                 <div class="col-2">
@@ -276,10 +276,21 @@
                                             </div>
                                             <div class="row mb-4">
                                                 <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Jonson Dane, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0 ">Hi Wiliam Smith, A new job post near you!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -290,7 +301,29 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0 ">Hi Samun Mollik, A new job post near you!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Jonson Dane, You have a new job!</p>
+                                                </div>
+                                                <div class="col-2">
+                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-2">
+                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
+                                                </div>
+                                                <div class="col-8">
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Wiliam Smith, A new job post near you!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -309,21 +342,10 @@
                                             </div>
                                             <div class="row mb-4">
                                                 <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-2">
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Jonson Dane, You have a new job!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -334,18 +356,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Wiliam Smith, A new job post near you!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -356,7 +367,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -367,18 +378,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar2.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Mr. Hasan, You have a new job proposal!</p>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-2">
-                                                    <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar1.jpg') }}" width="75px" alt="">
-                                                </div>
-                                                <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Fariha Jabin, You have a new job!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Dear Jonson Dane, You have a new job!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>
@@ -389,7 +389,7 @@
                                                     <img class="rounded-circle message-list-avatar" src="{{ asset('web/images/avatars/avatar3.jpg') }}" width="75px" alt="">
                                                 </div>
                                                 <div class="col-8">
-                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Samun Mollik, A new job post near you!</p>
+                                                    <p class="notification-list-text p-0 pt-2 m-0">Hi Wiliam Smith, A new job post near you!</p>
                                                 </div>
                                                 <div class="col-2">
                                                     <a class="text-muted pt-2" href="#"><i class="fa fa-ellipsis-h nav-header-mn-icon"></i></a>

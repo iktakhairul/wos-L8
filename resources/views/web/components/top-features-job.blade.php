@@ -54,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
+                                        <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded">
                                             <div class="card-body">
                                                 <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
                                                 <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
