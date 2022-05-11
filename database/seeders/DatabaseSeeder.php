@@ -17,11 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $pass = 789456123;
+        $pass = 'password';
         $user = User::create([
-            'name' => 'System Admin',
-            'email' => 'system.admin@mailinator.com',
+            'name' => 'Super Admin',
+            'email' => 'superadmin@gmail.com',
             'contact_number' => '01987654321',
             'domains' => 'system,developer,admin,dashboard,operator,support,merchant',
             'type' => 'system',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User\JobPost;
+namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobResponses;
@@ -30,7 +30,7 @@ class JobResponseController extends Controller
     public function index()
     {
 
-        return view('web.user.job_post.job_post');
+        return view('web.job_post.job_post');
     }
 
     /**
@@ -44,7 +44,7 @@ class JobResponseController extends Controller
         $service_categories = DB::table('service_categories')->get();
         $editRow = null;
 
-        return view('web.user.job_post.confirm_proposal_to_worker', compact('job_response','editRow','service_categories'));
+        return view('web.job_post.confirm_proposal_to_worker', compact('job_response','editRow','service_categories'));
     }
 
     /**

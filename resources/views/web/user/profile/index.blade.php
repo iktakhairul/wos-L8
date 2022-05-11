@@ -6,7 +6,7 @@
         <div class="container">
 
             <div class="row">
-                @include('web.user.job_post.inc.sidebar')
+                @include('web.job_post.inc.sidebar')
                 <main class="col-md-9">
                     @yield('profile_content')
                 </main>

@@ -1,4 +1,4 @@
-@extends('web.user.job_post.index')
+@extends('web.job_post.index')
 @section('title', 'Create Job Post')
 
 @push('styles')

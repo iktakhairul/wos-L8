@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User\JobPost;
+namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile\JobPost\JobTimeline;
+use App\Models\Profile\JobPost\JobPost;
+use App\Models\Profile\JobPost\JobResponses;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
-class MyWorkController extends Controller
+class PendingProposalController extends Controller
 {
     /**
      * Valid constructor for user resource.
@@ -28,30 +30,10 @@ class MyWorkController extends Controller
      */
     public function index()
     {
-        $my_active_works = JobTimeline::with('job_post', 'job_response', 'user_ratings')
-            ->whereHas('job_response', function($query){$query->where('user_id', auth()->user()['id'])->where('status', '=', '1.confirm_order');})
-            ->where('job_worker_user_id', auth()->user()['id'])->where('status','!=','inactive')->paginate(15);
+        $my_pending_proposals = JobResponses::with('job_post')
+            ->where('user_id', auth()->user()['id'])->where('status','active')->paginate(15);
 
-        return view('web.user.job_post.pending.my_active_work_list', compact( 'my_active_works'));
-    }
-
-    /**
-     * Show the complete works.
-     *
-     * @param $id
-     * @return null
-     */
-    public function show($id)
-    {
-        dd(1);
-        $User_id = $id;
-        $my_complete_works = JobTimeline::with('job_post', 'job_response', 'user_ratings')
-            ->whereHas('job_response', function($query){$query->where('user_id', auth()->user()['id'])->where('status', '=', '1.confirm_order');})
-            ->where('job_worker_user_id', $id)->where('status','!=','inactive')
-            ->where('status', 'like', '5.complete_from')->paginate(15);
-
-
-        return view('web.user.job_post.pending.my_active_work_list', compact( 'my_complete_works'));
+        return view('web.job_post.pending.my_pending_proposals', compact( 'my_pending_proposals'));
     }
 
     /**

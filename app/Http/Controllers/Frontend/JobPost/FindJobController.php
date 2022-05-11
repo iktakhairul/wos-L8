@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User\JobPost;
+namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobPost;
@@ -56,7 +56,7 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('profile', 'available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.job_post.find_job_posts_result', compact('profile', 'available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
@@ -87,7 +87,7 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
@@ -118,7 +118,7 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 
     /**
@@ -148,6 +148,6 @@ class FindJobController extends Controller
             $profile_status = false;
         }
 
-        return view('web.user.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
+        return view('web.job_post.find_job_posts_result', compact('profile','available_job_posts', 'service_categories', 'own_responses', 'profile_status'));
     }
 }

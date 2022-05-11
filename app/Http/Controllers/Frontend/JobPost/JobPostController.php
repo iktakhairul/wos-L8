@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User\JobPost;
+namespace App\Http\Controllers\Frontend\JobPost;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile\JobPost\JobPost;
@@ -34,7 +34,7 @@ class JobPostController extends Controller
 
         $my_orders = JobTimeline::where('job_post_user_id', auth()->user()['id'])->get();
 
-        return view('web.user.job_post.my_job_post_list', compact('job_posts', 'my_orders'));
+        return view('web.job_post.my_job_post_list', compact('job_posts', 'my_orders'));
     }
 
     /**
@@ -47,7 +47,7 @@ class JobPostController extends Controller
         $editRow = null;
         $service_categories = DB::table('service_categories')->get();
 
-        return view('web.user.job_post.job_post_inputs', compact('editRow','service_categories'));
+        return view('web.job_post.job_post_inputs', compact('editRow','service_categories'));
     }
 
     /**
@@ -108,7 +108,7 @@ class JobPostController extends Controller
         $editRow = DB::table('job_posts')->find($id);
         $service_categories = DB::table('service_categories')->get();
 
-        return view('web.user.job_post.job_post_inputs', compact('editRow','service_categories'));
+        return view('web.job_post.job_post_inputs', compact('editRow','service_categories'));
     }
 
     /**
@@ -205,7 +205,7 @@ class JobPostController extends Controller
             $own_response = JobResponses::where('job_post_id', $id)->where('user_id', auth()->user()['id'])->first();
         }
 
-        return view('web.user.job_post.submit_a_proposal_inputs', compact('job_post', 'own_response'));
+        return view('web.job_post.submit_a_proposal_inputs', compact('job_post', 'own_response'));
     }
 
     /**

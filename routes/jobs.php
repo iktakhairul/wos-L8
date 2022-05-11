@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\User\JobPost\MyWorkController;
-use App\Http\Controllers\Frontend\User\JobPost\JobPostController;
-use App\Http\Controllers\Frontend\User\JobPost\FindJobController;
-use App\Http\Controllers\Frontend\User\JobPost\JobResponseController;
-use App\Http\Controllers\Frontend\User\JobPost\JobTimelineController;
-use App\Http\Controllers\Frontend\User\JobPost\PendingProposalController;
+use App\Http\Controllers\Frontend\JobPost\MyWorkController;
+use App\Http\Controllers\Frontend\JobPost\JobPostController;
+use App\Http\Controllers\Frontend\JobPost\FindJobController;
+use App\Http\Controllers\Frontend\JobPost\JobResponseController;
+use App\Http\Controllers\Frontend\JobPost\JobTimelineController;
+use App\Http\Controllers\Frontend\JobPost\PendingProposalController;
 
 Route::group(['prefix' => 'jobs', 'as' => 'jobs.', 'middleware' => ['auth','user']], function () {
 
