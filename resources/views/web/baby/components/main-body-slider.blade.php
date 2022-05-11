@@ -2,7 +2,7 @@
     <div class="wrapper-content">
         <div class="img-area">
             <div class="inner-area">
-                <img src="{{asset('baby/images/baby.jpeg')}}" alt="{{$baby ? ucwords($baby->name) : 'Baby Image'}}"/>
+                <img src="{{asset('web/images/avatars/baby.jpeg')}}" alt="{{$baby ? ucwords($baby->name) : 'Baby Image'}}"/>
             </div>
         </div>
         <div class="name">{{$baby ? ucwords($baby->name) : 'Example Name'}}</div>
@@ -238,7 +238,5 @@
         }
 
     </style>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
 @endpush
 

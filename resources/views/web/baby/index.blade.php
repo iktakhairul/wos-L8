@@ -15,13 +15,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link href="{{ asset('baby/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('web/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('baby/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('baby/css/footer.css') }}" rel="stylesheet" />
-    <link href="{{ asset('baby/css/responsive.css') }}" rel="stylesheet" />
-    <link href="{{ asset('baby/css/web.css') }}" rel="stylesheet" />
+    <link href="{{ asset('web/css/animate.css') }}" rel="stylesheet" />
+    <link href="{{ asset('web/css/footer.css') }}" rel="stylesheet" />
+    <link href="{{ asset('web/css/responsive.css') }}" rel="stylesheet" />
+    <link href="{{ asset('web/css/web.css') }}" rel="stylesheet" />
     <!-- font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
 
@@ -52,14 +52,11 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('baby/js/jquery-3.5.1.min.js') }}"></script>
-<script src="{{ asset('baby/js/jquery-migrate-3.0.0.min.js') }}"></script>
-<script src="{{ asset('baby/js/popper.min.js') }}"></script>
-<script src="{{ asset('baby/js/bootstrap-4.5.2.min.js') }}"></script>
-<script src="{{ asset('baby/js/scripts.js') }}"></script>
-
-<script type="text/javascript">
-</script>
+<script src="{{ asset('web/js/jquery-3.5.1.min.js') }}"></script>
+<script src="{{ asset('web/js/jquery-migrate-3.0.0.min.js') }}"></script>
+<script src="{{ asset('web/js/popper.min.js') }}"></script>
+<script src="{{ asset('web/js/bootstrap-4.5.2.min.js') }}"></script>
+<script src="{{ asset('web/js/scripts.js') }}"></script>
 
 @stack('scripts')
 
