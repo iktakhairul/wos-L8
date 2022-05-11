@@ -8,7 +8,7 @@
                         <h4>{{ config('app.name', 'Find Job') }}</h4>
                         <ul class="list-unstyled">
                             <li><a href="#"></a></li>
-                            <li><a href="#">© 2021-2022 Find Job, LLC</a></li>
+                            <li><a href="#">© 2022-2023 Find Job, LLC</a></li>
                         </ul>
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                 <div class="col-md-3">
                     <h5>CONTACT</h5>
                     <ul class="social-network social-circle">
-                        <li><a href="https://www.facebook.com/Find-Job-111760624695415" target="_blank" class="icoFacebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank" class="icoFacebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
                         <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 copy">
-                    <p class="text-center">&copy; Copyright 2021 - Find Job.  All rights reserved.</p>
+                    <p class="text-center">&copy; Copyright 2022 - Find Job.  All rights reserved.</p>
                 </div>
             </div>
         </div>
