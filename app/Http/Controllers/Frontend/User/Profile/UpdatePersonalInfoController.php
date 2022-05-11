@@ -31,7 +31,7 @@ class UpdatePersonalInfoController extends Controller
     {
         $editRow = DB::table('profiles')->find($id);
 
-        return view('web.user.job_post.profile_present_info_inputs', compact('editRow'));
+        return view('web.job_post.profile_present_info_inputs', compact('editRow'));
     }
 
     /**

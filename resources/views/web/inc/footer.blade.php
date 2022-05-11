@@ -30,6 +30,7 @@
                     <div class="footer-pad">
                         <h5>SERVICES</h5>
                         <ul class="list-unstyled">
+                            <li><a href="{{ route('test.baby') }}">Baby Service</a></li>
                             <li><a href="#">Biting A Job</a></li>
                             <li><a href="#">Job Owners And Workers Platform</a></li>
                             <li><a href="#">Find Local And International Jobs</a></li>

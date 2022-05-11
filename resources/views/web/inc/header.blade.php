@@ -36,6 +36,11 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </li>--}}
+                        <li class="nav-item">
+                            <div class="widget-header mr-3">
+                                <a href="{{ route('test.baby') }}" class="widget-view nav-link">Baby Service</a>
+                            </div>
+                        </li>
                         @if(Auth::check() && Auth::user()->weight >= 79.99)
                             <li class="nav-item">
                                 <div class="widget-header mr-3">
