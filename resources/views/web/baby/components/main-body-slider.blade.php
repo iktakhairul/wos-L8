@@ -2,7 +2,7 @@
     <div class="wrapper-content">
         <div class="img-area">
             <div class="inner-area">
-                <img src="http://www.hindubaby.name/blog/wp-content/uploads/2018/09/31550-cute-baby.jpg" alt="sarjis-abdullah"/>
+                <img src="{{asset('baby/images/baby.jpeg')}}" alt="{{$baby ? ucwords($baby->name) : 'Baby Image'}}"/>
             </div>
         </div>
         <div class="name">{{$baby ? ucwords($baby->name) : 'Example Name'}}</div>
