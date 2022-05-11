@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobPost\JobPost;
-use Illuminate\View\View;
+use App\Models\Profile\Profile;
 
 class WebController extends Controller
 {
@@ -15,7 +15,10 @@ class WebController extends Controller
      */
     public function index()
     {
-        $topFeaturedJobs = JobPost::all();
-        return view('web.home', compact('topFeaturedJobs'));
+        $topFeaturedJobs = JobPost::with('user','service_category','job_responses')
+            ->where('status', 'active')->orderBy('budget', 'desc')->take(6)->get();
+        $topEmployers = Profile::with('user')->orderBy('ratings', 'desc')->take(4)->get();
+
+        return view('web.home', compact('topFeaturedJobs','topEmployers'));
     }
 }

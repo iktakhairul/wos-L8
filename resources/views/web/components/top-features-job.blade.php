@@ -15,102 +15,61 @@
                         <li data-target="#carousel1_indicator" data-slide-to="2" class="bg-white"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
+                        @forelse($topFeaturedJobs->chunk(2) as $key => $chunk)
+                        <div class="carousel-item @if($key === 0) active @endif">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
+                                @foreach($chunk as $item)
+                                    <div class="col-md-6">
+                                        <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
+                                            <div class="card-body">
+                                                <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title"> {{ $item->title ? $item->title : 'Title Not Found' }}</h5></a>
+                                                <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: {{ $item->service_category ? $item->service_category->name : 'Service Category Not Found' }}</h6>
+                                                <span class="text-info"><i class="fa fa-user mr-2"></i>{{ $item->user ? $item->user->name : 'User Not Found' }}</span><br>
+                                                <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>{{ $item->address ? $item->address : '' }}</span>
+                                                <hr>
+                                                <span><i class="fa fa-info mr-2"></i> Budget: {{ $item->budget ? $item->budget : 0 }} BDT</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> Required Person: {{ $item->required_persons ? $item->required_persons : 0 }}</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> {{ (count($item->job_responses) < 1) ? 'No one applied yet!' : (count($item->job_responses). ' People Applied') }}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
+                                @endforeach
+                            </div>
+                        </div>
+                        @empty
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
+                                            <div class="card-body">
+                                                <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                                <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
+                                                <span class="text-info"><i class="fa fa-user mr-2"></i>Shajib Khan</span><br>
+                                                <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>3/C New Road, Chitagong, Bangladesh</span>
+                                                <hr>
+                                                <span><i class="fa fa-info mr-2"></i> Budget: 2502 BDT</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
+                                            <div class="card-body">
+                                                <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
+                                                <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
+                                                <span class="text-info"><i class="fa fa-user mr-2"></i>Shajib Khan</span><br>
+                                                <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>3/C New Road, Chitagong, Bangladesh</span>
+                                                <hr>
+                                                <span><i class="fa fa-info mr-2"></i> Budget: 2502 BDT</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
+                                                <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 mb-4 shadow p-3 mb-5 bg-white rounded" >
-                                        <div class="card-body">
-                                            <a class="web-fr-job-title" href="#"><h5 class="card-title card-job-post-title">Service Electric Line Repair with Long Job Title For Testing</h5></a>
-                                            <h6 class="card-subtitle mb-2 mt-2 text-muted">Service Category: Electrician</h6>
-                                            <span class="text-info"><i class="fa fa-user mr-2"></i>Shah Md. Iktakhairul Islam</span><br>
-                                            <span class="card-recent-job-post-address"><i class="fa-solid fa-location-dot mr-2"></i>143/E Jamtola Rd, Dhaka, Bangladesh</span>
-                                            <hr>
-                                            <span><i class="fa fa-info mr-2"></i> Budget: 2500 BDT</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> Required Person: 12</span><br>
-                                            <span><i class="fa fa-info mr-2"></i> 17+ People Applied</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                     <a class="carousel-control-prev" href="#carousel1_indicator" role="button"
                        data-slide="prev">
