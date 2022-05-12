@@ -1,3 +1,9 @@
+<div class="mt-4">
+    <marquee behavior="scroll" direction="left">
+        A full-term pregnancy is 40 weeks, or 280 days. Most babies have a normal delivery usually between 37 and 41 weeks.
+        সাধারণত ৩৭ সপ্তাহ থেকে 41 সপ্তাহের মধ্যে বেশিরভাগ শিশুর নরমাল ডেলিভারি বা স্বাভাবিক প্রসব হয়। এই ৫ সপ্তাহের যেকোন সময়ে শিশু জন্ম নিলে তাকে স্বাভাবিক বলা যাবে।
+    </marquee>
+</div>
 <div class="container d-flex justify-content-center">
     <div class="wrapper-content">
         <div class="img-area">
@@ -6,7 +12,7 @@
             </div>
         </div>
         <div class="name">{{$baby ? ucwords($baby->name) : 'Example Name'}}</div>
-        <div class="career">{{$baby ? ucwords($baby->futureCareer) : 'Example Career'}}</div>
+        <div class="career"> AI: {{$baby ? ucwords($baby->inseminationDate) : 'Date Not Found'}}</div>
         <hr class="horizon"/>
         @auth
             <button class="updateBaby">Create / Update</button>
@@ -19,7 +25,7 @@
         <div class="info">
             <p>Name: {{$baby ? ucwords($baby->name) : 'Example Name'}}</p>
             <p>Age: @if($babyAge){{$babyAge->m}} months and {{$babyAge->d}} days @else - @endif</p>
-            <p>Age in days: {{$babyAge->days ?? ''}}</p>
+            <p>Age in Days: {{$babyAge->days ?? ''}}</p>
             @php
             if ($babyAge) {
                 $week = floor($babyAge->days / 7);
@@ -38,8 +44,11 @@
                 <p>Length: -</p>
                 <p>Weight: -</p>
             @endif
-
+            @if(isset($baby->inseminationDate))
+            <p>Possible Birth Range: </p>
+            <p>{{ Carbon\Carbon::parse($baby->inseminationDate)->addDays(259)->format('F j, Y') }} - {{ Carbon\Carbon::parse($baby->inseminationDate)->addDays(287)->format('F j, Y') }}</p>
             <p></p>
+            @endif
         </div>
         <p class="flow">Follow Me</p>
         <div class="social-icons">

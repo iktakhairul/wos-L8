@@ -20,14 +20,6 @@
 
 @push('scripts')
     <script type="text/javascript">
-        const updateBaby = () => {
-            $("#update-baby-modal").modal("show");
-        };
-        $(document).ready(function () {
-            $(document).on("click", ".updateBaby", function (e) {
-                e.preventDefault();
-                updateBaby();
-            });
-        });
+
     </script>
 @endpush

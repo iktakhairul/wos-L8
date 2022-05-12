@@ -9,17 +9,20 @@
                 <form enctype="multipart/form-data" method="post" action="{{ route('test.baby.update') }}" class="row g-3 basic-input mb-0">
                     @csrf
                     <input class="hide" value="{{ isset($baby) ? $baby->id : '' }}" name="id" type="text" id="id" hidden>
-                    <div class="col-md-12 mt-2">
+                    <div class="col-md-12 mt-2 {{ $errors->has('name') ? 'has-error' : '' }}">
                         <label for="name">Baby Name - শিশুর নাম</label>
                         <input value="{{ isset($baby) ? $baby->name : old('name') }}" name="name" type="text" id="name" placeholder="Enter name" required>
+                        @error('name') <span class="text-danger"><i class="entypo-info-circled"></i>  {{ $message }}</span> @enderror
                     </div>
-                    <div class="col-md-12 mt-2">
+                    <div class="col-md-12 mt-2 {{ $errors->has('inseminationDate') ? 'has-error' : '' }}">
                         <label for="inseminationDate">Approximate Insemination Date - আনুমানিক গর্ভধারণের তারিখ</label>
                         <input @if (isset($baby->inseminationDate)) value="{{ $baby->inseminationDate }}" @endif name="inseminationDate" type="text" id="inseminationDate" placeholder="15-05-2022" required>
+                        @error('inseminationDate') <span class="text-danger"><i class="entypo-info-circled"></i>  {{ $message }}</span> @enderror
                     </div>
-                    <div class="col-md-12 mt-2">
+                    <div class="col-md-12 mt-2 {{ $errors->has('bloodGroup') ? 'has-error' : '' }}">
                         <label for="bloodGroup">Mother's Blood Group - মায়ের রক্তের গ্রুপ</label>
                         <input value="{{ isset($baby) ? $baby->bloodGroup : old('bloodGroup') }}" name="bloodGroup" type="text" id="bloodGroup" placeholder="O+" required>
+                        @error('bloodGroup') <span class="text-danger"><i class="entypo-info-circled"></i>  {{ $message }}</span> @enderror
                     </div>
 
                     <div class="col-12">
@@ -78,6 +81,21 @@
                 format: 'dd-mm-yyyy'
             });
         });
+        /**
+         * Open baby update modal.
+         */
+        const updateBaby = () => {
+            $("#update-baby-modal").modal("show");
+        };
+        $(document).ready(function () {
+            $(document).on("click", ".updateBaby", function (e) {
+                e.preventDefault();
+                updateBaby();
+            });
+        });
+        /**
+         * Close baby update modal.
+         */
         function modalClose() {
             $("#update-baby-modal").modal("hide");
         }

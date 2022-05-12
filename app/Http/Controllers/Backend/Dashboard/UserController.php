@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -26,7 +27,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @return \Illuminate\Contracts\View\View|View
      */
     public function index()
     {
@@ -38,7 +39,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return view
+     * @return \Illuminate\Contracts\View\View|View
      */
     public function create()
     {
@@ -52,6 +53,7 @@ class UserController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -103,9 +105,10 @@ class UserController extends Controller
     /**
      * Update specified resource in storage.
      *
-     * @param $subdomain
+     * @param $id
      * @param Request $request
      * @return null
+     * @throws ValidationException
      */
     public function update($id, Request $request)
     {

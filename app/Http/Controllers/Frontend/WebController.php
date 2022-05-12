@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categorization\Category;
 use App\Models\JobPost\JobPost;
 use App\Models\Profile\Profile;
 
@@ -18,7 +19,8 @@ class WebController extends Controller
         $topFeaturedJobs = JobPost::with('user','service_category','job_responses')
             ->where('status', 'active')->orderBy('budget', 'desc')->take(6)->get();
         $topEmployers = Profile::with('user')->orderBy('ratings', 'desc')->take(4)->get();
+        $categories = Category::all();
 
-        return view('web.home', compact('topFeaturedJobs','topEmployers'));
+        return view('web.home', compact('topFeaturedJobs','topEmployers','categories'));
     }
 }
