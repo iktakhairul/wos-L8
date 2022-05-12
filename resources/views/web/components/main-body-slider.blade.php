@@ -65,14 +65,18 @@
                 <div class="col-md-2 justify-content-between" style="background-color: white; width: 100%">
                     <select id="jb-category" class="js-states search-job-component search-job-options b-0" style="background-color: white; width: 100%">
                         <option value="">Select Category &nbsp;</option>
-                        <option value="1">Accounting & Finance</option>
-                        <option value="2">Telecommunications</option>
-                        <option value="3">IT Companies</option>
-                        <option value="4">Art & Design</option>
-                        <option value="5">Automotive Jobs</option>
-                        <option value="6">Banking Jobs</option>
-                        <option value="7">Education Training</option>
-                        <option value="8">Designing & Multimedia</option>
+                        @forelse($categories as $key  => $item)
+                            <option value="{{ $item ? $item->id : ''}}">{{ $item ? $item->name : ''}}</option>
+                        @empty
+                            <option value="1">Accounting & Finance</option>
+                            <option value="2">Telecommunications</option>
+                            <option value="3">IT Companies</option>
+                            <option value="4">Art & Design</option>
+                            <option value="5">Automotive Jobs</option>
+                            <option value="6">Banking Jobs</option>
+                            <option value="7">Education Training</option>
+                            <option value="8">Designing & Multimedia</option>
+                        @endforelse
                     </select>
                 </div>
                 <div class="col-md-2 p-0 justify-content-between">
