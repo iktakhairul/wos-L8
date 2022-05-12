@@ -11,7 +11,7 @@
                     <input class="hide" value="{{ isset($baby) ? $baby->id : '' }}" name="id" type="text" id="id" hidden>
                     <div class="col-md-12 mt-2 {{ $errors->has('name') ? 'has-error' : '' }}">
                         <label for="name">Baby Name - শিশুর নাম</label>
-                        <input value="{{ isset($baby) ? $baby->name : old('name') }}" name="name" type="text" id="name" placeholder="Enter name" required>
+                        <input value="{{ isset($baby) ? $baby->name : old('name') }}" name="name" type="text" id="name" placeholder="Enter name" maxlength="50" required>
                         @error('name') <span class="text-danger"><i class="entypo-info-circled"></i>  {{ $message }}</span> @enderror
                     </div>
                     <div class="col-md-12 mt-2 {{ $errors->has('inseminationDate') ? 'has-error' : '' }}">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-12 mt-2 {{ $errors->has('bloodGroup') ? 'has-error' : '' }}">
                         <label for="bloodGroup">Mother's Blood Group - মায়ের রক্তের গ্রুপ</label>
-                        <input value="{{ isset($baby) ? $baby->bloodGroup : old('bloodGroup') }}" name="bloodGroup" type="text" id="bloodGroup" placeholder="O+" required>
+                        <input value="{{ isset($baby) ? $baby->bloodGroup : old('bloodGroup') }}" name="bloodGroup" type="text" id="bloodGroup" maxlength="3" placeholder="O+" required>
                         @error('bloodGroup') <span class="text-danger"><i class="entypo-info-circled"></i>  {{ $message }}</span> @enderror
                     </div>
 

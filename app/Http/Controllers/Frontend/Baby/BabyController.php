@@ -13,10 +13,11 @@ use Illuminate\Validation\ValidationException;
 class BabyController extends Controller
 {
     /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * Baby index page data loader.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
-    public function ourBaby(Request $request) {
+    public function ourBaby() {
         $baby = DB::table('babies')->where('user_id', auth()->id())->first();
         if ($baby) {
             if ($baby->inseminationDate) {
@@ -212,14 +213,12 @@ class BabyController extends Controller
     {
         $request['rangeStartDate'] = Carbon::parse(now())->subDay(287)->format('d-m-Y');
         $request['rangeEndDate'] = Carbon::parse(now())->subDay(56)->format('d-m-Y');
-
         /** Validation for right date */
         $this->validate($request, [
             'name'             => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
-            'inseminationDate' => 'required|date_format:d-m-Y|after_or_equal:rangeStartDate|before_or_equal:rangeEndDate',
+            'inseminationDate' => 'required|date|date_format:d-m-Y|after_or_equal:rangeStartDate|before_or_equal:rangeEndDate',
             'bloodGroup'       => 'required',
         ]);
-//        dd($request->all(), $request['rangeEndDate'], $request['rangeStartDate']);
         if (empty($request->id)) {
             DB::table('babies')->insert([
                 'name' => $request->name,

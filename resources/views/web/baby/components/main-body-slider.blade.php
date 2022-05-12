@@ -1,7 +1,7 @@
 <div class="mt-4">
     <marquee behavior="scroll" direction="left">
         A full-term pregnancy is 40 weeks, or 280 days. Most babies have a normal delivery usually between 37 and 41 weeks.
-        সাধারণত ৩৭ সপ্তাহ থেকে 41 সপ্তাহের মধ্যে বেশিরভাগ শিশুর নরমাল ডেলিভারি বা স্বাভাবিক প্রসব হয়। এই ৫ সপ্তাহের যেকোন সময়ে শিশু জন্ম নিলে তাকে স্বাভাবিক বলা যাবে।
+        সাধারণত ৩৭ সপ্তাহ থেকে ৪১ সপ্তাহের মধ্যে বেশিরভাগ শিশুর নরমাল ডেলিভারি বা স্বাভাবিক প্রসব হয়। এই ৫ সপ্তাহের যেকোন সময়ে শিশু জন্ম নিলে তাকে স্বাভাবিক বলা যাবে।
     </marquee>
 </div>
 <div class="container d-flex justify-content-center">
@@ -24,25 +24,35 @@
 
         <div class="info">
             <p>Name: {{$baby ? ucwords($baby->name) : 'Example Name'}}</p>
-            <p>Age: @if($babyAge){{$babyAge->m}} months and {{$babyAge->d}} days @else - @endif</p>
+            <p>Age: @if($babyAge){{$babyAge->m}} months and {{$babyAge->d}} days @else  @endif</p>
             <p>Age in Days: {{$babyAge->days ?? ''}}</p>
             @php
             if ($babyAge) {
                 $week = floor($babyAge->days / 7);
-                $length = $babySize->firstWhere('week', $week)['length'];
-                $weight = $babySize->firstWhere('week', $week)['weight'];
+                /**
+                * Calculate average length for today.
+                */
+                $lengthForWeek = $babySize->firstWhere('week', $week)['length'];
+                $extraDaysLengthInCurrentWeek = number_format((($babySize->firstWhere('week', $week+1)['length'] - $lengthForWeek) / 7) * ($babyAge->days % 7), 2);
+                $length = number_format($lengthForWeek + $extraDaysLengthInCurrentWeek, 2);
+                /**
+                 * Calculate average weight for today.
+                */
+                $weightForWeek = $babySize->firstWhere('week', $week)['weight'];
+                $extraDaysWeightInCurrentWeek = (($babySize->firstWhere('week', $week+1)['weight'] - $weightForWeek) / 7) * ($babyAge->days % 7);
+                $weight = number_format($weightForWeek + $extraDaysWeightInCurrentWeek, 2);
             }
             @endphp
-            <p>Running Weeks: {{$week ?? '-'}}</p>
+            <p>Running Weeks: {{$week ?? ''}}</p>
             <p></p>
             <p></p>
-            <p>Mother's Blood: {{$baby ? ucwords($baby->bloodGroup) : '-'}}</p>
-            @if($babyAge)
-                <p>Length: {{ $length ?? '-' }} cm / {{ number_format($length/2.54, 2) }} inch</p>
+            <p>Mother's Blood: {{$baby ? ucwords($baby->bloodGroup) : ''}}</p>
+            @if($babyAge && !empty($length) && !empty($weight))
+                <p>Length: {{ $length ?? '' }} cm / {{ number_format($length/2.54, 2) }} inch</p>
                 <p>Weight: {{ ($weight < 999) ? $weight : ($weight/1000) }} @if($weight < 999) gm @else kg @endif</p>
             @else
-                <p>Length: -</p>
-                <p>Weight: -</p>
+                <p>Length: </p>
+                <p>Weight: </p>
             @endif
             @if(isset($baby->inseminationDate))
             <p>Possible Birth Range: </p>
