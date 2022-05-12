@@ -201,7 +201,7 @@ class BabyController extends Controller
             ],
         ]);
 
-        return view('web.baby.test-blade', compact('baby', 'babyAge', 'babySize'));
+        return view('web.baby.baby-profile', compact('baby', 'babyAge', 'babySize'));
     }
 
     /**
@@ -211,6 +211,7 @@ class BabyController extends Controller
      */
     public function babyUpdate(Request $request)
     {
+        DB::beginTransaction();
         $request['rangeStartDate'] = Carbon::parse(now())->subDay(287)->format('d-m-Y');
         $request['rangeEndDate'] = Carbon::parse(now())->subDay(56)->format('d-m-Y');
         /** Validation for right date */
@@ -235,6 +236,7 @@ class BabyController extends Controller
                 'updated_at' => now()
             ]);
         }
+        DB::commit();
 
         return redirect()->route('test.baby')->with('message', 'Baby data has been saved.');
     }

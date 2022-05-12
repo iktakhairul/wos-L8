@@ -34,13 +34,13 @@
                 */
                 $lengthForWeek = $babySize->firstWhere('week', $week)['length'];
                 $extraDaysLengthInCurrentWeek = number_format((($babySize->firstWhere('week', $week+1)['length'] - $lengthForWeek) / 7) * ($babyAge->days % 7), 2);
-                $length = number_format($lengthForWeek + $extraDaysLengthInCurrentWeek, 2);
+                $length = $lengthForWeek + $extraDaysLengthInCurrentWeek;
                 /**
                  * Calculate average weight for today.
                 */
                 $weightForWeek = $babySize->firstWhere('week', $week)['weight'];
                 $extraDaysWeightInCurrentWeek = (($babySize->firstWhere('week', $week+1)['weight'] - $weightForWeek) / 7) * ($babyAge->days % 7);
-                $weight = number_format($weightForWeek + $extraDaysWeightInCurrentWeek, 2);
+                $weight = $weightForWeek + $extraDaysWeightInCurrentWeek;
             }
             @endphp
             <p>Running Weeks: {{$week ?? ''}}</p>
@@ -49,7 +49,7 @@
             <p>Mother's Blood: {{$baby ? ucwords($baby->bloodGroup) : ''}}</p>
             @if($babyAge && !empty($length) && !empty($weight))
                 <p>Length: {{ $length ?? '' }} cm / {{ number_format($length/2.54, 2) }} inch</p>
-                <p>Weight: {{ ($weight < 999) ? $weight : ($weight/1000) }} @if($weight < 999) gm @else kg @endif</p>
+                <p>Weight: {{ ($weight < 999) ? number_format($weight, 2) : (number_format($weight/1000, 4)) }} @if($weight < 999) gm @else kg @endif</p>
             @else
                 <p>Length: </p>
                 <p>Weight: </p>
