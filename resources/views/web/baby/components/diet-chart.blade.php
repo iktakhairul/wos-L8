@@ -7,7 +7,7 @@
 <div class="container-fluid mt-2">
     <div class="row">
         <div class="col-12">
-            <h4 style="text-align: center">একদিনের খাদ্যতালিকা (২৫০০ কিলোক্যালরি)</h4>
+            <h4 style="text-align: center">One Day Diet (2500 kcal) | একদিনের খাদ্যতালিকা (২৫০০ কিলোক্যালরি)</h4>
         </div>
     </div>
     <div class="row">
