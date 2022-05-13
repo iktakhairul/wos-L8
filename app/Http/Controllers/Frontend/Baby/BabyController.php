@@ -302,42 +302,42 @@ class BabyController extends Controller
         }
 
         $dietChartBn = [
-            [
-                'time' => 'Breakfast',
-                'food' => 'Rice / Wheat bread : 400g, Vegetables : 250g, Egg: 1 piece / Pulses : 250ml',
-            ],
+//            [
+//                'time' => 'Breakfast',
+//                'food' => 'Rice / Wheat bread : 400g, Vegetables : 250g, Egg: 1 piece / Pulses : 250ml',
+//            ],
             [
                 'time' => 'সকালের নাস্তা',
                 'food' => 'ভাত / গমের রুটি : ৪০০ গ্রাম, সবজি : ২৫০ গ্রাম, ডিম : একটি / ডাল : ২৫০ মিলিগ্রাম',
             ],
-            [
-                'time' => 'Breakfast (10-11am)',
-                'food' => 'Seasonal Fruit: 250g',
-            ],
+//            [
+//                'time' => 'Breakfast (10-11am)',
+//                'food' => 'Seasonal Fruit: 250g',
+//            ],
             [
                 'time' => 'নাস্তা (সকাল ১০-১১টা)',
                 'food' => 'মৌসুমি ফল : ২৫০ গ্রাম',
             ],
-            [
-                'time' => 'Lunch',
-                'food' => 'Rice : 750g, Pulses : 250ml, Vegetables : 250g, Fish / Meat / Eggs : 120g',
-            ],
+//            [
+//                'time' => 'Lunch',
+//                'food' => 'Rice : 750g, Pulses : 250ml, Vegetables : 250g, Fish / Meat / Eggs : 120g',
+//            ],
             [
                 'time' => 'দুপুরের খাবার',
                 'food' => 'ভাত : ৭৫০ গ্রাম, ডাল : ২৫০ মিলিগ্রাম, শাক সবজি : ২৫০ গ্রাম, মাছ / মাংস / ডিম : ১২০ গ্রাম',
             ],
-            [
-                'time' => 'Breakfast in The Afternoon',
-                'food' => 'Milk / DesArt : 250ml',
-            ],
+//            [
+//                'time' => 'Breakfast in The Afternoon',
+//                'food' => 'Milk / DesArt : 250ml',
+//            ],
             [
                 'time' => 'বিকালের নাস্তা',
                 'food' => 'দুধ/পায়েস/ফিরনি/পিঠা : ২৫০ মিলিগ্রাম',
             ],
-            [
-                'time' => 'Dinner',
-                'food' => 'Rice : 250g, Pulses : 250ml, Vegetables : 400g, Fish / Meat / Eggs : 120g',
-            ],
+//            [
+//                'time' => 'Dinner',
+//                'food' => 'Rice : 250g, Pulses : 250ml, Vegetables : 400g, Fish / Meat / Eggs : 120g',
+//            ],
             [
                 'time' => 'রাতের খাবার',
                 'food' => 'ভাত : ৫০০ গ্রাম, ডাল : ২৫০ মিলিগ্রাম, শাক সবজি : ৪০০ গ্রাম, মাছ/মাংস/ডিম : ১২০ গ্রাম',
