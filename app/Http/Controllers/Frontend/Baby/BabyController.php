@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Frontend\Baby;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
@@ -15,7 +15,7 @@ class BabyController extends Controller
     /**
      * Baby index page data loader.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
     public function ourBaby() {
         $baby = DB::table('babies')->where('user_id', auth()->id())->first();
@@ -29,6 +29,41 @@ class BabyController extends Controller
             $babyAge = null;
         }
         $babySize = collect([
+            [
+                'week' => 1,
+                'length' => .006,
+                'weight' => .001
+            ],
+            [
+                'week' => 2,
+                'length' => .03,
+                'weight' => .008
+            ],
+            [
+                'week' => 3,
+                'length' => .08,
+                'weight' => .02
+            ],
+            [
+                'week' => 4,
+                'length' => 0.2,
+                'weight' => .06
+            ],
+            [
+                'week' => 5,
+                'length' => 0.3,
+                'weight' => 0.1
+            ],
+            [
+                'week' => 6,
+                'length' => 0.6,
+                'weight' => 0.2
+            ],
+            [
+                'week' => 7,
+                'length' => 1.1,
+                'weight' => .6
+            ],
             [
                 'week' => 8,
                 'length' => 1.6,
@@ -199,12 +234,19 @@ class BabyController extends Controller
                 'length' => 51.8,
                 'weight' => 3700
             ],
+            [
+                'week' => 42,
+                'length' => 52.6,
+                'weight' => 3900
+            ],
         ]);
 
         return view('web.baby.baby-profile', compact('baby', 'babyAge', 'babySize'));
     }
 
     /**
+     * Baby update method, Store or update baby information to storage.
+     *
      * @param Request $request
      * @return RedirectResponse
      * @throws ValidationException
@@ -213,7 +255,7 @@ class BabyController extends Controller
     {
         DB::beginTransaction();
         $request['rangeStartDate'] = Carbon::parse(now())->subDay(287)->format('d-m-Y');
-        $request['rangeEndDate'] = Carbon::parse(now())->subDay(56)->format('d-m-Y');
+        $request['rangeEndDate'] = Carbon::parse(now())->subDay(7)->format('d-m-Y');
         /** Validation for right date */
         $this->validate($request, [
             'name'             => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
@@ -222,17 +264,17 @@ class BabyController extends Controller
         ]);
         if (empty($request->id)) {
             DB::table('babies')->insert([
-                'name' => $request->name,
+                'name' => $request['name'],
                 'user_id' => auth()->id(),
-                'inseminationDate' => $request->inseminationDate,
-                'bloodGroup' => $request->bloodGroup,
+                'inseminationDate' => $request['inseminationDate'],
+                'bloodGroup' => $request['bloodGroup'],
                 'created_at' => now()
             ]);
         }else {
             DB::table('babies')->where('id', $request->id)->update([
-                'name' => $request->name,
-                'inseminationDate' => $request->inseminationDate,
-                'bloodGroup' => $request->bloodGroup,
+                'name' => $request['name'],
+                'inseminationDate' => $request['inseminationDate'],
+                'bloodGroup' => $request['bloodGroup'],
                 'updated_at' => now()
             ]);
         }
@@ -242,12 +284,35 @@ class BabyController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * Data generation for diet chart
+     *
+     * @return View
      */
-    public function dietChart(Request $request)
+    public function dietChart()
     {
-        dd('here');
-        return redirect()->route('test.baby')->with('message', 'Baby data has been saved.');
+        $dietChartBn = [
+            [
+                'time' => 'সকালের নাস্তা',
+                'food' => 'ভাত / গমের রুটি : ৪০০ গ্রাম, সবজি : ২৫০ গ্রাম, ডিম ভাজি : একটি / ডাল : ২৫০ মিলিগ্রাম',
+            ],
+            [
+                'time' => 'নাস্তা (সকাল ১০-১১টা)',
+                'food' => 'মৌসুমি ফল : ২৫০ গ্রাম',
+            ],
+            [
+                'time' => 'দুপুরের খাবার',
+                'food' => 'ভাত : ৭৫০ গ্রাম, ডাল : ২৫০ মিলিগ্রাম, শাক সবজি : ২৫০ গ্রাম, মাছ/মাংস/ডিম : ১২০ গ্রাম',
+            ],
+            [
+                'time' => 'বিকালের নাস্তা',
+                'food' => 'দুধ/পায়েস/ফিরনি/পিঠা : ২৫০ মিলিগ্রাম',
+            ],
+            [
+                'time' => 'রাতের খাবার',
+                'food' => 'ভাত : ৫০০ গ্রাম, ডাল : ২৫০ মিলিগ্রাম, শাক সবজি : ৪০০ গ্রাম, মাছ/মাংস/ডিম : ১২০ গ্রাম',
+            ],
+        ];
+
+        return view('web.baby.diet-chart', compact('dietChartBn'));
     }
 }

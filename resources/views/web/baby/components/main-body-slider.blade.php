@@ -48,8 +48,8 @@
             <p></p>
             <p>Mother's Blood: {{$baby ? ucwords($baby->bloodGroup) : ''}}</p>
             @if($babyAge && !empty($length) && !empty($weight))
-                <p>Length: {{ $length ?? '' }} cm / {{ number_format($length/2.54, 2) }} inch</p>
-                <p>Weight: {{ ($weight < 999) ? number_format($weight, 2) : (number_format($weight/1000, 4)) }} @if($weight < 999) gm @else kg @endif</p>
+                <p>Length: @if($length < 0.5) {{number_format($length, 3)}} @else {{ $length ?? '' }} @endif cm / @if($length < 0.5) {{ number_format($length/2.54, 4) }} @else {{ number_format($length/2.54, 2) }} @endif inch</p>
+                <p>Weight: @if($weight < .5) {{number_format($weight, 3)}} @else {{ ($weight < 999) ? number_format($weight, 2) : (number_format($weight/1000, 2)) }} @endif @if($weight < 999) gm @else kg @endif</p>
             @else
                 <p>Length: </p>
                 <p>Weight: </p>
