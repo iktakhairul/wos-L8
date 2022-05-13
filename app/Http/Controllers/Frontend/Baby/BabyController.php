@@ -290,6 +290,17 @@ class BabyController extends Controller
      */
     public function dietChart()
     {
+        $baby = DB::table('babies')->where('user_id', auth()->id())->first();
+        if ($baby) {
+            if ($baby->inseminationDate) {
+                $babyAge = Carbon::parse(Carbon::parse($baby->inseminationDate)->format('d-m-Y'))->diff(now()->format('d-m-Y'));
+            }else {
+                $babyAge = null;
+            }
+        }else {
+            $babyAge = null;
+        }
+
         $dietChartBn = [
             [
                 'time' => 'Breakfast',
@@ -333,6 +344,6 @@ class BabyController extends Controller
             ],
         ];
 
-        return view('web.baby.diet-chart', compact('dietChartBn'));
+        return view('web.baby.diet-chart', compact('dietChartBn', 'baby', 'babyAge'));
     }
 }
