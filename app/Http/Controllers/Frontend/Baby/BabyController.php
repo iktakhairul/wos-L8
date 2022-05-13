@@ -286,7 +286,7 @@ class BabyController extends Controller
     /**
      * Data generation for diet chart
      *
-     * @return View
+     * @return RedirectResponse | View
      */
     public function dietChart()
     {
@@ -298,7 +298,7 @@ class BabyController extends Controller
                 $babyAge = null;
             }
         }else {
-            $babyAge = null;
+            return redirect()->route('test.baby')->with('message_warning', 'Entry a baby information first and try again please.');
         }
 
         $dietChartBn = [
@@ -345,5 +345,18 @@ class BabyController extends Controller
         ];
 
         return view('web.baby.diet-chart', compact('dietChartBn', 'baby', 'babyAge'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $id
+     * @return null
+     */
+    public function destroy($id)
+    {
+        DB::table('babies')->where('id', $id)->delete();
+
+        return redirect()->back()->with('message_success','Baby information has been deleted.');
     }
 }

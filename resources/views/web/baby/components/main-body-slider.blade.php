@@ -60,7 +60,13 @@
             <p></p>
             @endif
         </div>
-        <p class="flow">Follow Me</p>
+        @if(!empty($baby))
+        <form action="{{ route('test.baby.destroy', $baby->id) }}" method="POST">
+            {{ csrf_field() }}
+            @method('DELETE')
+            <button class="flow text-danger" type="submit" data-toggle="tooltip" data-placement="top" title="DELETE {{ $baby->name }}" onclick="return confirm('Are you sure?')">DELETE</button>
+        </form>
+        @endif
         <div class="social-icons">
             <a href="#" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
             <a href="#" target="_blank" class="messenger"><i class="fab fa-facebook-messenger"></i></a>
