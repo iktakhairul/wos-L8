@@ -258,7 +258,7 @@ class BabyController extends Controller
         $request['rangeEndDate'] = Carbon::parse(now())->subDay(7)->format('d-m-Y');
         /** Validation for right date */
         $this->validate($request, [
-            'name'             => 'required|regex:/^[a-zA-Z0-9.,\s]+$/|min:3|max:100',
+            'name'             => 'required|min:3|max:100',
             'inseminationDate' => 'required|date|date_format:d-m-Y|after_or_equal:rangeStartDate|before_or_equal:rangeEndDate',
             'bloodGroup'       => 'required',
         ]);

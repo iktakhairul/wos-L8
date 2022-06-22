@@ -28,7 +28,7 @@
             <p>Age in Days: {{$babyAge->days ?? ''}}</p>
             @php
             if ($babyAge) {
-                $week = floor($babyAge->days / 7);
+                $week = floor($babyAge->days / 7)+1;
                 /**
                 * Calculate average length for today.
                 */
