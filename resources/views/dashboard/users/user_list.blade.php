@@ -37,6 +37,7 @@
                                     <th>Email</th>
                                     <th>Contact Number</th>
                                     <th>Type</th>
+                                    <th>Last Login</th>
                                     <th>Status</th>
                                     <th width="100">Actions</th>
                                 </tr>
@@ -46,10 +47,11 @@
                                 @foreach($users as $k => $user)
                                 <tr>
                                     <td>{{ $k+1 }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->contact_number }}</td>
-                                    <td>{{ $user->type }}</td>
+                                    <td>{{ $user->name ?? 'N/A'}}</td>
+                                    <td>{{ $user->email ?? 'N/A'}}</td>
+                                    <td>{{ $user->contact_number ?? 'N/A'}}</td>
+                                    <td>{{ $user->type ?? 'N/A'}}</td>
+                                    <td>{{ $user->lastLogin ?? 'N/A' }}</td>
                                     <td class="text-{{ $user->status === 'active' ? 'success' : 'danger' }}"><strong>{!! $user->status === 'active' ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">

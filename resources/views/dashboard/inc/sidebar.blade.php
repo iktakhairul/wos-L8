@@ -8,7 +8,7 @@
         </li>
         <li>
             <a class="{{ $route->getName() == 'dashboard./' ? 'active' : '' }}" href="{{ route('dashboard./') }}">
-                <i class="fa fa-users"></i> Dashboard
+                <i class="fa fa-dashboard"></i> Dashboard
             </a>
         </li>
         <li>
@@ -18,7 +18,7 @@
         </li>
         <li>
             <a class="{{ $route->getName() == 'dashboard.babies.index' ? 'active' : '' }}" href="{{ route('dashboard.babies.index') }}">
-                <i class="fa fa-users"></i> Babies
+                <i class="fa fa-bar-chart"></i> Babies
             </a>
         </li>
     </ul>

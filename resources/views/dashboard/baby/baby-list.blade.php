@@ -11,6 +11,14 @@
 
 <div class="container-fluid" style="min-height: 640px">
 
+    <div class="row">
+        <div class="col-12">
+            <h4 class="page-header">
+                <i class="fa fa-users"></i> Babies
+            </h4>
+        </div>
+    </div>
+
     <hr class="heading-devider">
 
     <div class="row">
