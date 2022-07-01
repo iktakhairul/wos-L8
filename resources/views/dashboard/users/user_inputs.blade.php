@@ -14,7 +14,7 @@
 
 @section('dashboard_content')
 
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 640px">
 
     <div class="row">
         <div class="col-12">

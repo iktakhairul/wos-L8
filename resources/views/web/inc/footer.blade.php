@@ -6,10 +6,10 @@
                 <div class="col-md-3">
                     <!--Column1-->
                     <div class="footer-pad">
-                        <h4>{{ 'Baby Care' }}</h4>
+                        <h4>{{ config('app.name')}}</h4>
                         <ul class="list-unstyled">
                             <li><a href="#"></a></li>
-                            <li><a href="#">© 2022-2023 Baby Care, LLC</a></li>
+                            <li><a href="#">© 2022-2023 {{config('app.name')}}, LLC</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 copy">
-                    <p class="text-center">&copy; Copyright 2022 - Baby Care.  All rights reserved.</p>
+                    <p class="text-center">&copy; Copyright 2022 - {{config('app.name')}}.  All rights reserved.</p>
                 </div>
             </div>
         </div>

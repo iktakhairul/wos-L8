@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile\Profile;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,7 +20,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth', 'dashboard']);
     }
 
     /**
@@ -31,7 +30,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->get();
+        $users = DB::table('users')->paginate(50);
 
         return view('dashboard.users.user_list', compact('users'));
     }
@@ -138,12 +137,9 @@ class UserController extends Controller
     public function update_status($id)
     {
         $user = DB::table('users')->find($id);
-
-        if($user->status === 'active')
-        {
+        if($user->status === 'active') {
             DB::table('users')->where('id', $id)->update(['status' => 'inactive']);
-        }elseif($user->status === 'inactive')
-        {
+        }elseif($user->status === 'inactive') {
             DB::table('users')->where('id', $id)->update(['status' => 'active']);
         }
 
@@ -159,7 +155,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         DB::table('users')->where('id', $id)->delete();
-        DB::table('profiles')->where('user_id', $id)->delete();
 
         return redirect()->back()->with('User has been deleted.');
     }
