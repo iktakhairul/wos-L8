@@ -37,9 +37,6 @@
                                     <th>Email</th>
                                     <th>Contact Number</th>
                                     <th>Type</th>
-                                    <th>Domains</th>
-                                    <th>Role</th>
-                                    <th>Weight</th>
                                     <th>Status</th>
                                     <th width="100">Actions</th>
                                 </tr>
@@ -53,9 +50,6 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->contact_number }}</td>
                                     <td>{{ $user->type }}</td>
-                                    <td>{{ $user->domains }}</td>
-                                    <td>{{ $user->role }}</td>
-                                    <td>{{ $user->weight }}</td>
                                     <td class="text-{{ $user->status === 'active' ? 'success' : 'danger' }}"><strong>{!! $user->status === 'active' ? 'ACTIVE' : 'INACTIVE'  !!}</strong></td>
                                     <td>
                                         <div class="btn-group">

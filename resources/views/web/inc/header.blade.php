@@ -26,6 +26,13 @@
                                 <a href="{{ route('baby.diet-chart') }}" class="widget-view nav-link @if (request()->routeIs(['diet-chart'])) active-hover @endif">Diet Chart - গর্ভকালীন ডায়েট চার্ট</a>
                             </div>
                         </li>
+                            @if(auth()->user()['type'] === 'system_admin')
+                                <li class="nav-item">
+                                    <div class="widget-header mr-3">
+                                        <a href="{{ route('dashboard./') }}" class="widget-view nav-link @if (request()->routeIs(['dashboard'])) active-hover @endif">Dashboard</a>
+                                    </div>
+                                </li>
+                            @endif
                         @endauth
 
                         @guest
