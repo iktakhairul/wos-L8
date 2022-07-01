@@ -15,27 +15,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     {{--*** If Need Nav Items Left Then Add "mr-auto" To Bellow Line ***--}}
                     <ul class="navbar-nav ml-auto">
-{{--                        <li class="nav-item dropdown">--}}
-{{--                            <div class="widget-header mr-3">--}}
-{{--                                <a class="nav-link dropdown-toggle pt-1" data-toggle="dropdown" href="#">Services Categories</a>--}}
-{{--                                <div class="dropdown-menu dropdown-large">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories One</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Two</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Three</a></p>--}}
-{{--                                            <p><a href="#" class=""><i class="fa fa-arrow-circle-right mr-2"></i>Service Categories Four</a></p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
                         <li class="nav-item">
                             <div class="widget-header mr-3">
                                 <a href="{{ route('test.baby') }}" class="widget-view nav-link">Baby Service</a>
@@ -65,22 +44,7 @@
                                 </div>
                             </li>
                         @endauth
-{{--                        <li class="nav-item">--}}
-{{--                            <div class="widget-header mr-3">--}}
-{{--                                <a class="nav-link" href="#">Get the app</a>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <div class="widget-header mr-2">--}}
-{{--                                <a class="nav-link dropdown-toggle" href="/" data-toggle="dropdown">English</a>--}}
-{{--                                <div class="dropdown-menu dropdown-menu-right">--}}
-{{--                                    <a class="dropdown-item" href="#">Russian</a>--}}
-{{--                                    <a class="dropdown-item" href="#">French</a>--}}
-{{--                                    <a class="dropdown-item" href="#">Spanish</a>--}}
-{{--                                    <a class="dropdown-item" href="#">Chinese</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
+
                         @guest
                             <li class="nav-item" id="main-nav-login">
                                 <div class="widget-header mt-2">
