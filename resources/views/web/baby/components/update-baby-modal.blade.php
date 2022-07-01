@@ -6,7 +6,7 @@
                     <h4>Baby Information</h4>
                     <button type="button" class="btn-close" id="baby-modal-close" onclick="modalClose()" data-bs-dismiss="modal"><i class="fa fa-times"></i></button>
                 </div>
-                <form enctype="multipart/form-data" method="post" action="{{ route('test.baby.update') }}" class="row g-3 basic-input mb-0">
+                <form enctype="multipart/form-data" method="post" action="{{ route('baby.update') }}" class="row g-3 basic-input mb-0">
                     @csrf
                     <input class="hide" value="{{ isset($baby) ? $baby->id : '' }}" name="id" type="text" id="id" hidden>
                     <div class="col-md-12 mt-2 {{ $errors->has('name') ? 'has-error' : '' }}">

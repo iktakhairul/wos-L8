@@ -37,17 +37,17 @@
 <body>
 <div id="app">
 
-    @include('web.baby.inc.header')
+    @include('web.inc.header')
 
     <main id="page-content" class="page-content" style="width: 100%;">
 
-        @include('web.baby.inc.message')
+        @include('web.inc.message')
 
         @yield('test_content')
 
     </main>
 
-    @include('web.baby.inc.footer')
+    @include('web.inc.footer')
 
 </div>
 

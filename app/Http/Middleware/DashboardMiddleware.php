@@ -11,7 +11,7 @@ class DashboardMiddleware
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->weight >= 79.99 && strtoupper($user->status) == 'ACTIVE' && in_array('dashboard',explode(',', $user->domains)))
+        if ($user['type'] == 'system_admin' && strtoupper($user['status']) == 'ACTIVE')
         {
             return $next($request);
         }

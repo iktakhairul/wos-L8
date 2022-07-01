@@ -61,7 +61,7 @@
             @endif
         </div>
         @if(!empty($baby))
-        <form action="{{ route('test.baby.destroy', $baby->id) }}" method="POST">
+        <form action="{{ route('baby.destroy', $baby->id) }}" method="POST">
             {{ csrf_field() }}
             @method('DELETE')
             <button class="flow text-danger" type="submit" data-toggle="tooltip" data-placement="top" title="DELETE {{ $baby->name }}" onclick="return confirm('Are you sure?')">DELETE</button>

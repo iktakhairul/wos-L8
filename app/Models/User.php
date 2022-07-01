@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Profile\Profile;
-use App\Models\Business\Business;
 
 class User extends Authenticatable
 {
@@ -49,14 +47,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function businesses()
-    {
-        return $this->belongsTo(Business::class);
-    }
-
-    public function user_profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
 }

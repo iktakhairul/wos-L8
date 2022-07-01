@@ -2,52 +2,31 @@
     <div class="footer-middle">
         <div class="container pt-2">
             <div class="row mb-4">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
                     <!--Column1-->
                     <div class="footer-pad">
-                        <h4>{{ config('app.name', 'Find Job') }}</h4>
+                        <h4>{{ 'Baby Care' }}</h4>
                         <ul class="list-unstyled">
                             <li><a href="#"></a></li>
-                            <li><a href="#">© 2022-2023 Find Job, LLC</a></li>
+                            <li><a href="#">© 2022-2023 Baby Care, LLC</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6" id="footer-site-map-div">
-                    <!--Column2-->
-                    <div class="footer-pad">
-                        <h5>SITE MAP</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="{{ route('jobs.find-jobs') }}">All Jobs</a></li>
-                            <li><a href="{{ route('profile./') }}">My Profile</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6" id="footer-services-div">
+                <div class="col-md-3 mt-4" id="footer-services-div">
                     <!--Column3-->
                     <div class="footer-pad">
-                        <h5>SERVICES</h5>
+                        <h5>ARTICLES</h5>
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('test.baby') }}">Baby Service</a></li>
-                            <li><a href="#">Biting A Job</a></li>
-                            <li><a href="#">Job Owners And Workers Platform</a></li>
-                            <li><a href="#">Find Local And International Jobs</a></li>
+                            <li><a href="{{ route('baby.index') }}">Baby Profile - শিশুর প্রোফাইল</a></li>
+                            <li><a href="{{ route('baby.diet-chart') }}">Diet Chart - গর্ভকালীন ডায়েট চার্ট</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <h5>CONTACT</h5>
-                    <ul class="social-network social-circle">
-                        <li><a href="#" target="_blank" class="icoFacebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a></li>
-                    </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 copy">
-                    <p class="text-center">&copy; Copyright 2022 - Find Job.  All rights reserved.</p>
+                    <p class="text-center">&copy; Copyright 2022 - Baby Care.  All rights reserved.</p>
                 </div>
             </div>
         </div>

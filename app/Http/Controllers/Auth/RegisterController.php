@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile\Profile;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -48,6 +47,7 @@ class RegisterController extends Controller
      *
      * @param Request $request
      * @return null
+     * @throws ValidationException
      */
     protected function register(Request $request)
     {
@@ -58,15 +58,11 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $user = User::create([
+        User::create([
             'name'           => $request['name'],
             'email'          => $request['email'],
             'contact_number' => $request['contact_number'],
             'password'       => Hash::make($request['password']),
-        ]);
-
-        $user->profile = Profile::create([
-            'user_id' => $user->id,
         ]);
 
         return redirect()->route('login');

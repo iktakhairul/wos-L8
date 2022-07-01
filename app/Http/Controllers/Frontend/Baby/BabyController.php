@@ -280,7 +280,7 @@ class BabyController extends Controller
         }
         DB::commit();
 
-        return redirect()->route('test.baby')->with('message', 'Baby data has been saved.');
+        return redirect()->route('baby.index')->with('message', 'Baby data has been saved.');
     }
 
     /**
@@ -298,7 +298,7 @@ class BabyController extends Controller
                 $babyAge = null;
             }
         }else {
-            return redirect()->route('test.baby')->with('message_warning', 'Entry a baby information first and try again please.');
+            return redirect()->route('baby.index')->with('message_warning', 'Entry a baby information first and try again please.');
         }
 
         $dietChartBn = [
