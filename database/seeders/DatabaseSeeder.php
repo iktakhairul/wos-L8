@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => 'Asst. System Admin',
             'email' => 'asst.superadmin@gmail.com',
-            'contact_number' => '123-234-453',
+            'contact_number' => '123-234-452',
             'domains' => 'system,developer,admin,dashboard,operator,support,merchant',
             'type' => 'system',
             'role' => 'system',
