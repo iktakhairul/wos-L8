@@ -25,14 +25,14 @@
 	</div>
 @endif
 
-@if ($errors->any())
-    <div class="container">
-        <div class="alert alert-danger alert-dismissible text-center">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>{!! implode('', $errors->all('<div>:message</div>')) !!}</strong>
-        </div>
-    </div>
-@endif
+{{--@if ($errors->any())--}}
+{{--    <div class="container">--}}
+{{--        <div class="alert alert-danger alert-dismissible text-center">--}}
+{{--            <button type="button" class="close" data-dismiss="alert">&times;</button>--}}
+{{--            <strong>{!! implode('', $errors->all('<div>:message</div>')) !!}</strong>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--@endif--}}
 
 @push('scripts')
     <script>

@@ -45,8 +45,5 @@
 
         <p class="text-center mt-4">Don't have account? <a href="{{ route('register') }}">Sign up</a></p>
         <br><br>
-
-
-
     </section>
 @endsection

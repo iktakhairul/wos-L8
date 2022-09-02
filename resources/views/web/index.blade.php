@@ -19,10 +19,10 @@
         <link href="{{ asset('web/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Template Main CSS File -->
-        <link href="{{ asset('web/css/animate.css') }}" rel="stylesheet" />
+{{--        <link href="{{ asset('web/css/animate.css') }}" rel="stylesheet" />--}}
         <link href="{{ asset('web/css/footer.css') }}" rel="stylesheet" />
-        <link href="{{ asset('web/css/responsive.css') }}" rel="stylesheet" />
-        <link href="{{ asset('web/css/web.css') }}" rel="stylesheet" />
+{{--        <link href="{{ asset('web/css/responsive.css') }}" rel="stylesheet" />--}}
+{{--        <link href="{{ asset('web/css/web.css') }}" rel="stylesheet" />--}}
         <!-- font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
 
@@ -53,9 +53,7 @@
         </div>
 
         <!-- Scripts -->
-        <script src="{{ asset('web/js/jquery-3.5.1.min.js') }}"></script>
-        <script src="{{ asset('web/js/jquery-migrate-3.0.0.min.js') }}"></script>
-        <script src="{{ asset('web/js/popper.min.js') }}"></script>
+{{--        <script src="{{ asset('web/js/jquery-3.5.1.min.js') }}"></script>--}}
         <script src="{{ asset('web/js/bootstrap-4.5.2.min.js') }}"></script>
 
         <script type="text/javascript">
