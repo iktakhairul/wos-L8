@@ -154,7 +154,7 @@ a {
 	background-color: transparent;
 }
 a:hover {
-	color: #ff6a00;
+	color: rgba(0, 0, 0, 0.5);
 	text-decoration: underline;
 }
 a:not([href]):not([tabindex]) {
@@ -1961,10 +1961,10 @@ pre code {
 .form-control:focus {
 	color: #495057;
 	background-color: #fff;
-	border-color: #ffb580;
+	border-color: black;
 	outline: 0;
-	-webkit-box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.25);
-	box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.25);
+	-webkit-box-shadow: 0 0 0 0.2rem white;
+	box-shadow: 0 0 0 0.2rem white;
 }
 .form-control::-webkit-input-placeholder {
 	color: #ced4da;
@@ -2492,13 +2492,13 @@ fieldset:disabled a.btn {
 }
 .btn-primary {
 	color: #fff;
-	background-color: #ff6a00;
-	border-color: #ff6a00;
+	background-color: black;
+	border-color: black;
+    font-weight: 400;
 }
 .btn-primary:hover {
 	color: #fff;
-	background-color: #d95a00;
-	border-color: #c50;
+	background-color: black;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -3761,27 +3761,10 @@ input[type='button'].btn-block {
 }
 .custom-control-input:checked ~ .custom-control-label::before {
 	color: #fff;
-	border-color: #ff6a00;
-	background-color: #ff6a00;
+	border-color: black;
+	background-color: black;
 }
-.custom-control-input:focus ~ .custom-control-label::before {
-	-webkit-box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.25);
-	box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.25);
-}
-.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-	border-color: #ffb580;
-}
-.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-	color: #fff;
-	background-color: #ffd2b3;
-	border-color: #ffd2b3;
-}
-.custom-control-input:disabled ~ .custom-control-label {
-	color: #545454;
-}
-.custom-control-input:disabled ~ .custom-control-label::before {
-	background-color: #e5e7ea;
-}
+
 .custom-control-label {
 	position: relative;
 	margin-bottom: 0;

@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="keywords" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Find Work, @yield('meta_keywords')">
         <meta name="description" content="{{ !empty($appInfo->name) ? $appInfo->name : config('app.name') }}, Find Work, @yield('meta_description')">
-        <meta name="author" content="Meta Web Builder">
+        <meta name="author" content="Softstarz">
 
         <!-- title -->
         <title>@yield('title', !empty($appInfo->name) ? $appInfo->name : config('app.name'))</title>
@@ -26,13 +26,7 @@
         <!-- font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
 
-        <style type="text/css" media="screen">
-            .pull-right {float: right;}
-            .select2 {width: 100% !important;}
-        </style>
-
         @stack('styles')
-
     </head>
 
     <body>

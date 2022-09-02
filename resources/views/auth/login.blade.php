@@ -26,13 +26,9 @@
 
                     <div class="form-group">
                         @if (Route::has('password.request'))
-                            <a class="float-right" href="{{ route('password.request') }}">
-                                {{ __('Forgot Password?') }}
-                            </a>
+                            <a class="float-right" href="{{ route('password.request') }}">{{ __('Forgot Password?') }}</a>
                         @endif
-                        <label class="float-left custom-control custom-checkbox"> <input type="checkbox"
-                                class="custom-control-input" checked="" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
+                        <label class="float-left custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" checked="" id="remember"{{ old('remember') ? 'checked' : '' }}>
                             <div class="custom-control-label"> {{ __('Remember Me') }} </div>
                         </label>
                     </div>
