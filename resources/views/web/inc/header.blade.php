@@ -4,8 +4,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white" style="min-height: 100px;">
             <div class="container">
 
-                <a href="{{ route('baby.index') }}" class="brand-wrap navbar-brand">
-                    <span id="web-header-project-title" class="text-success font-weight-bold" style="font-size: 30px">{{ config('app.name') }}</span>
+                <a href="{{ route('/') }}" class="brand-wrap navbar-brand">
+                    <span id="web-header-project-title" class="font-weight-bold" style="font-size: 30px">{{ config('app.name') }}</span>
                 </a>
 
                 <button class="navbar-toggler"  id="web-header-nav-toggler-btn"type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,16 +16,7 @@
                     {{--*** If Need Nav Items Left Then Add "mr-auto" To Bellow Line ***--}}
                     <ul class="navbar-nav ml-auto">
                         @auth
-                        <li class="nav-item">
-                            <div class="widget-header mr-3">
-                                <a href="{{ route('baby.index') }}" class="widget-view nav-link @if (request()->routeIs(['baby'])) active-hover @endif">Baby Profile - শিশুর প্রোফাইল</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="widget-header mr-3">
-                                <a href="{{ route('baby.diet-chart') }}" class="widget-view nav-link @if (request()->routeIs(['diet-chart'])) active-hover @endif">Diet Chart - গর্ভকালীন ডায়েট চার্ট</a>
-                            </div>
-                        </li>
+                        {{--Auth Menus--}}
                             @if(auth()->user()['type'] === 'system_admin')
                                 <li class="nav-item">
                                     <div class="widget-header mr-3">
@@ -36,24 +27,15 @@
                         @endauth
 
                         @guest
+                        {{--No Auth/Public Menus--}}
                             <li class="nav-item">
-                                <div class="widget-header mr-3">
-                                    <a href="{{ route('baby.index') }}" class="widget-view nav-link @if (request()->routeIs(['baby'])) active-hover @endif">Baby Profile - শিশুর প্রোফাইল</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div class="widget-header mr-3">
-                                    <a href="{{ route('baby.diet-chart') }}" class="widget-view nav-link @if (request()->routeIs(['diet-chart'])) active-hover @endif">Diet Chart - গর্ভকালীন ডায়েট চার্ট</a>
-                                </div>
-                            </li>
-                            <li class="nav-item" id="main-nav-login">
-                                <div class="widget-header mt-2">
-                                    <a href="{{ route('login') }}" style="font-weight: normal; color: #556B2F;"><span id="main-nav-login-span" style="padding: 5px 30px 5px 30px;">Log In</span></a>
+                                <div class="widget-header">
+                                    <a class="widget-view nav-link" href="{{ route('login') }}"><span id="main-nav-sign-up-span">Log In</span></a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <div class="widget-header">
-                                    <a class="btn badge-pill badge-success" href="{{ route('register') }}" style="font-weight: normal; margin-right: 15px; color: white; outline: none"><span id="main-nav-sign-up-span"  style="padding: 6px 20px 6px 20px;">Sign Up</span></a>
+                                    <a class="widget-view nav-link" href="{{ route('register') }}"><span id="main-nav-sign-up-span">Sign Up</span></a>
                                 </div>
                             </li>
                         @endguest

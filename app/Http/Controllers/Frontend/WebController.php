@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 
 class WebController extends Controller
 {
     /**
      * Display public home page with data.
      *
-     * @return RedirectResponse
+     * @return View
      */
     public function index()
     {
-        return redirect()->route('baby.index');
+        return view('web.index');
     }
 }

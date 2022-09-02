@@ -3,6 +3,7 @@
         <div class="container pt-2">
             <div class="row mb-4">
                 <div class="col-md-1"></div>
+
                 <div class="col-md-3">
                     <!--Column1-->
                     <div class="footer-pad">
@@ -13,13 +14,26 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 mt-4" id="footer-services-div">
+
+                <div class="col-md-3" id="footer-services-div">
                     <!--Column3-->
                     <div class="footer-pad">
-                        <h5>ARTICLES</h5>
+                        <h5>SERVICES</h5>
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('baby.index') }}">Baby Profile - শিশুর প্রোফাইল</a></li>
-                            <li><a href="{{ route('baby.diet-chart') }}">Diet Chart - গর্ভকালীন ডায়েট চার্ট</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Application Development</a></li>
+                            <li><a href="#">AWS Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3" id="footer-services-div">
+                    <!--Column3-->
+                    <div class="footer-pad">
+                        <h5>SERVICES</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Application Development</a></li>
+                            <li><a href="#">AWS Support</a></li>
                         </ul>
                     </div>
                 </div>
