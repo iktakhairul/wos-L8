@@ -66,9 +66,9 @@
 </style>
 {{--JS for navbar shadow when scroll--}}
 <script>
-    window.addEventListener('scroll',(e)=>{
+    window.addEventListener('scroll',(e)=> {
         const nav = document.querySelector('.navbar');
-        if(window.pageYOffset>0){
+        if(window.pageYOffset > 0) {
             nav.classList.add("add-shadow");
         }else{
             nav.classList.remove("add-shadow");

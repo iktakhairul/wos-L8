@@ -1,9 +1,5 @@
 <?php
 
-use App\Models\Categorization\Group;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 function appInfo()
 {
