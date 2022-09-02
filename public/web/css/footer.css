@@ -138,6 +138,7 @@ ul.social-network li {
 
 @media (max-width: 767px) {
     #footer-services-div {
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 }
@@ -148,6 +149,7 @@ ul.social-network li {
         margin-bottom: 20px;
     }
     #footer-services-div {
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 }
@@ -158,6 +160,7 @@ ul.social-network li {
         margin-bottom: 20px;
     }
     #footer-services-div {
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 }

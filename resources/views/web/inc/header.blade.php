@@ -5,7 +5,8 @@
             <div class="container">
 
                 <a href="{{ route('/') }}" class="brand-wrap navbar-brand">
-                    <span id="web-header-project-title" class="font-weight-bold" style="font-size: 30px">{{ config('app.name') }}</span>
+{{--                    <span id="web-header-project-title" class="font-weight-bold" style="font-size: 30px">{{ config('app.name') }}</span>--}}
+                    <img src="{{ url('img/logo.png') }}" height="60" alt="{{config('app.name')}}">
                 </a>
 
                 <button class="navbar-toggler"  id="web-header-nav-toggler-btn"type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
