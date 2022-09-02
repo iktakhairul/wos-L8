@@ -13,10 +13,7 @@
 .active-hover {
     color: #ff6a00 !important;
 }
-.add-shadow {
-    box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
-    transition: box-shadow .6s ease-in-out;
-}
+
 .nav-header-notification-icon {
     font-size: 20px;
     width: 45px;

@@ -57,7 +57,12 @@
 
     </section>
 </header>
-
+<style>
+    .add-shadow {
+        box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
+        transition: box-shadow .6s ease-in-out;
+    }
+</style>
 {{--JS for navbar shadow when scroll--}}
 <script>
     window.addEventListener('scroll',(e)=>{
