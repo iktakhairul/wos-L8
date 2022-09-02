@@ -47,12 +47,8 @@
         </div>
 
         <!-- Scripts -->
-{{--        <script src="{{ asset('web/js/jquery-3.5.1.min.js') }}"></script>--}}
+        <script src="{{ asset('web/js/jquery-3.5.1.min.js') }}"></script>
         <script src="{{ asset('web/js/bootstrap-4.5.2.min.js') }}"></script>
-
-        <script type="text/javascript">
-        </script>
-
         @stack('scripts')
 
     </body>
