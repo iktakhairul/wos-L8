@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'contact_number' => '123-234-453',
             'type' => 'system_admin',
-            'status' => 'active',
+            'status' => 1,
             'password' => bcrypt($pass),
         ]);
 
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'mehedi@gmail.com',
             'contact_number' => '123-234-452',
             'type' => 'user',
-            'status' => 'active',
+            'status' => 1,
             'password' => bcrypt($pass),
         ]);
     }
