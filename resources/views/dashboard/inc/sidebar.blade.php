@@ -16,10 +16,5 @@
                 <i class="fa fa-users"></i> Users
             </a>
         </li>
-        <li>
-            <a class="{{ $route->getName() == 'dashboard.babies.index' ? 'active' : '' }}" href="{{ route('dashboard.babies.index') }}">
-                <i class="fa fa-bar-chart"></i> Babies
-            </a>
-        </li>
     </ul>
 </div>

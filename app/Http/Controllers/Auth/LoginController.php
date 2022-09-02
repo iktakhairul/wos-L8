@@ -48,7 +48,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $user->update([
-            'lastLogin' => now()->format('F j, Y, g:i a'),
+            'last_login' => now()->format('F j, Y, g:i a'),
         ]);
     }
 }

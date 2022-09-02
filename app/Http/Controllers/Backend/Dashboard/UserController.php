@@ -70,11 +70,6 @@ class UserController extends Controller
             'status'         => !empty($request['status']) && $request['status'] === 'on' ? 'active' : 'inactive',
         ]);
 
-        $user->profile = Profile::create([
-            'user_id'           => $user->id,
-            'full_name'         => $user->name,
-        ]);
-
         return redirect()->route('dashboard.users.index')->with('success', 'Users successfully created!');
     }
     /**
@@ -134,13 +129,13 @@ class UserController extends Controller
      * @param $id
      * @return null
      */
-    public function update_status($id)
+    public function updateStatus($id)
     {
         $user = DB::table('users')->find($id);
-        if($user->status === 'active') {
-            DB::table('users')->where('id', $id)->update(['status' => 'inactive']);
-        }elseif($user->status === 'inactive') {
-            DB::table('users')->where('id', $id)->update(['status' => 'active']);
+        if($user->status == 1) {
+            DB::table('users')->where('id', $id)->update(['status' => 0]);
+        }elseif($user->status == 0) {
+            DB::table('users')->where('id', $id)->update(['status' => 1]);
         }
 
         return back();
